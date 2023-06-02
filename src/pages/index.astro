@@ -1,23 +1,7 @@
 ---
----
+import Layout from "../layouts/Layout.astro";---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ein.gg</title>
-		<script>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark')
-			}
-		</script>
-	</head>
-	<body class="bg-white dark:bg-[#111417]">
+<Layout title="Ein.gg" customBodyClasses="bg-white dark:bg-[#111417]">
 	<section class="bg-white dark:bg-[#111417]">
 		<div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-xl">
 			<div class="grid gap-8 items-center lg:gap-12 lg:grid-cols-12">
@@ -33,7 +17,4 @@
 			</div>
 		</div>
 	</section>
-
-		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-	</body>
-</html>
+</Layout>
