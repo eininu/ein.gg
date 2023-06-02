@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Crypto Portfolio Tracker | Ein.gg"
+  customBodyClasses="bg-[#FFFFFF] dark:bg-gray-900"
+>
+  <section class="bg-[#FFFFFF] dark:bg-gray-900">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-xl">
+      <div class="grid gap-8 items-center lg:gap-12 lg:grid-cols-12">
+        <div class="col-span-6 text-center sm:mb-6 lg:text-left lg:mb-0">
+          <svg
+            class="mx-auto mb-4 w-12 h-12 text-gray-500 dark:text-gray-400 lg:ml-0"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"
+            ></path>
+          </svg>
+          <h1
+            class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-primary-600 md:text-5xl xl:text-6xl dark:text-primary-500"
+          >
+            Crypto Portfolio Tracker
+          </h1>
+          <p
+            class="mx-auto max-w-xl font-light text-gray-500 lg:mx-0 xl:mb-8 md:text-lg xl:text-xl dark:text-gray-400"
+          >
+            Empower Your Crypto Decisions: Analyze, Optimize, and Track your
+            Crypto Portfolio across Multiple Timeframes!
+          </p>
+
+          <form>
+            <label
+              for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >Search</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg
+                >
+              </div>
+              <input
+                type="search"
+                id="default-search"
+                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search address / memo / Web3 ID"
+                required
+              />
+              <button
+                type="submit"
+                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >Search</button
+              >
+            </div>
+          </form>
+        </div>
+        <div class="col-span-6 lg:flex">
+          <img
+            class="rounded-full"
+            src="/crypto-portfolio-tracker.png"
+            alt="illustration"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
