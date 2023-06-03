@@ -8,7 +8,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "dev": "node index.js",
     "deploy": "gcloud functions deploy helloWorld --runtime=nodejs18 --source=. --entry-point=helloWorld --trigger-http --allow-unauthenticated"
   },
   "keywords": [],
