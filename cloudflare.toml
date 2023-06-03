@@ -1,0 +1,3 @@
+[[pages.middleware]]
+route = "/api/*"
+handler = "./middleware/api.js"
