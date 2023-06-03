@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ProgressBar from "./ProgressBar.tsx";
 
 const SpotifyAuth = () => {
   const configureRedirectUri = () => {
@@ -19,6 +20,8 @@ const SpotifyAuth = () => {
   const redirect_uri = configureRedirectUri();
   const scopes = "user-library-read";
   const [songsData, setSongsData] = useState([]);
+  const [songsLength, setSongsLength] = useState(20);
+  const [songsOffset, setSongsOffset] = useState(0);
 
   useEffect(() => {
     // При монтировании компонента проверяем URL на наличие токена
@@ -40,17 +43,29 @@ const SpotifyAuth = () => {
   }, []);
 
   useEffect(() => {
-    if (token) {
-      fetch("https://api.spotify.com/v1/me/tracks", {
+    const fetchSongs = async (url) => {
+      const response = await fetch(url, {
         headers: {
           Authorization: "Bearer " + token,
         },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setSongsData(data.items);
-          // console.log(data);
-        });
+      });
+      const data = await response.json();
+      setSongsLength(data.total);
+      // console.log(data);
+      setSongsData((songs) => [...songs, ...data.items]);
+
+      // Если есть следующая страница, рекурсивно вызываем fetchSongs
+      if (data.next) {
+        fetchSongs(data.next);
+        setSongsOffset(data.offset);
+      } else {
+        setSongsOffset(data.total);
+        setSongsLength(data.total);
+      }
+    };
+
+    if (token) {
+      fetchSongs("https://api.spotify.com/v1/me/tracks");
     }
   }, [token]);
 
@@ -66,6 +81,7 @@ const SpotifyAuth = () => {
 
   return (
     <>
+      <ProgressBar total={songsLength} offset={songsOffset} />
       {songsData.length === 0 && (
         <button
           onClick={buttonHandler}
