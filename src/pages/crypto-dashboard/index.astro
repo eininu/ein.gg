@@ -1291,23 +1291,195 @@ import Layout from "../../layouts/Layout.astro";
     </aside>
 
     <main class="p-4 md:ml-64 h-auto pt-20">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-        <div
-          class="border-2 border-dashed border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64"
-        >
+      <!--<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">-->
+      <div class="grid grid-cols-2 gap-4 mb-4 md:grid-cols-4">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table
+            class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto"
+          >
+            <caption
+              class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800"
+            >
+              🔥 Trending
+              <!--<p-->
+              <!--  class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"-->
+              <!--&gt;-->
+              <!--  Browse a list of Flowbite products designed to help you work and-->
+              <!--  play, stay organized, get answers, keep in touch, grow your-->
+              <!--  business, and more.-->
+              <!--</p>-->
+            </caption>
+            <tbody>
+              {
+                [1, 2, 3].map((el) => {
+                  return (
+                    <tr class="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        class="pl-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        #{el}
+                      </th>
+                      <td class="py-4">
+                        {" "}
+                        Bitcoin{" "}
+                        <span class="text-xs text-gray-500 ml-3">BTC</span>
+                      </td>
+                      <td class="px-6 py-4 text-right">
+                        <p class="text-green-500 dark:text-green-500">+200%</p>
+                      </td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
         </div>
-        <div
-          class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-        >
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table
+            class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto"
+          >
+            <caption
+              class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800"
+            >
+              🆕 New
+              <!--<p-->
+              <!--  class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"-->
+              <!--&gt;-->
+              <!--  Browse a list of Flowbite products designed to help you work and-->
+              <!--  play, stay organized, get answers, keep in touch, grow your-->
+              <!--  business, and more.-->
+              <!--</p>-->
+            </caption>
+            <tbody>
+              {
+                [1, 2, 3].map((el) => {
+                  return (
+                    <tr class="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        class="pl-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        #{el}
+                      </th>
+                      <td class="py-4">
+                        {" "}
+                        Bitcoin{" "}
+                        <span class="text-xs text-gray-500 ml-3">BTC</span>
+                      </td>
+                      <td class="px-6 py-4 text-right">
+                        <p class="text-green-500 dark:text-green-500">+200%</p>
+                      </td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
         </div>
-        <div
-          class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-        >
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table
+            class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto"
+          >
+            <caption
+              class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800"
+            >
+              ↗️ Top Gainers
+              <!--<p-->
+              <!--  class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"-->
+              <!--&gt;-->
+              <!--  Browse a list of Flowbite products designed to help you work and-->
+              <!--  play, stay organized, get answers, keep in touch, grow your-->
+              <!--  business, and more.-->
+              <!--</p>-->
+            </caption>
+            <tbody>
+              {
+                [1, 2, 3].map((el) => {
+                  return (
+                    <tr class="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        class="pl-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        #{el}
+                      </th>
+                      <td class="py-4">
+                        {" "}
+                        Bitcoin{" "}
+                        <span class="text-xs text-gray-500 ml-3">BTC</span>
+                      </td>
+                      <td class="px-6 py-4 text-right">
+                        <p class="text-green-500 dark:text-green-500">+200%</p>
+                      </td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
         </div>
-        <div
-          class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-        >
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table
+            class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto"
+          >
+            <caption
+              class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800"
+            >
+              ↘️ Top Losers
+              <!--<p-->
+              <!--  class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"-->
+              <!--&gt;-->
+              <!--  Browse a list of Flowbite products designed to help you work and-->
+              <!--  play, stay organized, get answers, keep in touch, grow your-->
+              <!--  business, and more.-->
+              <!--</p>-->
+            </caption>
+            <tbody>
+              {
+                [1, 2, 3].map((el) => {
+                  return (
+                    <tr class="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        class="pl-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        #{el}
+                      </th>
+                      <td class="py-4">
+                        {" "}
+                        Bitcoin{" "}
+                        <span class="text-xs text-gray-500 ml-3">BTC</span>
+                      </td>
+                      <td class="px-6 py-4 text-right">
+                        <p class="text-green-500 dark:text-green-500">+200%</p>
+                      </td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
         </div>
+
+        <!--<div-->
+        <!--  class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"-->
+        <!--&gt;-->
+        <!--  222-->
+        <!--</div>-->
+        <!--<div-->
+        <!--  class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"-->
+        <!--&gt;-->
+        <!--  333-->
+        <!--</div>-->
+        <!--<div-->
+        <!--  class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"-->
+        <!--&gt;-->
+        <!--  444-->
+        <!--</div>-->
       </div>
       <div
         class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
