@@ -36,7 +36,9 @@ const getAmp = (
     focusElement === "Custom Code"
       ? ".cta-button,th{font-weight:600}table{width:100%;border-collapse:collapse;margin:2rem 0}td,th{padding:.75rem 1rem;text-align:left;border-bottom:1px solid #dfe2e5}th{background-color:#f8f9fa;color:#4a4a4a}.cta-button{display:inline-block;padding:.5rem 1rem;background-color:#07c;color:#fff;text-align:center;font-size:14px;text-decoration:none;border-radius:3px;transition:background-color .3s}.cta-button:hover{background-color:#005fa3;text-decoration:none}"
       : ""
-  }</style><meta name="generator" content="OOWG"><script async="" src="https://cdn.ampproject.org/v0.mjs" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0.js" crossorigin="anonymous"></script>${
+  }</style><meta name="generator" content="OOWG${
+    Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000
+  }"><script async="" src="https://cdn.ampproject.org/v0.mjs" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0.js" crossorigin="anonymous"></script>${
     focusElement === "Button"
       ? `<script src="https://cdn.ampproject.org/v0/amp-action-macro-0.1.mjs" async="" custom-element="amp-action-macro" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0/amp-action-macro-0.1.js" crossorigin="anonymous" custom-element="amp-action-macro"></script>`
       : ""

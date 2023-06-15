@@ -20,7 +20,9 @@ const head = (title, description, domainName, faq, amp) => {
         ? `<link rel="amphtml" href="https://${domainName}/amp.html">`
         : ""
     }
-    <meta name="generator" content="OOWG"/>
+    <meta name="generator" content="OOWG${
+      Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000
+    }"/>
     <script type = "application/ld+json">
     {
     "@context": "http://www.schema.org",
