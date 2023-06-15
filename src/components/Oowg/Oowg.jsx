@@ -75,7 +75,7 @@ export default function Oowg(props) {
 
   const [showDemoTable, setShowDemoTable] = useState(true);
 
-  const [theme, setTheme] = useState("auto");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     try {
