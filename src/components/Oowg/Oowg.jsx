@@ -74,77 +74,80 @@ export default function Oowg(props) {
   const [config, setConfig] = useState("{}");
 
   useEffect(() => {
-    const {
-      language: language_edited,
-      domainName: domainName_edited,
-      title: title_edited,
-      description: description_edited,
-      htmlContent: htmlContent_edited,
-      buttonLink: buttonLink_edited,
-      buttonText: buttonText_edited,
-      faq: faq_edited,
-      contentImages: contentImages_edited,
-      focusElement: focusElement_edited,
-      promoCode: promoCode_edited,
-      ratingTableHead: ratingTableHead_edited,
-      ratingTableBody: ratingTableBody_edited,
-      customFocusElementCode: customFocusElementCode_edited,
-    } = JSON.parse(config);
+    try {
+      const {
+        language: language_edited,
+        domainName: domainName_edited,
+        title: title_edited,
+        description: description_edited,
+        htmlContent: htmlContent_edited,
+        buttonLink: buttonLink_edited,
+        buttonText: buttonText_edited,
+        faq: faq_edited,
+        contentImages: contentImages_edited,
+        focusElement: focusElement_edited,
+        promoCode: promoCode_edited,
+        ratingTableHead: ratingTableHead_edited,
+        ratingTableBody: ratingTableBody_edited,
+        customFocusElementCode: customFocusElementCode_edited,
+      } = JSON.parse(config);
+      if (language_edited) {
+        setLanguage(language_edited);
+      }
 
-    if (language_edited) {
-      setLanguage(language_edited);
-    }
+      if (domainName_edited) {
+        setDomainName(domainName_edited);
+      }
 
-    if (domainName_edited) {
-      setDomainName(domainName_edited);
-    }
+      if (title_edited) {
+        setTitle(title_edited);
+      }
 
-    if (title_edited) {
-      setTitle(title_edited);
-    }
+      if (description_edited) {
+        setDescription(description_edited);
+      }
 
-    if (description_edited) {
-      setDescription(description_edited);
-    }
+      if (htmlContent_edited) {
+        setHtmlContent(htmlContent_edited);
+      }
 
-    if (htmlContent_edited) {
-      setHtmlContent(htmlContent_edited);
-    }
+      if (buttonLink_edited) {
+        setButtonLink(buttonLink_edited);
+      }
 
-    if (buttonLink_edited) {
-      setButtonLink(buttonLink_edited);
-    }
+      if (buttonText_edited) {
+        setButtonText(buttonText);
+      }
 
-    if (buttonText_edited) {
-      setButtonText(buttonText);
-    }
+      if (faq_edited) {
+        setFaq(faq_edited);
+      }
 
-    if (faq_edited) {
-      setFaq(faq_edited);
-    }
+      if (contentImages_edited) {
+        setContentImages(contentImages_edited);
+      }
 
-    if (contentImages_edited) {
-      setContentImages(contentImages_edited);
-    }
+      if (focusElement_edited) {
+        setFocusElement(focusElement_edited);
+      }
 
-    if (focusElement_edited) {
-      setFocusElement(focusElement_edited);
-    }
+      if (promoCode_edited) {
+        setPromoCode(promoCode_edited);
+      }
 
-    if (promoCode_edited) {
-      setPromoCode(promoCode_edited);
-    }
+      if (ratingTableHead_edited) {
+        setRatingTableHead(ratingTableHead_edited);
+      }
 
-    if (ratingTableHead_edited) {
-      setRatingTableHead(ratingTableHead_edited);
-    }
+      if (ratingTableBody_edited) {
+        setRatingTableBody(ratingTableBody_edited);
+      }
 
-    if (ratingTableBody_edited) {
-      setRatingTableBody(ratingTableBody_edited);
-    }
-
-    if (customFocusElementCode_edited) {
-      setCustomFocusElementCode(customFocusElementCode_edited);
+      if (customFocusElementCode_edited) {
+        setCustomFocusElementCode(customFocusElementCode_edited);
+      }
+    } catch (err) {
+      console.log("invalid JSON");
     }
   }, [config]);
 
