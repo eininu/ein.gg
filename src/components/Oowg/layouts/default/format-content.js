@@ -135,10 +135,367 @@ const formatContent = (
   const tableOfContents = document.createElement("ol");
 
   //// table
-  const table = getTranslate(language, "demoTable").replaceAll(
-    "example.com",
-    domainName
-  );
+
+  const getRandomItem = (arr) => {
+    var index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+  };
+
+  const getRandomElements = (arr) => {
+    let arrCopy = [...arr];
+    let result = [];
+    let length = arr.length <= 20 ? arr.length : 20;
+
+    for (let i = 0; i < length; i++) {
+      let randomIndex = Math.floor(Math.random() * arrCopy.length);
+      result.push(" " + arrCopy[randomIndex]);
+      arrCopy.splice(randomIndex, 1);
+    }
+
+    return result;
+  };
+
+  const table = getTranslate(language, "demoTable")
+    // domain
+    .replaceAll(
+      "example.com",
+      getRandomItem([
+        "http://",
+        "https://",
+        "www.",
+        "http://www.",
+        "https://www.",
+      ]) +
+        domainName +
+        getRandomItem(["/", ""])
+    )
+    // year
+    .replaceAll(
+      "2023",
+      `${Math.floor(Math.random() * (2023 - 2005 + 1)) + 2005}`
+    )
+    // licence
+    .replaceAll(
+      "8048",
+      `${Math.floor(Math.random() * (9000 - 4000 + 1)) + 4000}`
+    )
+    .replaceAll(
+      "2019",
+      `${Math.floor(Math.random() * (2023 - 2005 + 1)) + 2005}`
+    )
+    .replaceAll("055", `0${Math.floor(Math.random() * (99 - 11 + 1)) + 11}`)
+    // owner
+    .replaceAll(
+      "NestlingCorn Limited",
+      getRandomItem([
+        "DragonSpade Limited",
+        "BettingBeacon LLC",
+        "GambleGrove Inc.",
+        "LuckyLynx Corp.",
+        "ChanceChameleon Enterprises",
+        "FortuneFalcon Ltd.",
+        "WagerWolf LLC",
+        "RiskRaven Co.",
+        "OddsOcelot Incorporated",
+        "BettingBobcat Limited",
+        "VentureViper LLC",
+        "GamingGriffin Corp.",
+        "BetBuzzard Ltd.",
+        "WagerWeasel Inc.",
+      ])
+    )
+    .replaceAll(
+      "3000+",
+      `${Math.floor(Math.random() * (6000 - 1000 + 1)) + 1000}+`
+    )
+    .replaceAll(
+      "USD, EUR, RUB, UAH, CAD, AUD, JPY, KZT, MDL, BYN, BTC, AED, ALL, AMD, AOA, AZN, BAM, BDT, BGN, BHD, BIF, BOB, BRL, BWP, CDF, CHF, CLP, GHS, GMD, GNF, HKD, HRK, HTG, JOD, KES, KGS, KRW, KWD, MGA, MKD, MMK, NAD, NGN, NOK, NPR, NZD, RON, RSD, RWF, SAR, SCR, SDG, SOS, SZL, THB, TJS, TMT, TND, TRY, TWD",
+      getRandomElements([
+        "AED", // United Arab Emirates Dirham
+        "AFN", // Afghanistan Afghani
+        "ALL", // Albania Lek
+        "AMD", // Armenia Dram
+        "ANG", // Netherlands Antilles Guilder
+        "AOA", // Angola Kwanza
+        "ARS", // Argentina Peso
+        "AUD", // Australia Dollar
+        "AWG", // Aruba Guilder
+        "AZN", // Azerbaijan Manat
+        "BAM", // Bosnia and Herzegovina Convertible Mark
+        "BBD", // Barbados Dollar
+        "BDT", // Bangladesh Taka
+        "BGN", // Bulgaria Lev
+        "BHD", // Bahrain Dinar
+        "BIF", // Burundi Franc
+        "BMD", // Bermuda Dollar
+        "BND", // Brunei Darussalam Dollar
+        "BOB", // Bolivia Bolíviano
+        "BRL", // Brazil Real
+        "BSD", // Bahamas Dollar
+        "BTC", // Bitcoin
+        "BTN", // Bhutan Ngultrum
+        "BWP", // Botswana Pula
+        "BYN", // Belarus Ruble
+        "BZD", // Belize Dollar
+        "CAD", // Canada Dollar
+        "CDF", // Congo/Kinshasa Franc
+        "CHF", // Switzerland Franc
+        "CLP", // Chile Peso
+        "CNY", // China Yuan Renminbi
+        "COP", // Colombia Peso
+        "CRC", // Costa Rica Colon
+        "CUC", // Cuba Convertible Peso
+        "CUP", // Cuba Peso
+        "CVE", // Cape Verde Escudo
+        "CZK", // Czech Republic Koruna
+        "DJF", // Djibouti Franc
+        "DKK", // Denmark Krone
+        "DOP", // Dominican Republic Peso
+        "DZD", // Algeria Dinar
+        "EGP", // Egypt Pound
+        "ERN", // Eritrea Nakfa
+        "ETB", // Ethiopia Birr
+        "EUR", // Euro Member Countries
+        "FJD", // Fiji Dollar
+        "FKP", // Falkland Islands (Malvinas) Pound
+        "GBP", // United Kingdom Pound
+        "GEL", // Georgia Lari
+        "GGP", // Guernsey Pound
+        "GHS", // Ghana Cedi
+        "GIP", // Gibraltar Pound
+        "GMD", // Gambia Dalasi
+        "GNF", // Guinea Franc
+        "GTQ", // Guatemala Quetzal
+        "GYD", // Guyana Dollar
+        "HKD", // Hong Kong Dollar
+        "HNL", // Honduras Lempira
+        "HRK", // Croatia Kuna
+        "HTG", // Haiti Gourde
+        "HUF", // Hungary Forint
+        "IDR", // Indonesia Rupiah
+        "ILS", // Israel Shekel
+        "IMP", // Isle of Man Pound
+        "INR", // India Rupee
+        "IQD", // Iraq Dinar
+        "IRR", // Iran Rial
+        "ISK", // Iceland Krona
+        "JEP", // Jersey Pound
+        "JMD", // Jamaica Dollar
+        "JOD", // Jordan Dinar
+        "JPY", // Japan Yen
+        "KES", // Kenya Shilling
+        "KGS", // Kyrgyzstan Som
+        "KHR", // Cambodia Riel
+        "KMF", // Comorian Franc
+        "KPW", // Korea (North) Won
+        "KRW", // Korea (South) Won
+        "KWD", // Kuwait Dinar
+        "KYD", // Cayman Islands Dollar
+        "KZT", // Kazakhstan Tenge
+        "LAK", // Laos Kip
+        "LBP", // Lebanon Pound
+        "LKR", // Sri Lanka Rupee
+        "LRD", // Liberia Dollar
+        "LSL", // Lesotho Loti
+        "LYD", // Libya Dinar
+        "MAD", // Morocco Dirham
+        "MDL", // Moldova Leu
+        "MGA", // Madagascar Ariary
+        "MKD", // North Macedonia Denar
+        "MMK", // Myanmar (Burma) Kyat
+        "MNT", // Mongolia Tughrik
+        "MOP", // Macau Pataca
+        "MRU", // Mauritania Ouguiya
+        "MUR", // Mauritius Rupee
+        "MVR", // Maldives (Maldive Islands) Rufiyaa
+        "MWK", // Malawi Kwacha
+        "MXN", // Mexico Peso
+        "MYR", // Malaysia Ringgit
+        "MZN", // Mozambique Metical
+        "NAD", // Namibia Dollar
+        "NGN", // Nigeria Naira
+        "NIO", // Nicaragua Cordoba
+        "NOK", // Norway Krone
+        "NPR", // Nepal Rupee
+        "NZD", // New Zealand Dollar
+        "OMR", // Oman Rial
+        "PAB", // Panama Balboa
+        "PEN", // Peru Sol
+        "PGK", // Papua New Guinea Kina
+        "PHP", // Philippines Peso
+        "PKR", // Pakistan Rupee
+        "PLN", // Poland Zloty
+        "PYG", // Paraguay Guarani
+        "QAR", // Qatar Riyal
+        "RON", // Romania Leu
+        "RSD", // Serbia Dinar
+        "RUB", // Russia Ruble
+        "RWF", // Rwanda Franc
+        "SAR", // Saudi Arabia Riyal
+        "SBD", // Solomon Islands Dollar
+        "SCR", // Seychelles Rupee
+        "SDG", // Sudan Pound
+        "SEK", // Sweden Krona
+        "SGD", // Singapore Dollar
+        "SHP", // Saint Helena Pound
+        "SLL", // Sierra Leone Leone
+        "SOS", // Somalia Shilling
+        "SPL", // Seborga Luigino
+        "SRD", // Suriname Dollar
+        "STN", // Sao Tome and Principe Dobra
+        "SVC", // El Salvador Colon
+        "SYP", // Syria Pound
+        "SZL", // Eswatini Lilangeni
+        "THB", // Thailand Baht
+        "TJS", // Tajikistan Somoni
+        "TMT", // Turkmenistan Manat
+        "TND", // Tunisia Dinar
+        "TOP", // Tonga Pa'anga
+        "TRY", // Turkey Lira
+        "TTD", // Trinidad and Tobago Dollar
+        "TVD", // Tuvalu Dollar
+        "TWD", // Taiwan New Dollar
+        "TZS", // Tanzania Shilling
+        "UAH", // Ukraine Hryvnia
+        "UGX", // Uganda Shilling
+        "USD", // United States Dollar
+        "UYU", // Uruguay Peso
+        "UZS", // Uzbekistan Som
+        "VEF", // Venezuela Bolívar
+        "VND", // Viet Nam Dong
+        "VUV", // Vanuatu Vatu
+        "WST", // Samoa Tala
+        "XAF", // Communauté Financière Africaine (BEAC) CFA Franc BEAC
+        "XCD", // East Caribbean Dollar
+        "XDR", // International Monetary Fund (IMF) Special Drawing Rights
+        "XOF", // Communauté Financière Africaine (BCEAO) Franc
+        "XPF", // Comptoirs Français du Pacifique (CFP) Franc
+        "YER", // Yemen Rial
+        "ZAR", // South Africa Rand
+        "ZMW", // Zambia Kwacha
+        "ZWL", // Zimbabwe Dollar
+      ])
+    )
+    .replaceAll(
+      "VISA, MasterCard, WebMoney, UzPay, PayTM Wallet, UPI, AirTM, HOTVouchers, GrataPay Vouchers, PayGiga, Paytrust88, Hizli, Santander, Multibanco, Caixa, Bradesco, Banco de Brazil, Itau, Pay4Fun, Papara, FastPay, Vcreditos, Flexepin, Trues USD, Nemo, Amigo, B-pay, BitShares, Ethereum Classic, Basic Attention Token, OmiseGO, Chainlink, Paxos Standard Token, USD Coin, Tron, Stratis, QTUM, Verge, Bitcoin Gold, DigiByte, Monero, Sticpay, Epay, TelePay, Zcash, Jeton Wallet, Piastrix, Dash, Tether, Dogecoin, Boleto Bancario, Bitcoin Cash, MuchBetter, Litecoin, Ripple, Ethereum, ecoPayz, МИР, Astropay",
+      getRandomElements([
+        "Visa",
+        "Mastercard",
+        "American Express",
+        "Discover",
+        "JCB",
+        "Diners Club",
+        "UnionPay",
+        "Maestro",
+        "Visa Electron",
+        "PayPal",
+        "Apple Pay",
+        "Google Pay",
+        "Amazon Pay",
+        "Samsung Pay",
+        "Bitcoin",
+        "Ethereum",
+        "Litecoin",
+        "Ripple",
+        "Dogecoin",
+        "Skrill",
+        "Neteller",
+        "Western Union",
+        "MoneyGram",
+        "Revolut",
+        "Bank Transfer",
+        "SEPA Transfer",
+        "BACS Transfer",
+        "SWIFT Transfer",
+        "Venmo",
+        "Cash App",
+        "Zelle",
+        "Payoneer",
+        "Stripe",
+        "Square",
+        "2Checkout",
+        "AliPay",
+        "WeChat Pay",
+        "Paytm",
+        "MobiKwik",
+        "Freecharge",
+        "PayU",
+        "Razorpay",
+        "Klarna",
+        "Afterpay",
+        "Paybright",
+        "Affirm",
+        "Crypto",
+        "Cirrus",
+        "Interac",
+        "eCheck",
+        "Codashop",
+        "Boleto",
+        "Mercado Pago",
+        "POLi",
+      ])
+    )
+    .replaceAll(
+      "Astropay, VISA, MasterCard, МИР, ecoPayz, Bitcoin, Ethereum, Ripple, Litecoin, Maestro, Bitcoin Cash, Payeer, Dogecoin, Tether, Dash, NEM, Piastrix, Jeton Wallet, Zcash, Sticpay, Monero, DigiByte, Bitcoin Gold, Verge, QTUM, Stratis, Tron, USD Coin, Paxos Standard Token, Chainlink, OmiseGO, Basic Attention Token, Ethereum Classic, BitShares, B-pay, Trues USD, Sepa",
+      getRandomElements([
+        "Visa",
+        "Mastercard",
+        "American Express",
+        "Discover",
+        "JCB",
+        "Diners Club",
+        "UnionPay",
+        "Maestro",
+        "Visa Electron",
+        "PayPal",
+        "Apple Pay",
+        "Google Pay",
+        "Amazon Pay",
+        "Samsung Pay",
+        "Bitcoin",
+        "Ethereum",
+        "Litecoin",
+        "Ripple",
+        "Dogecoin",
+        "Skrill",
+        "Neteller",
+        "Western Union",
+        "MoneyGram",
+        "Revolut",
+        "Bank Transfer",
+        "SEPA Transfer",
+        "BACS Transfer",
+        "SWIFT Transfer",
+        "Venmo",
+        "Cash App",
+        "Zelle",
+        "Payoneer",
+        "Stripe",
+        "Square",
+        "2Checkout",
+        "AliPay",
+        "WeChat Pay",
+        "Paytm",
+        "MobiKwik",
+        "Freecharge",
+        "PayU",
+        "Razorpay",
+        "Klarna",
+        "Afterpay",
+        "Paybright",
+        "Affirm",
+        "Crypto",
+        "Cirrus",
+        "Interac",
+        "eCheck",
+        "Codashop",
+        "Boleto",
+        "Mercado Pago",
+        "POLi",
+      ])
+    )
+    .replaceAll("5", `${Math.floor(Math.random() * (100 - 1 + 1)) + 1}+`)
+    .replaceAll("100", `${Math.floor(Math.random() * (500 - 20 + 1)) + 20}+`);
   const createTable = (html) => {
     var template = document.createElement("template");
     html = html.trim(); // Never return a text node of whitespace as the result
