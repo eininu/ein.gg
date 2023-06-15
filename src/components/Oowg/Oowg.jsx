@@ -213,7 +213,8 @@ export default function Oowg(props) {
           promoCode,
           ratingTableHead,
           ratingTableBody,
-          customFocusElementCode
+          customFocusElementCode,
+          showDemoTable
         )
       );
     }
