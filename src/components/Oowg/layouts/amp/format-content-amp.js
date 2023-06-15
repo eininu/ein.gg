@@ -131,6 +131,25 @@ const formatContent = (
   const tableOfContents = document.createElement("ol");
 
   //// table
+  const getRandomItem = (arr) => {
+    var index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+  };
+
+  const getRandomElements = (arr) => {
+    let arrCopy = [...arr];
+    let result = [];
+    let length = arr.length <= 20 ? arr.length : 20;
+
+    for (let i = 0; i < length; i++) {
+      let randomIndex = Math.floor(Math.random() * arrCopy.length);
+      result.push(" " + arrCopy[randomIndex]);
+      arrCopy.splice(randomIndex, 1);
+    }
+
+    return result;
+  };
+
   const table = getTranslate(language, "demoTable") // domain
     .replaceAll(
       "example.com",
