@@ -22,6 +22,12 @@ const getCustomStyles = async () => {
   return await res.text();
 };
 
+const htmlMinify = (input) => {
+  let output = input.replace(/\s+/g, " "); // Заменяет пробелы, табы и переносы строк на один пробел
+  output = output.replace(/>\s</g, "><"); // Удаляет пробелы между тегами
+  output = output.replace(/<!--[\s\S]*?-->/g, ""); // Удаляет комментарии
+  return output;
+};
 const generateRandomClasses = () => {
   let cssClassNames = [
     "btnPrimary",
@@ -174,7 +180,7 @@ const generateHtmlTemplate = ({
   showDemoTable,
   theme,
 }) => {
-  return `<!DOCTYPE html>
+  return htmlMinify(`<!DOCTYPE html>
 <html lang="${language}">
 ${head(title, description, domainName, faq, amp)}
 <body class="${generateRandomClasses()}">
@@ -222,7 +228,7 @@ ${
     : `<link rel="stylesheet" href="/assets/styles/style.css">`
 }
 </body>
-</html>`;
+</html>`);
 };
 
 export { generateHtmlTemplate, getWaterCss, getCustomStyles };
