@@ -1,3 +1,5 @@
+// TODO: Add custom code focus element
+
 // TODO: Add favicon.ico
 // TODO: Stop adding pictures if table has paragraphs
 // TODO: Remove demo reloading after switch the lang (just load language once by browser language)
