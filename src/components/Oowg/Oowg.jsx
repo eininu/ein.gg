@@ -71,14 +71,96 @@ export default function Oowg(props) {
     `<table><thead><tr><th>Product</th><th>Rating</th><th>Play</th></tr></thead><tbody><tr><td>Product 1</td><td>97.07</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr><tr><td>Product 2</td><td>93.91</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr><tr><td>Product 3</td><td>84.61</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr></tbody></table>`
   );
 
+  const [config, setConfig] = useState("{}");
+
   useEffect(() => {
-    setHtmlContent(getDemoData(language).htmlContent);
-    setButtonText(getTranslate(language, "play_button_text"));
-    setFaq(getTranslate(language, "demoFaq"));
+    const {
+      language: language_edited,
+      domainName: domainName_edited,
+      title: title_edited,
+      description: description_edited,
+      htmlContent: htmlContent_edited,
+      buttonLink: buttonLink_edited,
+      buttonText: buttonText_edited,
+      faq: faq_edited,
+      contentImages: contentImages_edited,
+      focusElement: focusElement_edited,
+      promoCode: promoCode_edited,
+      ratingTableHead: ratingTableHead_edited,
+      ratingTableBody: ratingTableBody_edited,
+      customFocusElementCode: customFocusElementCode_edited,
+    } = JSON.parse(config);
+
+    if (language_edited) {
+      setLanguage(language_edited);
+    }
+
+    if (domainName_edited) {
+      setDomainName(domainName_edited);
+    }
+
+    if (title_edited) {
+      setTitle(title_edited);
+    }
+
+    if (description_edited) {
+      setDescription(description_edited);
+    }
+
+    if (htmlContent_edited) {
+      setHtmlContent(htmlContent_edited);
+    }
+
+    if (buttonLink_edited) {
+      setButtonLink(buttonLink_edited);
+    }
+
+    if (buttonText_edited) {
+      setButtonText(buttonText);
+    }
+
+    if (faq_edited) {
+      setFaq(faq_edited);
+    }
+
+    if (contentImages_edited) {
+      setContentImages(contentImages_edited);
+    }
+
+    if (focusElement_edited) {
+      setFocusElement(focusElement_edited);
+    }
+
+    if (promoCode_edited) {
+      setPromoCode(promoCode_edited);
+    }
+
+    if (ratingTableHead_edited) {
+      setRatingTableHead(ratingTableHead_edited);
+    }
+
+    if (ratingTableBody_edited) {
+      setRatingTableBody(ratingTableBody_edited);
+    }
+
+    if (customFocusElementCode_edited) {
+      setCustomFocusElementCode(customFocusElementCode_edited);
+    }
+  }, [config]);
+
+  useEffect(() => {
+    if (config === "{}") {
+      setHtmlContent(getDemoData(language).htmlContent);
+      setButtonText(getTranslate(language, "play_button_text"));
+      setFaq(getTranslate(language, "demoFaq"));
+    }
   }, [language]);
 
   const [contentImages, setContentImages] = useState(getDemoData().demoImages);
   const maxNumber = 69;
+  const [experimentalMode, setExperimentalMode] = useState(
+    import.meta.env.MODE === "development"
+  );
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
@@ -157,6 +239,12 @@ export default function Oowg(props) {
       buttonLink,
       buttonText,
       faq,
+      contentImages,
+      focusElement,
+      promoCode,
+      ratingTableHead,
+      ratingTableBody,
+      customFocusElementCode,
     };
 
     zip.file("config.json", JSON.stringify(configFile));
@@ -224,18 +312,6 @@ export default function Oowg(props) {
                       {/* Logo */}
                       <div className="mb-8 text-center">
                         <h1 className="text-4xl font-bold inline-flex items-center mb-1 space-x-3">
-                          <svg
-                            className="hi-solid hi-cube-transparent inline-block w-8 h-8 text-blue-500"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M9.504 1.132a1 1 0 01.992 0l1.75 1a1 1 0 11-.992 1.736L10 3.152l-1.254.716a1 1 0 11-.992-1.736l1.75-1zM5.618 4.504a1 1 0 01-.372 1.364L5.016 6l.23.132a1 1 0 11-.992 1.736L4 7.723V8a1 1 0 01-2 0V6a.996.996 0 01.52-.878l1.734-.99a1 1 0 011.364.372zm8.764 0a1 1 0 011.364-.372l1.733.99A1.002 1.002 0 0118 6v2a1 1 0 11-2 0v-.277l-.254.145a1 1 0 11-.992-1.736l.23-.132-.23-.132a1 1 0 01-.372-1.364zm-7 4a1 1 0 011.364-.372L10 8.848l1.254-.716a1 1 0 11.992 1.736L11 10.58V12a1 1 0 11-2 0v-1.42l-1.246-.712a1 1 0 01-.372-1.364zM3 11a1 1 0 011 1v1.42l1.246.712a1 1 0 11-.992 1.736l-1.75-1A1 1 0 012 14v-2a1 1 0 011-1zm14 0a1 1 0 011 1v2a1 1 0 01-.504.868l-1.75 1a1 1 0 11-.992-1.736L16 13.42V12a1 1 0 011-1zm-9.618 5.504a1 1 0 011.364-.372l.254.145V16a1 1 0 112 0v.277l.254-.145a1 1 0 11.992 1.736l-1.735.992a.995.995 0 01-1.022 0l-1.735-.992a1 1 0 01-.372-1.364z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
                           <span>OOWG</span>
                         </h1>
                         <p className="text-gray-500">
@@ -1090,9 +1166,78 @@ export default function Oowg(props) {
                           </div>
                         </form>
                       </div>
+
+                      <p
+                        className="p-5 text-xs text-black text-center"
+                        onClick={() => setExperimentalMode(!experimentalMode)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        Experimental Mode -{" "}
+                        {experimentalMode ? (
+                          <span className="text-xs text-green-500">TRUE</span>
+                        ) : (
+                          <span className="text-xs text-red-600">FALSE</span>
+                        )}
+                      </p>
+
                       {/* END Installation Form */}
                     </div>
                     {/* END Installation Section */}
+                    {experimentalMode && (
+                      <div className="">
+                        {/* Installation Form */}
+                        <div className="relative">
+                          <div className="pattern-dots-md text-gray-300 absolute top-0 right-0 left-0 h-64 transform translate-x-16 translate-y-32" />
+                          <div className="pattern-dots-md text-gray-300 absolute bottom-0 right-0 left-0 h-64 transform -translate-x-16 -translate-y-32" />
+                          <form
+                            onSubmit={(e) => {
+                              e.preventDefault();
+                              createWebsiteArchive();
+                            }}
+                          >
+                            <div className="flex flex-col rounded shadow-sm bg-white overflow-hidden relative">
+                              <div className="py-4 px-5 lg:px-6 w-full text-center bg-gray-50">
+                                <strong>Edit Website</strong> using config.json
+                                inside website directory
+                              </div>
+                              <div className="space-y-1">
+                                <label
+                                  htmlFor="table_prefix"
+                                  className="font-medium"
+                                >
+                                  config.json
+                                </label>
+                                <textarea
+                                  className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
+                                  rows="5"
+                                  id="config_json"
+                                  name="config_json"
+                                  placeholder={`${JSON.stringify({
+                                    language,
+                                    domainName,
+                                    title,
+                                    description,
+                                    htmlContent,
+                                    buttonLink,
+                                    buttonText,
+                                    faq,
+                                    contentImages,
+                                    focusElement,
+                                    promoCode,
+                                    ratingTableHead,
+                                    ratingTableBody,
+                                    customFocusElementCode,
+                                  })}`}
+                                  value={`${config}`}
+                                  onChange={(e) => setConfig(e.target.value)}
+                                ></textarea>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        {/* END Installation Form */}
+                      </div>
+                    )}
                   </div>
                 </div>
 
