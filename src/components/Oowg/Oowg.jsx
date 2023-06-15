@@ -73,6 +73,8 @@ export default function Oowg(props) {
 
   const [config, setConfig] = useState("{}");
 
+  const [showDemoTable, setShowDemoTable] = useState(true);
+
   useEffect(() => {
     try {
       const {
@@ -248,6 +250,7 @@ export default function Oowg(props) {
       ratingTableHead,
       ratingTableBody,
       customFocusElementCode,
+      showDemoTable,
     };
 
     zip.file("config.json", JSON.stringify(configFile));
@@ -276,6 +279,7 @@ export default function Oowg(props) {
         ratingTableHead,
         ratingTableBody,
         customFocusElementCode,
+        showDemoTable,
       }),
     ],
     { type: "text/html" }
@@ -1230,10 +1234,29 @@ export default function Oowg(props) {
                                     ratingTableHead,
                                     ratingTableBody,
                                     customFocusElementCode,
+                                    showDemoTable,
                                   })}`}
                                   value={`${config}`}
                                   onChange={(e) => setConfig(e.target.value)}
                                 ></textarea>
+                                <p
+                                  className="p-5 text-xs text-black"
+                                  onClick={() =>
+                                    setShowDemoTable(!showDemoTable)
+                                  }
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Show Demo Table -{" "}
+                                  {showDemoTable ? (
+                                    <span className="text-xs text-green-500">
+                                      TRUE
+                                    </span>
+                                  ) : (
+                                    <span className="text-xs text-red-600">
+                                      FALSE
+                                    </span>
+                                  )}
+                                </p>
                               </div>
                             </div>
                           </form>

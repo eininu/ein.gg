@@ -14,7 +14,8 @@ const getAmp = (
   promoCode,
   ratingTableHead,
   ratingTableBody,
-  customFocusElementCode
+  customFocusElementCode,
+  showDemoTable
 ) => {
   return `<!DOCTYPE html>
 <html amp lang="${language}" transformed="self;v=1" i-amphtml-layout="" i-amphtml-no-boilerplate="">
@@ -81,7 +82,8 @@ const getAmp = (
       promoCode,
       ratingTableHead,
       ratingTableBody,
-      customFocusElementCode
+      customFocusElementCode,
+      showDemoTable
     )}
 </div><div class="amp-custom-ad amp-above-content-ad amp-ad">
 ${
