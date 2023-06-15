@@ -1,4 +1,4 @@
-import { getTranslate } from "../../functions.js";
+import { getTranslate, generateRandomClasses } from "../../functions.js";
 
 const formatContent = (
   language,
@@ -32,14 +32,20 @@ const formatContent = (
   const button = document.createElement("a");
   // button.setAttribute("type", "button");
   // button.setAttribute("id", "copy-button");
-  button.setAttribute("class", "txt-button grn-button");
+  button.setAttribute(
+    "class",
+    "txt-button grn-button " + generateRandomClasses()
+  );
   // button.setAttribute("onclick", `window.open('${buttonLink}','_blank');`);
   button.setAttribute("href", buttonLink);
   button.innerHTML = buttonText;
 
   //// promo code
   const promocodeField = document.createElement("a");
-  promocodeField.setAttribute("class", "txt-button grn-button");
+  promocodeField.setAttribute(
+    "class",
+    "txt-button grn-button " + generateRandomClasses()
+  );
   promocodeField.innerText = promoCode;
 
   //// rating table
@@ -98,7 +104,10 @@ const formatContent = (
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
       const tableButton = document.createElement("a");
       tableButton.setAttribute("href", product[1]);
-      tableButton.setAttribute("class", "cta-button");
+      tableButton.setAttribute(
+        "class",
+        "cta-button " + generateRandomClasses()
+      );
       tableButton.setAttribute("target", "_blank");
       tableButton.innerHTML = product[2];
 

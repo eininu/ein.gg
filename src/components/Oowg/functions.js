@@ -55,4 +55,136 @@ const getDemoData = (language) => {
   };
 };
 
-export { getDemoData, getTranslate };
+const generateRandomClasses = () => {
+  let cssClassNames = [
+    "btnPrimary",
+    "btnSecondary",
+    "headerContainer",
+    "footerContainer",
+    "navBar",
+    "dropDown",
+    "heroSection",
+    "cardContainer",
+    "cardImage",
+    "cardText",
+    "formInput",
+    "formSubmit",
+    "modalWindow",
+    "modalClose",
+    "gridContainer",
+    "gridItem",
+    "listContainer",
+    "listItem",
+    "carouselContainer",
+    "carouselItem",
+    "tabContainer",
+    "tabItem",
+    "responsiveImage",
+    "flexContainer",
+    "flexItem",
+    "leftSidebar",
+    "rightSidebar",
+    "headerLogo",
+    "footerLogo",
+    "mainContent",
+    "bgPrimary",
+    "bgSecondary",
+    "textPrimary",
+    "textSecondary",
+    "textBold",
+    "textItalic",
+    "textUnderline",
+    "alertSuccess",
+    "alertError",
+    "alertWarning",
+    "spinnerLoading",
+    "toggleSwitch",
+    "checkboxCustom",
+    "radioCustom",
+    "iconSocial",
+    "iconArrow",
+    "iconClose",
+    "iconHamburger",
+    "lightboxContainer",
+    "lightboxItem",
+    "overlayDark",
+    "overlayLight",
+    "badgeStatus",
+    "tooltipCustom",
+    "popoverCustom",
+    "collapsibleItem",
+    "accordionItem",
+    "progressBar",
+    "progressCircle",
+    "chartBar",
+    "chartPie",
+    "tableResponsive",
+    "dataTable",
+    "modalHeader",
+    "modalBody",
+    "modalFooter",
+    "navItem",
+    "navLink",
+    "cardHeader",
+    "cardBody",
+    "cardFooter",
+    "listGroup",
+    "listGroupItem",
+    "paginationContainer",
+    "paginationItem",
+    "breadcrumbsContainer",
+    "breadcrumbsItem",
+    "alertInfo",
+    "alertDismiss",
+    "dropdownMenu",
+    "dropdownItem",
+    "formGroup",
+    "formControl",
+    "formLabel",
+    "formHelp",
+    "inputGroup",
+    "inputGroupAddon",
+    "jumbotron",
+    "mediaObject",
+    "navbarBrand",
+    "navbarToggle",
+    "sidebarToggle",
+    "userAvatar",
+    "userProfile",
+    "contentWrapper",
+    "parallaxBackground",
+    "stickyElement",
+    "scrollSpy",
+    "headerSticky",
+    "footerSticky",
+  ];
+
+  function getRandomIndex(arrayLength) {
+    return Math.floor(Math.random() * arrayLength);
+  }
+
+  function getRandomString(length) {
+    let result = "";
+    let characters = "abcdefghijklmnopqrstuvwxyz";
+    let charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+  let randomClasses = [];
+  for (let i = 0; i < 3; i++) {
+    let randomIndex = getRandomIndex(cssClassNames.length);
+    randomClasses.push(cssClassNames[randomIndex]);
+  }
+
+  for (let i = 0; i < 3; i++) {
+    let randomString = getRandomString(5);
+    randomClasses.push(randomString);
+  }
+
+  return randomClasses.join(" ");
+};
+
+export { getDemoData, getTranslate, generateRandomClasses };

@@ -6,6 +6,138 @@ const darkAmpCss =
 const lightAmpCss =
   'body,html{background:#fff1}.wp-block-image figure,body{margin:0}.wp-block-image,figure,ol,p,ul{margin:0 0 1em}.amp-wp-article,h1,h2,h3,ol,p,ul{overflow-wrap:break-word}.amp-custom-ad,.footer,.wp-block-image.aligncenter{text-align:center}.wp-block-image amp-img{height:auto;max-width:100%;vertical-align:bottom}.wp-block-image:not(.is-style-rounded) amp-img,.wp-block-image:not(.is-style-rounded)>a{border-radius:inherit}.wp-block-image .aligncenter{display:table;margin-left:auto;margin-right:auto}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.aligncenter{clear:both;display:block;margin-left:auto;margin-right:auto}html :where(amp-anim[class*=wp-image-]),html :where(amp-img[class*=wp-image-]){height:auto;max-width:100%}amp-img.amp-wp-enforced-sizes{-o-object-fit:contain;object-fit:contain}amp-img img,amp-img noscript{image-rendering:inherit;-o-object-fit:inherit;object-fit:inherit;-o-object-position:inherit;object-position:inherit}.amp-wp-enforced-sizes{max-width:100%;margin:0 auto}body{color:#363636;font-weight:300;line-height:1.75em;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue","Open Sans",sans-serif;padding-bottom:0}figure,ol,p,ul{padding:0}a,a:visited{color:#0076d1;text-decoration:none}.amp-wp-header .amp-logo a,a:active,a:focus,a:hover{color:#0076d1;text-decoration:none}.amp-wp-header .amp-logo,.amp-wp-title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}.amp-wp-header{background-color:#fff1;box-shadow:0 0 24px 0 rgba(0,0,0,.25)}.amp-wp-header .amp-logo{color:#363636;font-size:1em;font-weight:400;margin:0 auto;max-width:calc(700px - 32px);position:relative;padding:1em 16px}.amp-wp-article{color:#363636;font-weight:400;max-width:700px;word-wrap:break-word}.amp-wp-article-header{align-items:center;align-content:stretch;display:flex;flex-wrap:wrap;justify-content:space-between;margin:1.5em 16px}.amp-wp-title{color:#fff;display:block;flex:1 0 100%;font-weight:700;width:100%;line-height:1.2}.amp-wp-article-content{margin:0 16px;font-size:1em;line-height:1.75}.amp-wp-article-content ol,.amp-wp-article-content ul{margin-left:1em}.amp-wp-article-content amp-img{margin:0 auto}.wp-block-image{padding:0;max-width:100%;margin-bottom:1.2em}.amp-wp-header a{background-image:url("");background-repeat:no-repeat;background-size:contain;background-position:center center;display:block;height:35px;width:215px;margin:0 auto;text-indent:-9999px}amp-img{max-width:100%}.footer{color:#fff}.amp-custom-ad{max-width:700px;margin:1.5em auto;padding:0 16px;box-sizing:border-box}.toggle-navigationv2 ul li a:hover{background:#333;color:#fff}.hamburgermenu{float:left;position:relative;z-index:9999;margin-top:8px}.toast{display:block;position:relative;height:50px;width:50px;background:0 0;border:0}.toast span,.toast::after,.toast::before{position:absolute;display:block;width:25px;height:2px;border-radius:2px;background-color:#bebebe}.amp-menu li,.close-nav{position:relative}.toast span{opacity:1;top:24px}.toast::after,.toast::before{content:""}.toast::before{top:17px}.toast::after{top:31px}amp-sidebar{width:280px;background:#040a0f}.close-nav{letter-spacing:1px;display:inline-block;padding:10px;border-radius:100px;line-height:8px;margin:14px}.toggle-navigationv2 ul{list-style-type:none;padding:0}.toggle-navigationv2 ul li a{padding:10px 25px;display:block;box-sizing:border-box;background:0 0;border-color:rgba(255,255,255,.05);border-bottom:1px solid rgba(0,0,0,.05);color:#bebebe;font-size:16px;line-height:22px;font-weight:600}.amp-wp-header{position:sticky;top:0;z-index:100}.footer-block-btn{z-index:999;position:fixed;right:0;bottom:0;left:0;height:50px;padding-right:10px;padding-left:10px;display:flex;justify-content:center;align-items:center}.bw-button,.txt-button{position:relative;text-transform:uppercase;text-align:center;font-weight:700}.amp-wp-article{margin:0 auto;background-color:#fff1}.bw-button{display:block;font-size:15px;padding:10px 15px}.st-button{background-color:#040a0f;border:2px solid #040a0f;color:#fff;width:100%;border-radius:10px}.nd-button{background-color:#bebebe;border:2px solid #bebebe;color:#242424;margin-left:10px}.footer{padding:10px 5px;margin-bottom:50px}.footer-colophon{font-size:13px;display:flex;flex-direction:column;line-height:1.6}.amp-wp-title{margin:0;font-size:28px}.txt-button{display:block;font-size:14px;padding:10px 15px;margin:0}.grn-button{background-color:#040a0f;color:{};}.close-nav{background:0 0;color:#bebebe;font-size:18px}';
 
+const generateRandomClasses = () => {
+  let cssClassNames = [
+    "btnPrimary",
+    "btnSecondary",
+    "headerContainer",
+    "footerContainer",
+    "navBar",
+    "dropDown",
+    "heroSection",
+    "cardContainer",
+    "cardImage",
+    "cardText",
+    "formInput",
+    "formSubmit",
+    "modalWindow",
+    "modalClose",
+    "gridContainer",
+    "gridItem",
+    "listContainer",
+    "listItem",
+    "carouselContainer",
+    "carouselItem",
+    "tabContainer",
+    "tabItem",
+    "responsiveImage",
+    "flexContainer",
+    "flexItem",
+    "leftSidebar",
+    "rightSidebar",
+    "headerLogo",
+    "footerLogo",
+    "mainContent",
+    "bgPrimary",
+    "bgSecondary",
+    "textPrimary",
+    "textSecondary",
+    "textBold",
+    "textItalic",
+    "textUnderline",
+    "alertSuccess",
+    "alertError",
+    "alertWarning",
+    "spinnerLoading",
+    "toggleSwitch",
+    "checkboxCustom",
+    "radioCustom",
+    "iconSocial",
+    "iconArrow",
+    "iconClose",
+    "iconHamburger",
+    "lightboxContainer",
+    "lightboxItem",
+    "overlayDark",
+    "overlayLight",
+    "badgeStatus",
+    "tooltipCustom",
+    "popoverCustom",
+    "collapsibleItem",
+    "accordionItem",
+    "progressBar",
+    "progressCircle",
+    "chartBar",
+    "chartPie",
+    "tableResponsive",
+    "dataTable",
+    "modalHeader",
+    "modalBody",
+    "modalFooter",
+    "navItem",
+    "navLink",
+    "cardHeader",
+    "cardBody",
+    "cardFooter",
+    "listGroup",
+    "listGroupItem",
+    "paginationContainer",
+    "paginationItem",
+    "breadcrumbsContainer",
+    "breadcrumbsItem",
+    "alertInfo",
+    "alertDismiss",
+    "dropdownMenu",
+    "dropdownItem",
+    "formGroup",
+    "formControl",
+    "formLabel",
+    "formHelp",
+    "inputGroup",
+    "inputGroupAddon",
+    "jumbotron",
+    "mediaObject",
+    "navbarBrand",
+    "navbarToggle",
+    "sidebarToggle",
+    "userAvatar",
+    "userProfile",
+    "contentWrapper",
+    "parallaxBackground",
+    "stickyElement",
+    "scrollSpy",
+    "headerSticky",
+    "footerSticky",
+  ];
+
+  function getRandomIndex(arrayLength) {
+    return Math.floor(Math.random() * arrayLength);
+  }
+
+  function getRandomString(length) {
+    let result = "";
+    let characters = "abcdefghijklmnopqrstuvwxyz";
+    let charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+  let randomClasses = [];
+  for (let i = 0; i < 3; i++) {
+    let randomIndex = getRandomIndex(cssClassNames.length);
+    randomClasses.push(cssClassNames[randomIndex]);
+  }
+
+  for (let i = 0; i < 3; i++) {
+    let randomString = getRandomString(5);
+    randomClasses.push(randomString);
+  }
+
+  return randomClasses.join(" ");
+};
+
 const getAmp = (
   language,
   domainName,
@@ -47,39 +179,39 @@ const getAmp = (
     theme === "dark" ? darkAmpCss : lightAmpCss
   }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title></head>
 
-<body class="">
-			<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay" hidden="hidden" i-amphtml-layout="nodisplay">
-				<div class="toggle-navigationv2">
-					<div role="button" tabindex="0" on="tap:sidebar.close" class="close-nav">X</div>
+<body class="${generateRandomClasses()}">
+			<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay ${generateRandomClasses()}" hidden="hidden" i-amphtml-layout="nodisplay">
+				<div class="toggle-navigationv2 ${generateRandomClasses()}">
+					<div role="button" tabindex="0" on="tap:sidebar.close" class="${generateRandomClasses()} close-nav">X</div>
 					<nav id="primary-amp-menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
-						<div class="menu-main-menu-container">
+						<div class="${generateRandomClasses()} menu-main-menu-container">
 
-						<div class="menu-amp-container"><ul id="menu-amp" class="amp-menu"><li id="menu-item-1332" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-22 current_page_item menu-item-1332 tie-current-menu"><a href="/amp.html" aria-current="page">HomePage</a></li>
+						<div class="${generateRandomClasses()} menu-amp-container"><ul id="menu-amp" class="${generateRandomClasses()} amp-menu"><li id="menu-item-1332" class="${generateRandomClasses()} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-22 current_page_item menu-item-1332 tie-current-menu"><a href="/amp.html" aria-current="page">HomePage</a></li>
 </ul></div>
 						</div>
 					</nav>
 				</div>
 			</amp-sidebar>
 			
-<header id="#top" class="amp-wp-header">
+<header id="#top" class="${generateRandomClasses()} amp-wp-header">
 
-				<div class="hamburgermenu">
+				<div class="${generateRandomClasses()} hamburgermenu">
 				<button class="toast" on="tap:sidebar.toggle"><span></span></button>
 			</div>
 		
-	<div class="amp-logo">
+	<div class="${generateRandomClasses()} amp-logo">
 		${domainName}
 	</div>
 </header>
 
 
-<article class="amp-wp-article">
+<article class="${generateRandomClasses()} amp-wp-article">
 	<!--<header class="amp-wp-article-header">
 		<h1 class="amp-wp-title"></h1>
 	</header>-->
 
 	
-	<div class="amp-wp-article-content">
+	<div class="${generateRandomClasses()} amp-wp-article-content">
 		${formatContent(
       language,
       domainName,
@@ -98,24 +230,24 @@ const getAmp = (
       showDemoTable,
       theme
     )}
-</div><div class="amp-custom-ad amp-above-content-ad amp-ad">
+</div><div class="${generateRandomClasses()} amp-custom-ad amp-above-content-ad amp-ad">
 ${
   focusElement === "Button"
-    ? `<div class="footer-block-btn">
-	<amp-action-macro id="navigate-action" execute="AMP.navigateTo(url='${buttonLink}')" class="i-amphtml-layout-container" i-amphtml-layout="container"></amp-action-macro>
-	<button on="tap:navigate-action.execute()" class="bw-button st-button">${buttonText}</button>
-	<amp-action-macro id="navigate-btn" execute="AMP.navigateTo(url='${buttonLink}')" class="i-amphtml-layout-container" i-amphtml-layout="container"></amp-action-macro>
+    ? `<div class="${generateRandomClasses()} footer-block-btn">
+	<amp-action-macro id="navigate-action" execute="AMP.navigateTo(url='${buttonLink}')" class="${generateRandomClasses()} i-amphtml-layout-container" i-amphtml-layout="container"></amp-action-macro>
+	<button on="tap:navigate-action.execute()" class="${generateRandomClasses()} bw-button st-button">${buttonText}</button>
+	<amp-action-macro id="navigate-btn" execute="AMP.navigateTo(url='${buttonLink}')" class="${generateRandomClasses()} i-amphtml-layout-container" i-amphtml-layout="container"></amp-action-macro>
 </div>`
-    : `<div class="footer-block-btn"></div>`
+    : `<div class="${generateRandomClasses()} footer-block-btn"></div>`
 }
 
 </div>	</div>
 </article>
 
 
-<footer class="footer">
+<footer class="${generateRandomClasses()} footer">
 
-	<div class="footer-colophon"><span>© ${new Date().getFullYear()} All Rights Reserved  |  ${domainName}</span>
+	<div class="${generateRandomClasses()} footer-colophon"><span>© ${new Date().getFullYear()} All Rights Reserved  |  ${domainName}</span>
 <span>18+</span></div></footer>
 
 </body></html>`;
