@@ -75,6 +75,8 @@ export default function Oowg(props) {
 
   const [showDemoTable, setShowDemoTable] = useState(true);
 
+  const [theme, setTheme] = useState("auto");
+
   useEffect(() => {
     try {
       const {
@@ -92,6 +94,7 @@ export default function Oowg(props) {
         ratingTableHead: ratingTableHead_edited,
         ratingTableBody: ratingTableBody_edited,
         customFocusElementCode: customFocusElementCode_edited,
+        theme: theme_edited,
       } = JSON.parse(config);
       if (language_edited) {
         setLanguage(language_edited);
@@ -148,6 +151,9 @@ export default function Oowg(props) {
       if (customFocusElementCode_edited) {
         setCustomFocusElementCode(customFocusElementCode_edited);
       }
+      if (theme_edited) {
+        setTheme(theme_edited);
+      }
     } catch (err) {
       console.log("invalid JSON");
     }
@@ -194,6 +200,7 @@ export default function Oowg(props) {
         ratingTableBody,
         customFocusElementCode,
         showDemoTable,
+        theme,
       })
     );
     if (amp) {
@@ -219,7 +226,8 @@ export default function Oowg(props) {
       );
     }
 
-    zip.file("assets/styles/water.min.css", getWaterCss());
+    zip.file("assets/styles/water.min.css", getWaterCss(theme));
+
     zip.file("assets/styles/style.css", getCustomStyles());
     zip.file(
       "favicon.ico",
@@ -253,6 +261,7 @@ export default function Oowg(props) {
       ratingTableBody,
       customFocusElementCode,
       showDemoTable,
+      theme,
     };
 
     zip.file("config.json", JSON.stringify(configFile));
@@ -282,6 +291,7 @@ export default function Oowg(props) {
         ratingTableBody,
         customFocusElementCode,
         showDemoTable,
+        theme,
       }),
     ],
     { type: "text/html" }
@@ -1237,6 +1247,7 @@ export default function Oowg(props) {
                                     ratingTableBody,
                                     customFocusElementCode,
                                     showDemoTable,
+                                    theme,
                                   })}`}
                                   value={`${config}`}
                                   onChange={(e) => setConfig(e.target.value)}
@@ -1259,6 +1270,22 @@ export default function Oowg(props) {
                                     </span>
                                   )}
                                 </p>
+                                <div>
+                                  <label htmlFor="theme-select">
+                                    Choose theme (only desktop, not amp):{" "}
+                                  </label>
+                                  <select
+                                    id="theme-select"
+                                    value={theme}
+                                    onChange={(e) => {
+                                      setTheme(e.target.value);
+                                    }}
+                                  >
+                                    <option value="auto">Auto</option>
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                  </select>
+                                </div>
                               </div>
                             </div>
                           </form>
