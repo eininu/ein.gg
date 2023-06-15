@@ -67,6 +67,10 @@ export default function Oowg(props) {
   ]);
   const [ratingTableBodyNewRow, setRatingTableBodyNewRow] = useState([]);
 
+  const [customFocusElementCode, setCustomFocusElementCode] = useState(
+    `<table><thead><tr><th>Product</th><th>Rating</th><th>Play</th></tr></thead><tbody><tr><td>Product 1</td><td>97.07</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr><tr><td>Product 2</td><td>93.91</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr><tr><td>Product 3</td><td>84.61</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr></tbody></table>`
+  );
+
   useEffect(() => {
     setHtmlContent(getDemoData("en").htmlContent);
     setButtonText(getTranslate("en", "play_button_text"));
@@ -101,6 +105,7 @@ export default function Oowg(props) {
         promoCode,
         ratingTableHead,
         ratingTableBody,
+        customFocusElementCode,
       })
     );
     if (amp) {
@@ -119,7 +124,8 @@ export default function Oowg(props) {
           focusElement,
           promoCode,
           ratingTableHead,
-          ratingTableBody
+          ratingTableBody,
+          customFocusElementCode
         )
       );
     }
@@ -178,6 +184,7 @@ export default function Oowg(props) {
         promoCode,
         ratingTableHead,
         ratingTableBody,
+        customFocusElementCode,
       }),
     ],
     { type: "text/html" }
@@ -586,6 +593,10 @@ export default function Oowg(props) {
                                             getTranslate("en", "disable_el")
                                           );
                                         }
+
+                                        if (e.target.value === "Custom Code") {
+                                          setFocusElement("Custom Code");
+                                        }
                                       }}
                                       className="w-full block border border-gray-200 rounded px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                                       id="select"
@@ -600,6 +611,7 @@ export default function Oowg(props) {
                                       <option>
                                         {getTranslate("en", "rating_table_el")}
                                       </option>
+                                      <option>Custom Code</option>
                                       <option>
                                         {getTranslate("en", "disable_el")}
                                       </option>
@@ -789,6 +801,30 @@ export default function Oowg(props) {
                                         </svg>
                                       </button>
                                     </div>
+                                  </div>
+                                )}
+
+                                {focusElement === "Custom Code" && (
+                                  <div className="space-y-1">
+                                    <label
+                                      htmlFor="table_prefix"
+                                      className="font-medium"
+                                    >
+                                      Custom HTML Code Element
+                                    </label>
+                                    <textarea
+                                      className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
+                                      rows="5"
+                                      id="html_content"
+                                      name="html_content"
+                                      placeholder="HTML content (seo text)"
+                                      value={`${customFocusElementCode}`}
+                                      onChange={(e) =>
+                                        setCustomFocusElementCode(
+                                          e.target.value
+                                        )
+                                      }
+                                    ></textarea>
                                   </div>
                                 )}
 

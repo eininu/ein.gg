@@ -12,7 +12,8 @@ const formatContent = (
   focusElement,
   promoCode,
   ratingTableHead,
-  ratingTableBody
+  ratingTableBody,
+  customFocusElementCode
 ) => {
   const parser = new DOMParser();
   const document = parser.parseFromString(htmlContent, "text/html");
@@ -272,6 +273,19 @@ const formatContent = (
     // add rating table
     if (focusElement === "Rating Table") {
       document.getElementsByTagName("p")[0].after(ratingTable);
+    }
+
+    // add custom code element
+    if (focusElement === "Custom Code") {
+      const customCode = new DOMParser().parseFromString(
+        customFocusElementCode,
+        "text/html"
+      );
+
+      var link = customFocusElementCode;
+      document
+        .getElementsByTagName("p")[0]
+        .insertAdjacentHTML("afterend", link);
     }
   }
 

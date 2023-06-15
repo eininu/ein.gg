@@ -27,6 +27,7 @@ const generateHtmlTemplate = ({
   promoCode,
   ratingTableHead,
   ratingTableBody,
+  customFocusElementCode,
 }) => {
   return `<!DOCTYPE html>
 <html lang="${language}">
@@ -45,7 +46,8 @@ ${head(title, description, domainName, faq, amp)}
       focusElement,
       promoCode,
       ratingTableHead,
-      ratingTableBody
+      ratingTableBody,
+      customFocusElementCode
     )}
     <!-- custom article ul, ol, tables -->
     <!-- custom <b> in sentences with keyword -->
