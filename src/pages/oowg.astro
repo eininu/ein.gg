@@ -1,0 +1,13 @@
+---
+import Oowg from "../components/Oowg/Oowg";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="OOWG (One Offer Website Generator) | Ein.gg"
+  customBodyClasses="bg-white dark:bg-[#111417]"
+>
+  <!-- Page Content -->
+  <Oowg client:only="react" />
+  <!-- END Page Content -->
+</Layout>
