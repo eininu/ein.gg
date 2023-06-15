@@ -39,12 +39,14 @@ export default function Oowg(props) {
   const [domainName, setDomainName] = useState(getDemoData().domainName);
   const [title, setTitle] = useState(getDemoData().title);
   const [description, setDescription] = useState(getDemoData().description);
-  const [htmlContent, setHtmlContent] = useState(getDemoData("en").htmlContent);
+  const [htmlContent, setHtmlContent] = useState(
+    getDemoData(language).htmlContent
+  );
   const [buttonText, setButtonText] = useState(
-    getTranslate("en", "play_button_text")
+    getTranslate(language, "play_button_text")
   );
   const [buttonLink, setButtonLink] = useState("#");
-  const [faq, setFaq] = useState(getTranslate("en", "demoFaq"));
+  const [faq, setFaq] = useState(getTranslate(language, "demoFaq"));
   const [amp, setAmp] = useState(true);
   const [chatGPTApiKey, setChatGPTApiKey] = useState("");
   const [chatGPTQuestion, setChatGPTQuestion] = useState(
@@ -70,9 +72,9 @@ export default function Oowg(props) {
   );
 
   useEffect(() => {
-    setHtmlContent(getDemoData("en").htmlContent);
-    setButtonText(getTranslate("en", "play_button_text"));
-    setFaq(getTranslate("en", "demoFaq"));
+    setHtmlContent(getDemoData(language).htmlContent);
+    setButtonText(getTranslate(language, "play_button_text"));
+    setFaq(getTranslate(language, "demoFaq"));
   }, [language]);
 
   const [contentImages, setContentImages] = useState(getDemoData().demoImages);
@@ -237,7 +239,7 @@ export default function Oowg(props) {
                           <span>OOWG</span>
                         </h1>
                         <p className="text-gray-500">
-                          {getTranslate("en", "description")}
+                          {getTranslate(language, "description")}
                         </p>
                       </div>
                       {/* END Logo */}
@@ -255,15 +257,15 @@ export default function Oowg(props) {
                           <div className="flex flex-col rounded shadow-sm bg-white overflow-hidden relative">
                             <div className="py-4 px-5 lg:px-6 w-full text-center bg-gray-50">
                               <strong>
-                                {getTranslate("en", "configuration")}:
+                                {getTranslate(language, "configuration")}:
                               </strong>{" "}
-                              {getTranslate("en", "info")}
+                              {getTranslate(language, "info")}
                             </div>
                             <div className="p-5 lg:p-6 grow w-full">
                               <div className="sm:p-5 lg:px-10 lg:py-9 space-y-6">
                                 <div className="space-y-1">
                                   <label htmlFor="name" className="font-medium">
-                                    {getTranslate("en", "website_lang")}
+                                    {getTranslate(language, "website_lang")}
                                   </label>
                                   <input
                                     className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
@@ -274,7 +276,10 @@ export default function Oowg(props) {
                                     onChange={(e) => {
                                       setLanguage(e.target.value);
                                       setButtonText(
-                                        getTranslate("en", "play_button_text")
+                                        getTranslate(
+                                          language,
+                                          "play_button_text"
+                                        )
                                       );
                                     }}
                                     value={`${language}`}
@@ -289,13 +294,13 @@ export default function Oowg(props) {
                                     </a>
                                     ,{" "}
                                     <small>
-                                      {getTranslate("en", "change")}
+                                      {getTranslate(language, "change")}
                                     </small>
                                   </p>
                                 </div>
                                 <div className="space-y-1">
                                   <label htmlFor="host" className="font-medium">
-                                    {getTranslate("en", "domain_name")}
+                                    {getTranslate(language, "domain_name")}
                                   </label>
                                   <input
                                     className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
@@ -313,16 +318,16 @@ export default function Oowg(props) {
                             </div>
                             <div className="py-4 px-5 lg:px-6 w-full text-center bg-gray-50">
                               <strong>
-                                {getTranslate("en", "seo_params")}:
+                                {getTranslate(language, "seo_params")}:
                               </strong>{" "}
-                              {getTranslate("en", "meta")}
+                              {getTranslate(language, "meta")}
                             </div>
 
                             <div className="p-5 lg:p-6 grow w-full">
                               <div className="sm:p-5 lg:px-10 lg:py-9 space-y-6">
                                 <div className="space-y-1">
                                   <label htmlFor="name" className="font-medium">
-                                    {getTranslate("en", "seo_title")}
+                                    {getTranslate(language, "seo_title")}
                                   </label>
                                   <input
                                     className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
@@ -336,7 +341,7 @@ export default function Oowg(props) {
                                 </div>
                                 <div className="space-y-1">
                                   <label htmlFor="host" className="font-medium">
-                                    {getTranslate("en", "seo_description")}
+                                    {getTranslate(language, "seo_description")}
                                   </label>
                                   <input
                                     className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
@@ -355,7 +360,7 @@ export default function Oowg(props) {
                                     htmlFor="table_prefix"
                                     className="font-medium"
                                   >
-                                    {getTranslate("en", "seo_html")}
+                                    {getTranslate(language, "seo_html")}
                                   </label>
                                   <textarea
                                     className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
@@ -372,8 +377,10 @@ export default function Oowg(props) {
                               </div>
                             </div>
                             <div className="py-4 px-5 lg:px-6 w-full text-center bg-gray-50">
-                              <strong>{getTranslate("en", "options")}:</strong>{" "}
-                              {getTranslate("en", "options_desc")}
+                              <strong>
+                                {getTranslate(language, "options")}:
+                              </strong>{" "}
+                              {getTranslate(language, "options_desc")}
                             </div>
                             <div className="p-5 lg:p-6 grow w-full">
                               <div className="sm:p-5 lg:px-10 lg:py-9 space-y-6">
@@ -386,7 +393,7 @@ export default function Oowg(props) {
                                         htmlFor="switch1"
                                         className="font-medium leading-relaxed"
                                       >
-                                        {getTranslate("en", "images")}
+                                        {getTranslate(language, "images")}
                                         <span className="block text-sm text-gray-500">
                                           {getTranslate(
                                             language,
@@ -506,7 +513,7 @@ export default function Oowg(props) {
                                       >
                                         AMP
                                         <span className="block text-sm text-gray-500">
-                                          {getTranslate("en", "amp")}
+                                          {getTranslate(language, "amp")}
                                         </span>
                                       </label>
                                       <input
@@ -528,15 +535,15 @@ export default function Oowg(props) {
                             </div>
                             <div className="py-4 px-5 lg:px-6 w-full text-center bg-gray-50">
                               <strong>
-                                {getTranslate("en", "content_elements")}:
+                                {getTranslate(language, "content_elements")}:
                               </strong>{" "}
-                              {getTranslate("en", "content_elements_desc")}
+                              {getTranslate(language, "content_elements_desc")}
                             </div>
                             <div className="p-5 lg:p-6 grow w-full">
                               <div className="sm:p-5 lg:px-10 lg:py-9 space-y-6">
                                 <div className="space-y-1">
                                   <label htmlFor="name" className="font-medium">
-                                    {getTranslate("en", "focus_element")}
+                                    {getTranslate(language, "focus_element")}
                                   </label>
                                   <small>
                                     <br />
@@ -552,19 +559,22 @@ export default function Oowg(props) {
                                       onChange={(e) => {
                                         if (
                                           e.target.value ===
-                                          getTranslate("en", "button_el")
+                                          getTranslate(language, "button_el")
                                         ) {
                                           setFocusElement(
-                                            getTranslate("en", "button_el")
+                                            getTranslate(language, "button_el")
                                           );
                                         }
 
                                         if (
                                           e.target.value ===
-                                          getTranslate("en", "promocode_el")
+                                          getTranslate(language, "promocode_el")
                                         ) {
                                           setFocusElement(
-                                            getTranslate("en", "promocode_el")
+                                            getTranslate(
+                                              language,
+                                              "promocode_el"
+                                            )
                                           );
                                         }
 
@@ -585,10 +595,10 @@ export default function Oowg(props) {
 
                                         if (
                                           e.target.value ===
-                                          getTranslate("en", "disable_el")
+                                          getTranslate(language, "disable_el")
                                         ) {
                                           setFocusElement(
-                                            getTranslate("en", "disable_el")
+                                            getTranslate(language, "disable_el")
                                           );
                                         }
 
@@ -601,17 +611,20 @@ export default function Oowg(props) {
                                       name="select"
                                     >
                                       <option>
-                                        {getTranslate("en", "button_el")}
+                                        {getTranslate(language, "button_el")}
                                       </option>
                                       <option>
-                                        {getTranslate("en", "promocode_el")}
+                                        {getTranslate(language, "promocode_el")}
                                       </option>
                                       <option>
-                                        {getTranslate("en", "rating_table_el")}
+                                        {getTranslate(
+                                          language,
+                                          "rating_table_el"
+                                        )}
                                       </option>
                                       <option>Custom Code</option>
                                       <option>
-                                        {getTranslate("en", "disable_el")}
+                                        {getTranslate(language, "disable_el")}
                                       </option>
                                     </select>
                                   </div>
@@ -836,7 +849,11 @@ export default function Oowg(props) {
                                         }}
                                       >
                                         {" "}
-                                        [ {getTranslate("en", "clean_faq")} ]
+                                        [ {getTranslate(
+                                          language,
+                                          "clean_faq"
+                                        )}{" "}
+                                        ]
                                       </small>
                                     )}
                                   </label>
@@ -872,7 +889,7 @@ export default function Oowg(props) {
                                     className="space-y-3 sm:space-y-0 sm:flex sm:items-center sm:space-x-2 font-medium"
                                   >
                                     {" "}
-                                    {getTranslate("en", "add_qa")}
+                                    {getTranslate(language, "add_qa")}
                                   </label>
                                   <div className="space-y-3 sm:space-y-0 sm:flex sm:items-center sm:space-x-2">
                                     <input
