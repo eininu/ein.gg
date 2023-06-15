@@ -14,7 +14,8 @@ const formatContent = (
   promoCode,
   ratingTableHead,
   ratingTableBody,
-  customFocusElementCode
+  customFocusElementCode,
+  showDemoTable
 ) => {
   const parser = new DOMParser();
   const document = parser.parseFromString(htmlContent, "text/html");
@@ -371,8 +372,10 @@ const formatContent = (
 
   // add table
   // it's better to add table the last one, because it has <p> elements, but images inserting between paragraphs
-  if (document.getElementsByTagName("p")[2]) {
-    document.getElementsByTagName("p")[2].after(domTable);
+  if (showDemoTable) {
+    if (document.getElementsByTagName("p")[2]) {
+      document.getElementsByTagName("p")[2].after(domTable);
+    }
   }
 
   // console.log(document.body.innerHTML);
