@@ -88,7 +88,7 @@ export default function Oowg(props) {
         buttonLink: buttonLink_edited,
         buttonText: buttonText_edited,
         faq: faq_edited,
-        contentImages: contentImages_edited,
+        // contentImages: contentImages_edited,
         focusElement: focusElement_edited,
         promoCode: promoCode_edited,
         ratingTableHead: ratingTableHead_edited,
