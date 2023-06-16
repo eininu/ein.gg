@@ -269,6 +269,7 @@ export default function Oowg(props) {
     zip.file(
       "robots.txt",
       `User-agent: *
+Allow: *
 Disallow: /config.json
 
 User-agent: MJ12bot
