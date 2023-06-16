@@ -7,7 +7,12 @@
 import { useState, useEffect } from "react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
-import { getDemoData, getRobotsTxt, getTranslate } from "./functions.js";
+import {
+  getDemoData,
+  getNotFoundPage,
+  getRobotsTxt,
+  getTranslate,
+} from "./functions.js";
 
 import {
   generateHtmlTemplate,
@@ -77,6 +82,8 @@ export default function Oowg(props) {
 
   const [theme, setTheme] = useState("dark");
 
+  const [redirects, setRedirects] = useState("");
+
   useEffect(() => {
     try {
       const {
@@ -95,6 +102,7 @@ export default function Oowg(props) {
         ratingTableBody: ratingTableBody_edited,
         customFocusElementCode: customFocusElementCode_edited,
         theme: theme_edited,
+        redirects: redirects_edited,
       } = JSON.parse(config);
       if (language_edited) {
         setLanguage(language_edited);
@@ -153,6 +161,10 @@ export default function Oowg(props) {
       }
       if (theme_edited) {
         setTheme(theme_edited);
+      }
+
+      if (redirects_edited) {
+        setRedirects(redirects_edited);
       }
     } catch (err) {
       console.log("invalid JSON");
@@ -263,11 +275,31 @@ export default function Oowg(props) {
       customFocusElementCode,
       showDemoTable,
       theme,
+      redirects,
     };
 
     zip.file("config.json", JSON.stringify(configFile));
 
     zip.file("robots.txt", getRobotsTxt());
+
+    // create redirects
+    redirects.split("\n").map((redirect) => {
+      function cleanURL(url) {
+        if (!url.startsWith("/")) {
+          url = "/" + url;
+        }
+
+        if (!url.includes("?") && !url.includes("#") && url.endsWith("/")) {
+          url = url.slice(0, -1);
+        }
+
+        var urlObject = new URL(url, "http://dummy.com"); // Создаем URL объект, используя dummy базовый URL
+        var pathname = urlObject.pathname; // Получаем часть пути (pathname)
+        return pathname.replace(/^\/|\/$/g, ""); // Удаляем начальный и конечный слэш
+      }
+
+      zip.file(cleanURL(redirect) + "/index.html", getNotFoundPage());
+    });
 
     zip.generateAsync({ type: "blob" }).then(function (content) {
       // see FileSaver.js
@@ -1289,6 +1321,22 @@ export default function Oowg(props) {
                                     <option value="dark">Dark</option>
                                   </select>
                                 </div>
+
+                                <label
+                                  htmlFor="table_prefix"
+                                  className="font-medium"
+                                >
+                                  Redirects
+                                </label>
+                                <textarea
+                                  className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
+                                  rows="5"
+                                  id="redirects"
+                                  name="redirects"
+                                  placeholder={`/example\n/something\n/example/something/adsf?het=asdfasd&asdfasnz=asdfsad#1132`}
+                                  value={redirects}
+                                  onChange={(e) => setRedirects(e.target.value)}
+                                ></textarea>
                               </div>
                             </div>
                           </form>

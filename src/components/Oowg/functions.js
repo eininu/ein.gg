@@ -11,6 +11,46 @@ const getTranslate = (language, element) => {
   return languageObject[element];
 };
 
+const getNotFoundPage = () => {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+
+    <!-- HTTP Meta Refresh Redirect -->
+    <meta http-equiv="refresh" content="5; url=/" />
+
+    <!-- JavaScript Redirect -->
+    <script>
+        setTimeout(function() {
+            window.location.href = "/";
+        }, 7000); // Redirect after 7 seconds
+    </script>
+</head>
+<body>
+
+    <!-- Clickable link as a fallback -->
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, follow this <a href='/'>link</a>.</p>
+
+    <!-- HTML Form Redirect - automatically submit form after 10 seconds using JavaScript -->
+    <form id="form-redirect" action="/" method="get" style="display: none;">
+        <input type="submit" value="Redirect">
+    </form>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('form-redirect').submit();
+        }, 0);
+    </script>
+
+</body>
+</html>`;
+};
+
 const getDemoData = (language) => {
   // console.log(getTranslate(language, "demoHtmlContent"));
   return {
@@ -223,4 +263,10 @@ User-agent: SemrushBot-CT
 Disallow: /`;
 };
 
-export { getDemoData, getTranslate, generateRandomClasses, getRobotsTxt };
+export {
+  getDemoData,
+  getTranslate,
+  generateRandomClasses,
+  getRobotsTxt,
+  getNotFoundPage,
+};
