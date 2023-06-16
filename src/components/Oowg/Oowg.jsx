@@ -1258,6 +1258,10 @@ export default function Oowg(props) {
                                 >
                                   config.json
                                 </label>
+                                <p class="text-xs">
+                                  It's not contain images. Paste images in
+                                  default form from website manually.
+                                </p>
                                 <textarea
                                   className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
                                   rows="5"
@@ -1323,7 +1327,7 @@ export default function Oowg(props) {
                                   htmlFor="table_prefix"
                                   className="font-medium"
                                 >
-                                  Redirects
+                                  Redirects (all pages would redirect to "/")
                                 </label>
                                 <textarea
                                   className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
