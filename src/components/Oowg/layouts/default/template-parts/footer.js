@@ -243,9 +243,40 @@ const footer = (language, domainName) => {
 <p class="${generateRandomClasses()}">Возмещение убытков: Вы соглашаетесь возместить нам любые претензии, убытки или расходы, возникшие в результате использования этого сайта или нарушения вами этих Условий использования.</p>
 </li>
 </ol>
-<p class="${generateRandomClasses()}">Если у вас есть какие-либо вопросы или проблемы с этими Условиями использования, пожалуйста, свяжитесь с нами по адресу <a href="mailto:${
+<p class="${generateRandomClasses()}">${getRandomItem([
+          "Если у вас возникнут вопросы или сложности в отношении этих Условий использования, не стесняйтесь обращаться к нам по адресу",
+          "В случае возникновения вопросов или проблем, связанных с этими Условиями использования, мы просим вас связаться с нами по адресу",
+          "Если у вас есть вопросы или проблемы относительно этих Условий использования, мы будем рады помочь вам. Свяжитесь с нами по адресу",
+          "Мы всегда готовы помочь вам с любыми вопросами или проблемами, касающимися этих Условий использования. Пожалуйста, свяжитесь с нами по адресу",
+          "Если вы столкнулись с какими-либо вопросами или проблемами, связанными с этими Условиями использования, пожалуйста, напишите нам на",
+          "При возникновении любых вопросов или проблем в связи с этими Условиями использования, пожалуйста, не стесняйтесь связываться с нами по адресу",
+          "Если эти Условия использования вызывают у вас вопросы или проблемы, мы будем рады помочь. Напишите нам на",
+          "Если вы нуждаетесь в помощи или у вас есть вопросы по поводу этих Условий использования, пожалуйста, свяжитесь с нами по адресу",
+          "Если у вас возникают вопросы или проблемы с пониманием этих Условий использования, мы готовы помочь. Свяжитесь с нами по адресу",
+          "Если эти Условия использования вызывают у вас вопросы или неясности, мы всегда готовы помочь. Пишите нам на",
+          "Мы всегда рады ответить на ваши вопросы и помочь решить любые проблемы, связанные с этими Условиями использования. Обращайтесь к нам по адресу",
+          "Если у вас возникли вопросы или вы столкнулись с проблемами при использовании этих Условий, не стесняйтесь обратиться к нам по адресу",
+          "Если у вас есть вопросы или замечания по поводу этих Условий использования, мы готовы помочь. Напишите нам на",
+          "Если у вас есть какие-либо вопросы или проблемы, связанные с этими Условиями использования, мы будем рады помочь. Пожалуйста, свяжитесь с нами по адресу",
+          "Если у вас возникнут какие-либо вопросы или проблемы, связанные с Условиями использования, не стесняйтесь связаться с нами по адресу",
+          "При возникновении вопросов или проблем в отношении этих Условий использования, пожалуйста, свяжитесь с нами по адресу",
+          "Если у вас есть какие-либо вопросы или проблемы, связанные с Условиями использования, мы будем рады помочь. Свяжитесь с нами по адресу",
+          "Если эти Условия использования вызывают у вас вопросы или неясности, мы всегда готовы помочь. Свяжитесь с нами по адресу",
+          "При возникновении любых вопросов или проблем, связанных с Условиями использования, пожалуйста, свяжитесь с нами по адресу",
+          "Если у вас есть вопросы или проблемы относительно этих Условий использования, пожалуйста, напишите нам на",
+          "Если у вас есть какие-либо вопросы или проблемы, связанные с этими Условиями использования, пожалуйста, обращайтесь к нам по адресу",
+          "При возникновении любых вопросов или сложностей, связанных с этими Условиями использования, пожалуйста, свяжитесь с нами по адресу",
+          "Если у вас возникнут вопросы или сложности в отношении этих Условий использования, мы просим вас связаться с нами по адресу",
+          "Если у вас возникают вопросы или проблемы с пониманием этих Условий использования, не стесняйтесь обращаться к нам по адресу",
+          "Если у вас есть какие-либо вопросы или проблемы, связанные с этими Условиями использования, мы будем рады помочь. Свяжитесь с нами по адресу",
+          "Если эти Условия использования вызывают у вас вопросы или проблемы, мы всегда готовы помочь. Пожалуйста, свяжитесь с нами по адресу",
+          "При возникновении любых вопросов или проблем, связанных с Условиями использования, мы будем рады помочь. Свяжитесь с нами по адресу",
+          "Если у вас есть какие-либо вопросы или замечания по поводу этих Условий использования, пожалуйста, свяжитесь с нами по адресу",
+          "Если у вас возникают вопросы или проблемы с этими Условиями использования, мы всегда готовы помочь. Свяжитесь с нами по адресу",
+          "Если у вас есть какие-либо вопросы или проблемы, связанные с этими Условиями использования, мы будем рады помочь. Свяжитесь с нами по адресу",
+        ])} <a href="mailto:${emailPrefix + domainName}">contact@${
           emailPrefix + domainName
-        }">contact@${emailPrefix + domainName}</a>.</p>`
+        }</a>.</p>`
       : `<p>Copyright &copy; ${new Date().getFullYear()} ${domainName}. All rights reserved.</p>
 <p class="${generateRandomClasses()}">By using this website, you agree to the following Terms and Conditions:</p>
 <ol class="${generateRandomClasses()}">
@@ -265,12 +296,139 @@ const footer = (language, domainName) => {
 <p>Indemnification: You agree to indemnify and hold us harmless from any claims, damages, or expenses arising out of your use of this website or your violation of these Terms and Conditions.</p>
 </li>
 </ol class="${generateRandomClasses()}">
-<p class="${generateRandomClasses()}">If you have any questions or concerns about these Terms and Conditions, please contact us at <a href="mailto:${
+<p class="${generateRandomClasses()}">${getRandomItem([
+          "If you have any questions or difficulties with these Terms of Use, please do not hesitate to contact us at",
+          "In case of any questions or problems related to these Terms of Use, we ask you to contact us at",
+          "If you have any questions or problems regarding these Terms of Use, we would be happy to help. Please contact us at",
+          "We are always ready to help you with any questions or problems related to these Terms of Use. Please contact us at",
+          "If you encounter any questions or problems related to these Terms of Use, please write to us at",
+          "If any questions or problems arise in relation to these Terms of Use, please feel free to contact us at",
+          "If these Terms of Use raise any questions or problems, we will be happy to help. Write to us at",
+          "If you need assistance or have any questions about these Terms of Use, please contact us at",
+          "If you have any questions or problems with understanding these Terms of Use, we are ready to help. Contact us at",
+          "If these Terms of Use cause any questions or uncertainties, we are always ready to help. Write to us at",
+          "We are always happy to answer your questions and help solve any problems related to these Terms of Use. Contact us at",
+          "If you have any questions or encounter problems when using these Terms, do not hesitate to contact us at",
+          "If you have any questions or remarks about these Terms of Use, we are ready to help. Write to us at",
+          "If you have any questions or problems related to these Terms of Use, we would be happy to help. Please contact us at",
+          "If any questions or problems arise related to the Terms of Use, do not hesitate to contact us at",
+          "In case of any questions or problems with these Terms of Use, please contact us at",
+          "If you have any questions or problems related to these Terms of Use, we would be glad to help. Please contact us at",
+          "If these Terms of Use cause any questions or uncertainties, we are always ready to help. Please contact us at",
+          "In case of any questions or problems related to these Terms of Use, please contact us at",
+          "If you have any questions or problems regarding these Terms of Use, please write to us at",
+          "If you have any questions or problems related to these Terms of Use, please contact us at",
+          "In case of any questions or difficulties related to these Terms of Use, please contact us at",
+          "If you have any questions or difficulties with these Terms of Use, we ask you to contact us at",
+          "If you have any questions or problems with these Terms of Use, please do not hesitate to contact us at",
+          "If you have any questions or problems related to these Terms of Use, we would be glad to help. Please contact us at",
+          "If these Terms of Use raise any questions or problems, we are always ready to help. Please contact us at",
+          "In case of any questions or problems related to these Terms of Use, we would be glad to help. Please contact us at",
+          "If you have any questions or remarks about these Terms of Use, please contact us at",
+          "If you have any questions or problems with these Terms of Use, we are always ready to help. Please contact us at",
+          "If you have any questions or problems related to these Terms of Use, we would be glad to help. Please contact us at",
+        ])} <a href="mailto:${emailPrefix + domainName}">${
           emailPrefix + domainName
-        }">${emailPrefix + domainName}</a>.</p>`
+        }</a>.</p>`
   }</small>
 <a  class="${generateRandomClasses()}" href="#" style="display: block; text-align: center">${
-    language === "ru" ? "Наверх сайта ⬆" : "Back to top ⬆"
+    language === "ru"
+      ? `${
+          getRandomItem([
+            "Вверх страницы",
+            "В начало",
+            "Наверх",
+            "Возврат наверх",
+            "Перейти вверх",
+            "Вернуться наверх",
+            "Подняться наверх",
+            "Пролистать вверх",
+            "Прокрутить вверх",
+            "Проскроллить наверх",
+            "Вверх",
+            "Возврат в начало",
+            "Подъем вверх",
+            "Промотать вверх",
+            "Прокрутка наверх",
+            "Взойти вверх",
+            "Подняться в начало",
+            "Перейти в начало",
+            "Вверх страницы",
+            "Вернуться в начало",
+            "Направление вверх",
+            "Поверхность сайта",
+            "В начало сайта",
+            "Вознесение наверх",
+            "Прокрутите вверх",
+            "Вершина страницы",
+            "Поднимитесь наверх",
+            "Вверху страницы",
+            "Перемотка вверх",
+            "Вверху",
+            "Возврат вверх",
+            "Верхний уровень",
+            "На самый верх",
+            "Подняться к верху",
+            "Вверх к началу",
+            "Вернуться вверх",
+            "Пролистать до начала",
+            "Вверх, вверх",
+            "Вверх по странице",
+            "Переместиться вверх",
+            "Наверху",
+            "На весь экран вверх",
+            "Наверх к вершине",
+          ]) + " ⬆"
+        }`
+      : `${
+          getRandomItem([
+            "Back to Top",
+            "Scroll to Top",
+            "Go to Top",
+            "Up to Top",
+            "Return to Top",
+            "Top of Page",
+            "Move to Top",
+            "Scroll Up",
+            "Go Up",
+            "Navigate to Top",
+            "Upward",
+            "To the Top",
+            "Elevate",
+            "Ascend",
+            "Rise to Top",
+            "Up to the Peak",
+            "Climb to Top",
+            "Up to Start",
+            "Begin at Top",
+            "Top",
+            "Reach the Top",
+            "Up, Up, and Away",
+            "Head to Top",
+            "Leap to Top",
+            "Jump to Top",
+            "Elevate to Top",
+            "Advance to Top",
+            "Scroll Back Up",
+            "Scroll to Start",
+            "Top of the Site",
+            "Get Back Up",
+            "Slide to Top",
+            "Back to Peak",
+            "Reverse to Top",
+            "Rewind to Top",
+            "Hit the Top",
+            "Back to Beginning",
+            "All the Way Up",
+            "Sprint to Top",
+            "Dash to Top",
+            "Up We Go",
+            "Scroll to Peak",
+            "Top of the Scroll",
+            "Fly to Top",
+            "Soar to Top",
+          ]) + " ⬆"
+        }`
   }</a>
     
 </footer>`;
