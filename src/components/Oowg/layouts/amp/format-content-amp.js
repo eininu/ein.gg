@@ -703,7 +703,7 @@ const formatContent = (
   const updatedWord = document.createElement("strong");
   updatedWord.innerHTML = getTranslate(language, "updated_text")
     .replaceAll(
-      "Updated",
+      "Обновлено",
       getRandomItem([
         "Перезалито",
         "Обновленный",
