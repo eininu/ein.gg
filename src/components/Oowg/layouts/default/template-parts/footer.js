@@ -295,7 +295,7 @@ const footer = (language, domainName) => {
 <li class="${generateRandomClasses()}">
 <p>Indemnification: You agree to indemnify and hold us harmless from any claims, damages, or expenses arising out of your use of this website or your violation of these Terms and Conditions.</p>
 </li>
-</ol class="${generateRandomClasses()}">
+</ol>
 <p class="${generateRandomClasses()}">${getRandomItem([
           "If you have any questions or difficulties with these Terms of Use, please do not hesitate to contact us at",
           "In case of any questions or problems related to these Terms of Use, we ask you to contact us at",
