@@ -187,4 +187,40 @@ const generateRandomClasses = () => {
   return randomClasses.join(" ");
 };
 
-export { getDemoData, getTranslate, generateRandomClasses };
+const getRobotsTxt = () => {
+  return `User-agent: *
+Allow: *
+Disallow: /config.json
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: wotbox
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: BUbiNG
+Disallow: /
+
+User-agent: Vedma
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: Riddler
+Disallow: /
+
+User-agent: SemrushBot-CT
+Disallow: /`;
+};
+
+export { getDemoData, getTranslate, generateRandomClasses, getRobotsTxt };

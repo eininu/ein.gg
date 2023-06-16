@@ -7,7 +7,7 @@
 import { useState, useEffect } from "react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
-import { getDemoData, getTranslate } from "./functions.js";
+import { getDemoData, getRobotsTxt, getTranslate } from "./functions.js";
 
 import {
   generateHtmlTemplate,
@@ -254,7 +254,7 @@ export default function Oowg(props) {
       buttonLink,
       buttonText,
       faq,
-      contentImages,
+      // contentImages,
       focusElement,
       promoCode,
       ratingTableHead,
@@ -266,42 +266,7 @@ export default function Oowg(props) {
 
     zip.file("config.json", JSON.stringify(configFile));
 
-    zip.file(
-      "robots.txt",
-      `User-agent: *
-Allow: *
-Disallow: /config.json
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: wotbox
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: BLEXBot
-Disallow: /
-
-User-agent: BUbiNG
-Disallow: /
-
-User-agent: Vedma
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: SemrushBot-SA
-Disallow: /
-
-User-agent: Riddler
-Disallow: /
-
-User-agent: SemrushBot-CT
-Disallow: /`
-    );
+    zip.file("robots.txt", getRobotsTxt());
 
     zip.generateAsync({ type: "blob" }).then(function (content) {
       // see FileSaver.js
