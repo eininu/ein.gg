@@ -261,6 +261,9 @@ User-agent: Riddler
 Disallow: /
 
 User-agent: SemrushBot-CT
+Disallow: /
+
+User-agent: Google-InspectionTool
 Disallow: /`;
 };
 
