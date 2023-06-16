@@ -128,9 +128,9 @@ export default function Oowg(props) {
         setFaq(faq_edited);
       }
 
-      if (contentImages_edited) {
-        setContentImages(contentImages_edited);
-      }
+      // if (contentImages_edited) {
+      //   setContentImages(contentImages_edited);
+      // }
 
       if (focusElement_edited) {
         setFocusElement(focusElement_edited);

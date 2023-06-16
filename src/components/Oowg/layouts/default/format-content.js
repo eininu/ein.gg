@@ -30,10 +30,12 @@ const formatContent = (
   );
   banner.setAttribute("alt", "banner");
   banner.setAttribute("style", "border-radius: 10px");
-  banner.setAttribute(
-    "onclick",
-    `window.open(atob('${btoa(buttonLink)}'),'_blank')`
-  );
+  isDemo
+    ? banner.setAttribute("onclick", `window.open("${buttonLink}",'_blank')`)
+    : banner.setAttribute(
+        "onclick",
+        `window.open(atob('${btoa(buttonLink)}'),'_blank')`
+      );
 
   //// button
   // <button type="button" id="copy-button" class="blob">🔥🔥 Play 🔥🔥</button>
@@ -41,11 +43,13 @@ const formatContent = (
   button.setAttribute("type", "button");
   button.setAttribute("id", "copy-button");
   button.setAttribute("class", "blob " + generateRandomClasses());
-  button.setAttribute(
-    "onclick",
-    `window.open(atob('${btoa(buttonLink)}'),'_blank')`
-  );
-  button.setAttribute("href", buttonLink);
+  isDemo
+    ? button.setAttribute("onclick", `window.open("${buttonLink}",'_blank')`)
+    : button.setAttribute(
+        "onclick",
+        `window.open(atob('${btoa(buttonLink)}'),'_blank')`
+      );
+  // button.setAttribute("href", buttonLink);
   button.innerHTML = buttonText;
 
   //// promo code
