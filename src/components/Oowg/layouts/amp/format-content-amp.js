@@ -609,7 +609,77 @@ const formatContent = (
   // </details>
 
   const faqEl = document.createElement("h2");
-  faqEl.innerHTML = getTranslate(language, "faq_heading");
+  faqEl.innerHTML = getTranslate(language, "faq_heading")
+    .replaceAll(
+      "Часто задаваемые вопросы",
+      getRandomItem([
+        "Основные Вопросы",
+        "Задаваемые Вопросы",
+        "Вопросы и Решения",
+        "Помощь и Вопросы",
+        "Вопросы и Консультации",
+        "Ответы на Частые Вопросы",
+        "Вопросы и Информация",
+        "Часто Задаваемые Вопросы Пользователей",
+        "Подробные Ответы на Ваши Вопросы",
+        "Самые Частые Вопросы",
+        "Информация для Пользователей: Вопросы и Ответы",
+        "Список Частых Вопросов",
+        "Ваши Запросы",
+        "Ваши Запросы и Наши Ответы",
+        "База Знаний: Вопросы и Ответы",
+        "Нужна Помощь? Часто Задаваемые Вопросы",
+        "Часто Задаваемые Вопросы и Рекомендации",
+        "Все, что Вы Хотели Знать",
+        "Ответы на Ваши Вопросы",
+        "Вопросы и Подсказки",
+        "Информация и Вопросы",
+        "Популярные Вопросы и Ответы",
+        "Поддержка: Вопросы и Ответы",
+        "Помощь: Часто Задаваемые Вопросы",
+        "Вопросы, которые Вы Могли Задать",
+        "Частые Вопросы и Решения",
+        "Руководство по Частым Вопросам",
+        "Самые Популярные Вопросы",
+        "Важные Вопросы",
+        "Вопросы и Ответы: Помощь и Поддержка",
+      ])
+    )
+    .replaceAll(
+      "FAQ",
+      getRandomItem([
+        "Main Questions",
+        "Asked Questions",
+        "Questions and Solutions",
+        "Help and Questions",
+        "Questions and Consultations",
+        "Answers to Frequent Questions",
+        "Questions and Information",
+        "Frequently Asked Questions by Users",
+        "Detailed Answers to Your Questions",
+        "The Most Frequent Questions",
+        "User Information: Questions and Answers",
+        "List of Frequent Questions",
+        "Your Queries",
+        "Your Queries and Our Answers",
+        "Knowledge Base: Questions and Answers",
+        "Need Help? Frequently Asked Questions",
+        "Frequently Asked Questions and Recommendations",
+        "Everything You Wanted to Know",
+        "Answers to Your Questions",
+        "Questions and Tips",
+        "Information and Questions",
+        "Popular Questions and Answers",
+        "Support: Questions and Answers",
+        "Help: Frequently Asked Questions",
+        "Questions You Might Have Asked",
+        "Frequent Questions and Solutions",
+        "Guide to Frequent Questions",
+        "The Most Popular Questions",
+        "Important Questions",
+        "Questions and Answers: Help and Support",
+      ])
+    );
 
   const addQA = (question, answer) => {
     const detailsEl = document.createElement("details");
@@ -628,7 +698,61 @@ const formatContent = (
 
   const updated = document.createElement("p");
   const updatedWord = document.createElement("strong");
-  updatedWord.innerHTML = getTranslate(language, "updated_text");
+  updatedWord.innerHTML = getTranslate(language, "updated_text")
+    .replaceAll(
+      "Updated",
+      getRandomItem([
+        "Перезалито",
+        "Обновленный",
+        "Изменено",
+        "Модифицировано",
+        "Исправлено",
+        "Внесены изменения",
+        "Редактировано",
+        "Улучшено",
+        "Переработано",
+        "Повторно загружено",
+        "Дата изменения",
+        "Дата модификации",
+        "Дата правки",
+        "Дата исправления",
+        "Дата редактирования",
+        "Дата улучшения",
+        "Дата переработки",
+        "Время обновления",
+        "Последнее изменение",
+        "Дата последнего обновления",
+        "Дата перезаливки",
+        "Дата повторной загрузки",
+      ])
+    )
+    .replaceAll(
+      "Updated",
+      getRandomItem([
+        "Reuploaded",
+        "Updated",
+        "Modified",
+        "Changed",
+        "Corrected",
+        "Amended",
+        "Edited",
+        "Improved",
+        "Overhauled",
+        "Reuploaded",
+        "Date of Change",
+        "Modification Date",
+        "Revision Date",
+        "Correction Date",
+        "Editing Date",
+        "Improvement Date",
+        "Overhaul Date",
+        "Update Time",
+        "Last Modified",
+        "Last Update Date",
+        "Reupload Date",
+        "Reupload Time",
+      ])
+    );
   const updatedDate = document.createElement("span");
   updatedDate.setAttribute("style", "text-decoration: underline;");
   updatedDate.innerHTML = new Date().toISOString().split("T")[0];
