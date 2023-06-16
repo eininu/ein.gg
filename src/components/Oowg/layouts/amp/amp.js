@@ -182,15 +182,15 @@ const getAmp = (
   }<script src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.mjs" async="" custom-element="amp-sidebar" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" crossorigin="anonymous" custom-element="amp-sidebar"></script>
 <style amp-custom="">${theme === "dark" ? darkAmpCss : lightAmpCss}${
     focusElement === "Promo Code" && theme === "dark"
-      ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#040a0f;color:{};border-style:dashed;animation:pulse 2s infinite}"
+      ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#040a0f;color:{};border-style:dashed}"
       : ""
   }${
     focusElement === "Promo Code" && theme === "light"
-      ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};border-style:dashed;animation:pulse 2s infinite}"
+      ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};border-style:dashed}"
       : ""
   }${
     focusElement === "Promo Code" && theme === "auto"
-      ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};border-style:dashed;animation:pulse 2s infinite}"
+      ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};border-style:dashed}"
       : ""
   }${
     focusElement === "Button" && theme === "dark"
