@@ -130,6 +130,95 @@ const generateRandomClasses = () => {
   return randomClasses.join(" ");
 };
 
+const getRandomElements = (arr) => {
+  let arrCopy = [...arr];
+  let result = [];
+  let length = arr.length <= 20 ? arr.length : 20;
+
+  for (let i = 0; i < length; i++) {
+    let randomIndex = Math.floor(Math.random() * arrCopy.length);
+    result.push(" " + arrCopy[randomIndex]);
+    arrCopy.splice(randomIndex, 1);
+  }
+
+  return result;
+};
+
+const getRandomItem = (arr) => {
+  var index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+};
+
+const emailPrefix = "contact@".replaceAll(
+  "contact@",
+  getRandomItem([
+    "contact@",
+    "support@",
+    "admin@",
+    "info@",
+    "help@",
+    "billing@",
+    "sales@",
+    "marketing@",
+    "press@",
+    "hello@",
+    "feedback@",
+    "webmaster@",
+    "team@",
+    "business@",
+    "partners@",
+    "accounts@",
+    "hr@",
+    "jobs@",
+    "admissions@",
+    "inquiries@",
+    "service@",
+    "customer.service@",
+    "editor@",
+    "news@",
+    "privacy@",
+    "management@",
+    "subscriptions@",
+    "donations@",
+    "services@",
+    "financial@",
+    "media@",
+    "advertising@",
+    "office@",
+    "members@",
+    "technical@",
+    "customersupport@",
+    "user@",
+    "registration@",
+    "customercare@",
+    "security@",
+    "memberservices@",
+    "customer.relations@",
+    "corp@",
+    "pr@",
+    "investorrelations@",
+    "affiliates@",
+    "legal@",
+    "order@",
+    "requests@",
+    "developer@",
+    "enquiries@",
+    "network@",
+    "operations@",
+    "compliance@",
+    "customer@",
+    "general.info@",
+    "publicrelations@",
+    "investors@",
+    "supportteam@",
+    "communications@",
+    "helpdesk@",
+    "customercare@",
+    "noreply@",
+    "webinfo@",
+  ])
+);
+
 const footer = (language, domainName) => {
   return `<footer class="${generateRandomClasses()}">
 
@@ -154,7 +243,9 @@ const footer = (language, domainName) => {
 <p class="${generateRandomClasses()}">Возмещение убытков: Вы соглашаетесь возместить нам любые претензии, убытки или расходы, возникшие в результате использования этого сайта или нарушения вами этих Условий использования.</p>
 </li>
 </ol>
-<p class="${generateRandomClasses()}">Если у вас есть какие-либо вопросы или проблемы с этими Условиями использования, пожалуйста, свяжитесь с нами по адресу <a href="mailto:contact@${domainName}">contact@${domainName}</a>.</p>`
+<p class="${generateRandomClasses()}">Если у вас есть какие-либо вопросы или проблемы с этими Условиями использования, пожалуйста, свяжитесь с нами по адресу <a href="mailto:${
+          emailPrefix + domainName
+        }">contact@${emailPrefix + domainName}</a>.</p>`
       : `<p>Copyright &copy; ${new Date().getFullYear()} ${domainName}. All rights reserved.</p>
 <p class="${generateRandomClasses()}">By using this website, you agree to the following Terms and Conditions:</p>
 <ol class="${generateRandomClasses()}">
@@ -174,7 +265,9 @@ const footer = (language, domainName) => {
 <p>Indemnification: You agree to indemnify and hold us harmless from any claims, damages, or expenses arising out of your use of this website or your violation of these Terms and Conditions.</p>
 </li>
 </ol class="${generateRandomClasses()}">
-<p class="${generateRandomClasses()}">If you have any questions or concerns about these Terms and Conditions, please contact us at <a href="mailto:contact@${domainName}">contact@${domainName}</a>.</p>`
+<p class="${generateRandomClasses()}">If you have any questions or concerns about these Terms and Conditions, please contact us at <a href="mailto:${
+          emailPrefix + domainName
+        }">${emailPrefix + domainName}</a>.</p>`
   }</small>
 <a  class="${generateRandomClasses()}" href="#" style="display: block; text-align: center">${
     language === "ru" ? "Наверх сайта ⬆" : "Back to top ⬆"
