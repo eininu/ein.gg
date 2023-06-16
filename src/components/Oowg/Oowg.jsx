@@ -1,8 +1,4 @@
-// TODO: Add favicon.ico
 // TODO: Stop adding pictures if table has paragraphs
-// TODO: Remove demo reloading after switch the lang (just load language once by browser language)
-// TODO: Add theme schanger (dark / light), add costomize background and font colors
-// TODO: Add iframe type focus element (slot, etc)
 
 import { useState, useEffect } from "react";
 import JSZip from "jszip";
