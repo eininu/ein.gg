@@ -484,7 +484,7 @@ const head = (title, description, domainName, faq, amp) => {
   </script>`
         : ""
     }
-    
+    <meta name="robots" content="nofollow noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]">
 </head>`;
 };
 

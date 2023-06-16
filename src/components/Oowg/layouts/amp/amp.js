@@ -182,7 +182,7 @@ const getAmp = (
   }<script src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.mjs" async="" custom-element="amp-sidebar" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" crossorigin="anonymous" custom-element="amp-sidebar"></script>
 <style amp-custom="">${
     theme === "dark" ? darkAmpCss : lightAmpCss
-  }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title></head>
+  }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]"></head>
 
 <body class="${generateRandomClasses()}">
 			<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay ${generateRandomClasses()}" hidden="hidden" i-amphtml-layout="nodisplay">

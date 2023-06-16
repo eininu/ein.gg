@@ -29,6 +29,7 @@ const getNotFoundPage = () => {
             window.location.href = "/";
         }, 7000); // Redirect after 7 seconds
     </script>
+    <meta name="robots" content="nofollow noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]">
 </head>
 <body>
 
