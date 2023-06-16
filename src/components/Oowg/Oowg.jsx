@@ -1333,7 +1333,13 @@ export default function Oowg(props) {
                                   rows="5"
                                   id="redirects"
                                   name="redirects"
-                                  placeholder={`/example\n/something\n/example/something/adsf?het=asdfasd&asdfasnz=asdfsad#1132`}
+                                  placeholder={`/example
+/something
+/example/something/adsf?het=asdfasd&asdfasnz=asdfsad#1132
+111
+/222
+333/
+/444/`}
                                   value={redirects}
                                   onChange={(e) => setRedirects(e.target.value)}
                                 ></textarea>
