@@ -26,6 +26,7 @@ const formatContent = (
   banner.setAttribute("src", "/assets/images/content/banner.jpg");
   banner.setAttribute("alt", "banner");
   banner.setAttribute("style", "border-radius: 10px; width: 100%");
+  banner.setAttribute("on", "tap:navigate-action.execute()");
 
   //// button
   // <button type="button" id="copy-button" class="blob">🔥🔥 Play 🔥🔥</button>
@@ -37,7 +38,9 @@ const formatContent = (
     "txt-button grn-button " + generateRandomClasses()
   );
   // button.setAttribute("onclick", `window.open('${buttonLink}','_blank');`);
-  button.setAttribute("href", buttonLink);
+  // button.setAttribute("href", buttonLink);
+
+  button.setAttribute("on", "tap:navigate-action.execute()");
   button.innerHTML = buttonText;
 
   //// promo code

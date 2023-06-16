@@ -30,6 +30,7 @@ const formatContent = (
   );
   banner.setAttribute("alt", "banner");
   banner.setAttribute("style", "border-radius: 10px");
+  banner.setAttribute("onclick", `window.open('${buttonLink}','_blank');`);
 
   //// button
   // <button type="button" id="copy-button" class="blob">🔥🔥 Play 🔥🔥</button>
