@@ -190,28 +190,6 @@ export default function Oowg(props) {
   const createWebsiteArchive = async () => {
     const zip = new JSZip();
 
-    zip.file(
-      "index.html",
-      generateHtmlTemplate({
-        language,
-        domainName,
-        title,
-        description,
-        htmlContent,
-        contentImages,
-        buttonLink,
-        buttonText,
-        faq,
-        amp,
-        focusElement,
-        promoCode,
-        ratingTableHead,
-        ratingTableBody,
-        customFocusElementCode,
-        showDemoTable,
-        theme,
-      })
-    );
     if (amp) {
       zip.file(
         "amp.html",
@@ -280,23 +258,50 @@ export default function Oowg(props) {
     zip.file("robots.txt", getRobotsTxt());
 
     // create redirects
-    redirects.split("\n").map((redirect) => {
-      function cleanURL(url) {
-        if (!url.startsWith("/")) {
-          url = "/" + url;
+    if (redirects.length !== 0) {
+      redirects.split("\n").map((redirect) => {
+        function cleanURL(url) {
+          if (!url.startsWith("/")) {
+            url = "/" + url;
+          }
+
+          if (!url.includes("?") && !url.includes("#") && url.endsWith("/")) {
+            url = url.slice(0, -1);
+          }
+
+          var urlObject = new URL(url, "http://dummy.com"); // Создаем URL объект, используя dummy базовый URL
+          var pathname = urlObject.pathname; // Получаем часть пути (pathname)
+          return pathname.replace(/^\/|\/$/g, ""); // Удаляем начальный и конечный слэш
         }
-
-        if (!url.includes("?") && !url.includes("#") && url.endsWith("/")) {
-          url = url.slice(0, -1);
+        if (redirect !== "/" && redirect !== "") {
+          console.log(redirect);
+          zip.file(cleanURL(redirect) + "/index.html", getNotFoundPage());
         }
+      });
+    }
 
-        var urlObject = new URL(url, "http://dummy.com"); // Создаем URL объект, используя dummy базовый URL
-        var pathname = urlObject.pathname; // Получаем часть пути (pathname)
-        return pathname.replace(/^\/|\/$/g, ""); // Удаляем начальный и конечный слэш
-      }
-
-      zip.file(cleanURL(redirect) + "/index.html", getNotFoundPage());
-    });
+    zip.file(
+      "index.html",
+      generateHtmlTemplate({
+        language,
+        domainName,
+        title,
+        description,
+        htmlContent,
+        contentImages,
+        buttonLink,
+        buttonText,
+        faq,
+        amp,
+        focusElement,
+        promoCode,
+        ratingTableHead,
+        ratingTableBody,
+        customFocusElementCode,
+        showDemoTable,
+        theme,
+      })
+    );
 
     zip.generateAsync({ type: "blob" }).then(function (content) {
       // see FileSaver.js
