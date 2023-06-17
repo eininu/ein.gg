@@ -274,8 +274,12 @@ export default function Oowg(props) {
           return pathname.replace(/^\/|\/$/g, ""); // Удаляем начальный и конечный слэш
         }
         if (redirect !== "/" && redirect !== "") {
-          console.log(redirect);
-          zip.file(cleanURL(redirect) + "/index.html", getNotFoundPage());
+          // console.log(cleanURL(redirect));
+          if (redirect.endsWith(".html")) {
+            zip.file(cleanURL(redirect), getNotFoundPage());
+          } else {
+            zip.file(cleanURL(redirect) + "/index.html", getNotFoundPage());
+          }
         }
       });
     }
@@ -1341,6 +1345,7 @@ export default function Oowg(props) {
                                   name="redirects"
                                   placeholder={`/example
 /something
+/link.html
 /example/something/adsf?het=asdfasd&asdfasnz=asdfsad#1132
 111
 /222
