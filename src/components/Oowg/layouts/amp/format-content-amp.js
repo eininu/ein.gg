@@ -108,7 +108,7 @@ const formatContent = (
       tBodyTd1.setAttribute("class", generateRandomClasses());
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd2.innerHTML = (Math.random() * 20 + 80).toFixed(2);
-      tbo.setAttribute("class", generateRandomClasses());
+      tBodyTd2.setAttribute("class", generateRandomClasses());
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd3.setAttribute("class", generateRandomClasses());
       const tableButton = document.createElement("a");
