@@ -124,7 +124,6 @@ const formatContent = (
       );
       tableButton.setAttribute("target", "_blank");
       tableButton.innerHTML = product[2];
-      tableButton.setAttribute("class", generateRandomClasses());
       tBodyTd3.appendChild(tableButton);
     });
 

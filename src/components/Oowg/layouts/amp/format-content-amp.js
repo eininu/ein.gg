@@ -115,7 +115,6 @@ const formatContent = (
         "cta-button " + generateRandomClasses()
       );
       tableButton.setAttribute("target", "_blank");
-      tableButton.setAttribute("class", generateRandomClasses());
       tableButton.innerHTML = product[2];
 
       tBodyTd3.appendChild(tableButton);
