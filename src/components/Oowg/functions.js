@@ -264,7 +264,7 @@ User-agent: SemrushBot-CT
 Disallow: /
 
 User-agent: Google-InspectionTool
-Disallow: /`;
+Allow: /`;
 };
 
 export {
