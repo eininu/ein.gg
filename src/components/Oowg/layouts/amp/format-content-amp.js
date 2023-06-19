@@ -42,7 +42,6 @@ const formatContent = (
   // button.setAttribute("href", buttonLink);
 
   button.setAttribute("on", "tap:navigate-action.execute()");
-  button.setAttribute("class", generateRandomClasses());
   button.innerHTML = buttonText;
 
   //// promo code
