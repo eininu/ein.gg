@@ -51,7 +51,6 @@ const formatContent = (
     "class",
     "txt-button grn-button " + generateRandomClasses()
   );
-  promocodeField.setAttribute("class", generateRandomClasses());
   promocodeField.innerText = promoCode;
 
   //// rating table
@@ -85,7 +84,9 @@ const formatContent = (
 
   const createThead = (products) => {
     const tHead = document.createElement("thead");
+    tHead.setAttribute("class", generateRandomClasses());
     const tHeadTr = tHead.appendChild(document.createElement("tr"));
+    tHeadTr.setAttribute("class", generateRandomClasses());
     products.map((product) => {
       const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
       tHeadTh.innerHTML = product;
@@ -98,16 +99,18 @@ const formatContent = (
 
   const createTbody = (products) => {
     const tBody = document.createElement("tbody");
+    tBody.setAttribute("class", generateRandomClasses());
     products.map((product) => {
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
-
+      tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd1.innerHTML = product[0];
-
+      tBodyTd1.setAttribute("class", generateRandomClasses());
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd2.innerHTML = (Math.random() * 20 + 80).toFixed(2);
-
+      tbo.setAttribute("class", generateRandomClasses());
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
+      tBodyTd3.setAttribute("class", generateRandomClasses());
       const tableButton = document.createElement("a");
       tableButton.setAttribute("href", product[1]);
       tableButton.setAttribute(
