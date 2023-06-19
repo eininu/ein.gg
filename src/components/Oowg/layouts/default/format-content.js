@@ -29,6 +29,7 @@ const formatContent = (
       : "/assets/images/content/banner.jpg"
   );
   banner.setAttribute("alt", "banner");
+  banner.setAttribute("class", generateRandomClasses());
   banner.setAttribute("style", "border-radius: 10px");
   isDemo
     ? banner.setAttribute("onclick", `window.open("${buttonLink}",'_blank')`)
@@ -58,6 +59,7 @@ const formatContent = (
     "class",
     "promocode blob " + generateRandomClasses()
   );
+  promocodeField.setAttribute("class", generateRandomClasses());
   promocodeField.innerText = promoCode;
 
   //// rating table
@@ -122,7 +124,7 @@ const formatContent = (
       );
       tableButton.setAttribute("target", "_blank");
       tableButton.innerHTML = product[2];
-
+      tableButton.setAttribute("class", generateRandomClasses());
       tBodyTd3.appendChild(tableButton);
     });
 
@@ -711,6 +713,7 @@ const formatContent = (
   // <p><strong>最終更新日</strong>：<span style="text-decoration: underline;">2022-12-09</span></p>
 
   const updated = document.createElement("p");
+  updated.setAttribute("class", generateRandomClasses());
   const updatedWord = document.createElement("strong");
   updatedWord.innerHTML = getTranslate(language, "updated_text")
     .replaceAll(
@@ -784,6 +787,7 @@ const formatContent = (
   const createImage = (src) => {
     const image = document.createElement("img");
     image.setAttribute("src", src);
+    image.setAttribute("class", generateRandomClasses());
     image.setAttribute(
       "alt",
       src.split("/assets/images/content/")[1]
@@ -813,6 +817,7 @@ const formatContent = (
     const heading = document.getElementsByTagName(el.tagName)[index];
     const myHeading = document.createElement(el.tagName);
     myHeading.setAttribute("id", "h1_" + (index + 1));
+    myHeading.setAttribute("class", generateRandomClasses());
     myHeading.innerHTML = heading.innerText;
     heading.parentNode.replaceChild(myHeading, heading);
   });
@@ -821,6 +826,7 @@ const formatContent = (
     const heading = document.getElementsByTagName(el.tagName)[index];
     const myHeading = document.createElement(el.tagName);
     myHeading.setAttribute("id", "h2_" + (index + 1));
+    myHeading.setAttribute("class", generateRandomClasses());
     myHeading.innerHTML = heading.innerText;
     heading.parentNode.replaceChild(myHeading, heading);
     // push to table on contents
@@ -830,6 +836,7 @@ const formatContent = (
       const a = document.createElement("a");
       a.innerHTML = "❓ " + heading.innerText;
       a.setAttribute("href", "#h2_" + (index + 1));
+      a.setAttribute("class", generateRandomClasses());
       tocItem.appendChild(a);
       tableOfContents.appendChild(tocItem);
     })();

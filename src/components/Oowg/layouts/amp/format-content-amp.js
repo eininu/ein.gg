@@ -26,6 +26,7 @@ const formatContent = (
   banner.setAttribute("src", "/assets/images/content/banner.jpg");
   banner.setAttribute("alt", "banner");
   banner.setAttribute("style", "border-radius: 10px; width: 100%");
+  banner.setAttribute("class", generateRandomClasses());
   // banner.setAttribute("on", "tap:navigate-action.execute()");
 
   //// button
@@ -41,6 +42,7 @@ const formatContent = (
   // button.setAttribute("href", buttonLink);
 
   button.setAttribute("on", "tap:navigate-action.execute()");
+  button.setAttribute("class", generateRandomClasses());
   button.innerHTML = buttonText;
 
   //// promo code
@@ -49,6 +51,7 @@ const formatContent = (
     "class",
     "txt-button grn-button " + generateRandomClasses()
   );
+  promocodeField.setAttribute("class", generateRandomClasses());
   promocodeField.innerText = promoCode;
 
   //// rating table
@@ -112,6 +115,7 @@ const formatContent = (
         "cta-button " + generateRandomClasses()
       );
       tableButton.setAttribute("target", "_blank");
+      tableButton.setAttribute("class", generateRandomClasses());
       tableButton.innerHTML = product[2];
 
       tBodyTd3.appendChild(tableButton);
@@ -761,6 +765,7 @@ const formatContent = (
   updatedDate.innerHTML = new Date().toISOString().split("T")[0];
   updated.appendChild(updatedWord);
   updated.append(": ");
+  updated.setAttribute("class", generateRandomClasses());
   updated.appendChild(updatedDate);
 
   ////
@@ -774,6 +779,7 @@ const formatContent = (
     const image = document.createElement("img");
     image.setAttribute("src", src);
     image.setAttribute("style", "width: 100%");
+    image.setAttribute("class", generateRandomClasses());
     image.setAttribute(
       "alt",
       src.split("/assets/images/content/")[1]
@@ -804,6 +810,7 @@ const formatContent = (
     const myHeading = document.createElement(el.tagName);
     myHeading.setAttribute("id", "h1_" + (index + 1));
     myHeading.innerHTML = heading.innerText;
+    myHeading.setAttribute("class", generateRandomClasses());
     heading.parentNode.replaceChild(myHeading, heading);
   });
 
@@ -811,6 +818,7 @@ const formatContent = (
     const heading = document.getElementsByTagName(el.tagName)[index];
     const myHeading = document.createElement(el.tagName);
     myHeading.setAttribute("id", "h2_" + (index + 1));
+    myHeading.setAttribute("class", generateRandomClasses());
     myHeading.innerHTML = heading.innerText;
     heading.parentNode.replaceChild(myHeading, heading);
     // push to table on contents
@@ -820,6 +828,7 @@ const formatContent = (
       const a = document.createElement("a");
       a.innerHTML = "❓ " + heading.innerText;
       a.setAttribute("href", "#h2_" + (index + 1));
+      a.setAttribute("class", generateRandomClasses());
       tocItem.appendChild(a);
       tableOfContents.appendChild(tocItem);
     })();
