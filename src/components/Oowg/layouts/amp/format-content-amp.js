@@ -616,6 +616,7 @@ const formatContent = (
   // </details>
 
   const faqEl = document.createElement("h2");
+  faqEl.setAttribute("class", generateRandomClasses());
   faqEl.innerHTML = getTranslate(language, "faq_heading")
     .replaceAll(
       "Часто задаваемые вопросы",
@@ -690,8 +691,11 @@ const formatContent = (
 
   const addQA = (question, answer) => {
     const detailsEl = document.createElement("details");
+    detailsEl.setAttribute("class", generateRandomClasses());
     const questionEl = document.createElement("summary");
+    questionEl.setAttribute("class", generateRandomClasses());
     const answerEl = document.createElement("p");
+    answerEl.setAttribute("class", generateRandomClasses());
     questionEl.innerHTML = question;
     answerEl.innerHTML = answer;
 
