@@ -204,7 +204,7 @@ const getAmp = (
     focusElement === "Button" && theme === "auto"
       ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};animation:pulse 2s infinite}"
       : ""
-  }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]"></head>
+  }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive notranslate"></head>
 
 <body class="${generateRandomClasses()}">
 			<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay ${generateRandomClasses()}" hidden="hidden" i-amphtml-layout="nodisplay">
