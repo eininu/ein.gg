@@ -278,13 +278,15 @@ export default function Oowg(props) {
     const contentImg = zip.folder("assets/images/content");
 
     // img.file("image.jpg", imgData, { base64: true });
-    contentImages.map((image, index) => {
-      contentImg.file(
-        image.file.name,
-        image.data_url.split("data:image/jpeg;base64,")[1],
-        { base64: true }
-      );
-    });
+    await Promise.all(
+      contentImages.map(async (image, index) => {
+        await contentImg.file(
+          image.file.name,
+          image.data_url.split("data:image/jpeg;base64,")[1],
+          { base64: true }
+        );
+      })
+    );
 
     const configFile = {
       language,
