@@ -55,7 +55,7 @@ export default function Oowg(props) {
     "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I'd like to cancel my subscription.\nAI:"
   );
   const [chatGPTAnswer, setChatGPTAnswer] = useState("");
-  const [focusElement, setFocusElement] = useState("Button");
+  const [focusElement, setFocusElement] = useState("Rating Table");
   const [promoCode, setPromoCode] = useState("BONUS777");
   const [ratingTableHead, setRatingTableHead] = useState([
     "Product",
@@ -903,9 +903,16 @@ export default function Oowg(props) {
                                         id="product_name_table_add_row"
                                         name="product_name_table_add_row"
                                         placeholder="Product Name"
+                                        // onChange={(e) => {
+                                        //   ratingTableBodyNewRow[0] =
+                                        //     e.target.value;
+                                        // }}
                                         onChange={(e) => {
-                                          ratingTableBodyNewRow[0] =
-                                            e.target.value;
+                                          setRatingTableBodyNewRow([
+                                            e.target.value,
+                                            ratingTableBodyNewRow[1],
+                                            ratingTableBodyNewRow[2],
+                                          ]);
                                         }}
                                         value={ratingTableBodyNewRow[0]}
                                       />
@@ -915,9 +922,16 @@ export default function Oowg(props) {
                                         id="product_link_table_add_row"
                                         name="product_link_table_add_row"
                                         placeholder="Link"
+                                        // onChange={(e) => {
+                                        //   ratingTableBodyNewRow[1] =
+                                        //     e.target.value;
+                                        // }}
                                         onChange={(e) => {
-                                          ratingTableBodyNewRow[1] =
-                                            e.target.value;
+                                          setRatingTableBodyNewRow([
+                                            ratingTableBodyNewRow[0],
+                                            e.target.value,
+                                            ratingTableBodyNewRow[2],
+                                          ]);
                                         }}
                                         value={ratingTableBodyNewRow[1]}
                                       />
@@ -927,9 +941,16 @@ export default function Oowg(props) {
                                         id="product_button_text_table_add_row"
                                         name="product_button_text_table_add_row"
                                         placeholder="Button Text"
+                                        // onChange={(e) => {
+                                        //   ratingTableBodyNewRow[2] =
+                                        //     e.target.value;
+                                        // }}
                                         onChange={(e) => {
-                                          ratingTableBodyNewRow[2] =
-                                            e.target.value;
+                                          setRatingTableBodyNewRow([
+                                            ratingTableBodyNewRow[0],
+                                            ratingTableBodyNewRow[1],
+                                            e.target.value,
+                                          ]);
                                         }}
                                         value={ratingTableBodyNewRow[2]}
                                       />
@@ -941,7 +962,7 @@ export default function Oowg(props) {
                                             ...ratingTableBody,
                                             ratingTableBodyNewRow,
                                           ]);
-                                          setRatingTableBodyNewRow([]);
+                                          // setRatingTableBodyNewRow([]);
                                         }}
                                       >
                                         <svg
