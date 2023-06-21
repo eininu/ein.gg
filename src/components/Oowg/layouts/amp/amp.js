@@ -11,6 +11,12 @@ const htmlMinify = (input) => {
   output = output.replace(/<!--[\s\S]*?-->/g, ""); // Удаляет комментарии
   return output;
 };
+
+const getRandomItem = (arr) => {
+  var index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+};
+
 const generateRandomClasses = () => {
   let cssClassNames = [
     "btnPrimary",
@@ -289,8 +295,48 @@ ${
 
 <footer class="${generateRandomClasses()} footer">
 
-	<div class="${generateRandomClasses()} footer-colophon"><span>© ${new Date().getFullYear()} All Rights Reserved  |  ${domainName}</span>
-<span>18+</span></div></footer>
+	<div class="${generateRandomClasses()} footer-colophon"><span>© ${new Date().getFullYear()} ${getRandomItem(
+    [
+      "All Rights Retained",
+      "All Rights Secured",
+      "Full Rights Retained",
+      "Complete Rights Reserved",
+      "Every Right Maintained",
+      "All Legal Rights Retained",
+      "No Rights Relinquished",
+      "All Copyrights Reserved",
+      "All Rights Held",
+      "All Rights Kept",
+      "Total Rights Retained",
+      "Entire Rights Reserved",
+      "Complete Legal Rights Held",
+      "All Entitlements Retained",
+      "Exclusive Rights Retained",
+      "Rights Fully Secured",
+      "All Legal Privileges Held",
+      "Comprehensive Rights Maintained",
+      "All Intellectual Property Rights Reserved",
+      "Absolute Rights Retained",
+      "All Prerogatives Preserved",
+      "Every Legal Right Maintained",
+      "Full Copyright Control",
+      "All Privileges Retained",
+      "Comprehensive Copyright Reserved",
+      "All Rights Safeguarded",
+      "All Legal Rights Preserved",
+      "Absolute Copyright Reserved",
+      "Total Control of Rights",
+      "Unconditional Rights Retained",
+      "All Authorities Retained",
+      "Rights Preserved Completely",
+      "Comprehensive Control of Rights",
+      "All Legal Claims Retained",
+      "Full Possession of Rights",
+    ]
+  )}  |  ${domainName}</span>
+<span class="${generateRandomClasses()}>${
+    Math.floor(Math.random() * (25 - 18 + 1)) + 18
+  }+</span></div></footer>
 
 </body></html>`);
 };

@@ -277,25 +277,72 @@ const footer = (language, domainName) => {
         ])} <a href="mailto:${emailPrefix + domainName}">${
           emailPrefix + domainName
         }</a>.</p>`
-      : `<p>Copyright &copy; ${new Date().getFullYear()} ${domainName}. All rights reserved.</p>
-<p class="${generateRandomClasses()}">By using this website, you agree to the following Terms and Conditions:</p>
-<ol class="${generateRandomClasses()}">
-<li>
-<p class="${generateRandomClasses()}">Use of Content: All content on this website is for informational purposes only. You may not copy, reproduce, distribute, or modify any content without our written permission.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p>Affiliate Links: This website contains affiliate links, which means that we may earn a commission if you make a purchase through our links. We only promote products and services that we believe in, and our opinions are our own.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p>Disclaimer of Warranties: This website and its content are provided "as is" without warranty of any kind, either express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p>Limitation of Liability: We will not be liable for any damages of any kind arising from the use of this website, including, but not limited to, direct, indirect, incidental, punitive, and consequential damages.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p>Indemnification: You agree to indemnify and hold us harmless from any claims, damages, or expenses arising out of your use of this website or your violation of these Terms and Conditions.</p>
-</li>
-</ol>
+      : `<p>Copyright &copy; ${new Date().getFullYear()} ${domainName}. ${getRandomItem(
+          [
+            "All Rights Retained",
+            "All Rights Secured",
+            "Full Rights Retained",
+            "Complete Rights Reserved",
+            "Every Right Maintained",
+            "All Legal Rights Retained",
+            "No Rights Relinquished",
+            "All Copyrights Reserved",
+            "All Rights Held",
+            "All Rights Kept",
+            "Total Rights Retained",
+            "Entire Rights Reserved",
+            "Complete Legal Rights Held",
+            "All Entitlements Retained",
+            "Exclusive Rights Retained",
+            "Rights Fully Secured",
+            "All Legal Privileges Held",
+            "Comprehensive Rights Maintained",
+            "All Intellectual Property Rights Reserved",
+            "Absolute Rights Retained",
+            "All Prerogatives Preserved",
+            "Every Legal Right Maintained",
+            "Full Copyright Control",
+            "All Privileges Retained",
+            "Comprehensive Copyright Reserved",
+            "All Rights Safeguarded",
+            "All Legal Rights Preserved",
+            "Absolute Copyright Reserved",
+            "Total Control of Rights",
+            "Unconditional Rights Retained",
+            "All Authorities Retained",
+            "Rights Preserved Completely",
+            "Comprehensive Control of Rights",
+            "All Legal Claims Retained",
+            "Full Possession of Rights",
+          ]
+        )}</p>
+
+<script type="text/javascript">
+function generateRandomClasses() {
+    var classes = ["class1", "class2", "class3", "class4", "class5"];
+    var randomIndex = Math.floor(Math.random() * classes.length);
+    return classes[randomIndex];
+}
+document.write('<p class="' + generateRandomClasses() + '">By using this website, you agree to the following Terms and Conditions:</p>');
+document.write('<ol class="' + generateRandomClasses() + '">');
+document.write('<li>');
+document.write('<p class="' + generateRandomClasses() + '">Use of Content: All content on this website is for informational purposes only. You may not copy, reproduce, distribute, or modify any content without our written permission.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Affiliate Links: This website contains affiliate links, which means that we may earn a commission if you make a purchase through our links. We only promote products and services that we believe in, and our opinions are our own.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Disclaimer of Warranties: This website and its content are provided "as is" without warranty of any kind, either express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Limitation of Liability: We will not be liable for any damages of any kind arising from the use of this website, including, but not limited to, direct, indirect, incidental, punitive, and consequential damages.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Indemnification: You agree to indemnify and hold us harmless from any claims, damages, or expenses arising out of your use of this website or your violation of these Terms and Conditions.</p>');
+document.write('</li>');
+document.write('</ol>');
+</script>
+
 <p class="${generateRandomClasses()}">${getRandomItem([
           "If you have any questions or difficulties with these Terms of Use, please do not hesitate to contact us at",
           "In case of any questions or problems related to these Terms of Use, we ask you to contact us at",
