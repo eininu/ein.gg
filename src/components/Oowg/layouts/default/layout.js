@@ -160,6 +160,17 @@ const generateRandomClasses = () => {
   return randomClasses.join(" ");
 };
 
+const getStyleSheet = (isDemo, theme) => {
+  if (isDemo && theme === "auto")
+    return `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/water.min.css">`;
+  if (isDemo && theme === "light")
+    return `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/light.min.css">`;
+  if (isDemo && theme === "dark")
+    return `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/dark.min.css">`;
+
+  return `<link rel="stylesheet" href="/assets/styles/water.min.css">`;
+};
+
 const generateHtmlTemplate = ({
   language,
   title,
@@ -207,21 +218,7 @@ ${head(title, description, domainName, faq, amp)}
 </article>
 ${footer(language, domainName)}
 
-${
-  isDemo && theme === "auto"
-    ? `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/water.min.css">`
-    : `<link rel="stylesheet" href="/assets/styles/water.min.css">`
-}
-${
-  isDemo && theme === "light"
-    ? `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/light.min.css">`
-    : `<link rel="stylesheet" href="/assets/styles/water.min.css">`
-}
-${
-  isDemo && theme === "dark"
-    ? `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/dark.min.css">`
-    : `<link rel="stylesheet" href="/assets/styles/water.min.css">`
-}
+${getStyleSheet(isDemo, theme)}
 ${
   isDemo
     ? `<link rel="stylesheet" href="${window.location.origin}/oowg/assets/styles/style.css">`
