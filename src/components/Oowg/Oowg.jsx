@@ -23,6 +23,9 @@ import getAmp from "./layouts/amp/amp.js";
 import defaultLanguage from "./language/default.json";
 import ru from "./language/ru.json";
 
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // import styles
+
 export default function Oowg(props) {
   const currentLanguage = "en";
 
@@ -88,6 +91,32 @@ export default function Oowg(props) {
 
   const toggleSpoiler = () => {
     setSpoilerVisible(!isSpoilerVisible);
+  };
+
+  const [editMode, setEditMode] = useState(true); // true for editor mode, false for code view
+
+  const modules = {
+    toolbar: [
+      ["bold", "italic", "underline", "strike"],
+      ["blockquote", "code-block"],
+
+      [{ header: 1 }, { header: 2 }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ script: "sub" }, { script: "super" }],
+      [{ indent: "-1" }, { indent: "+1" }],
+      [{ direction: "rtl" }],
+
+      [{ size: ["small", false, "large", "huge"] }],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ color: [] }, { background: [] }],
+      [{ font: [] }],
+      [{ align: [] }],
+
+      ["clean"],
+
+      ["link", "image", "video"],
+    ],
   };
 
   useEffect(() => {
@@ -526,17 +555,31 @@ export default function Oowg(props) {
                                   >
                                     {getTranslate(language, "seo_html")}
                                   </label>
-                                  <textarea
-                                    className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
-                                    rows="5"
-                                    id="html_content"
-                                    name="html_content"
-                                    placeholder="HTML content (seo text)"
-                                    value={`${htmlContent}`}
-                                    onChange={(e) =>
-                                      setHtmlContent(e.target.value)
-                                    }
-                                  ></textarea>
+                                  <div>
+                                    <button
+                                      onClick={() => setEditMode(!editMode)}
+                                    >
+                                      {editMode
+                                        ? "Show HTML Code"
+                                        : "Show visual editor"}
+                                    </button>
+                                    {editMode ? (
+                                      <ReactQuill
+                                        className="block rounded leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                        value={htmlContent}
+                                        onChange={setHtmlContent}
+                                        modules={modules}
+                                      />
+                                    ) : (
+                                      <textarea
+                                        className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 h-96"
+                                        value={htmlContent}
+                                        onChange={(e) =>
+                                          setHtmlContent(e.target.value)
+                                        }
+                                      />
+                                    )}
+                                  </div>
                                 </div>
                               </div>
                             </div>
