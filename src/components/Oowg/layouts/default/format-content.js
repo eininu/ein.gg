@@ -125,6 +125,7 @@ const formatContent = (
         "onclick",
         `window.open(atob('${btoa(product[1])}'),'_blank')`
       );
+      tableButton.setAttribute("style", "cursor: pointer");
       tableButton.setAttribute(
         "class",
         "cta-button " + generateRandomClasses()
