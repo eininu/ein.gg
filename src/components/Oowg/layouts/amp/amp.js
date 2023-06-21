@@ -215,21 +215,6 @@ const getAmp = (
       ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};animation:pulse 2s infinite}"
       : ""
   }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive notranslate">
-
-${
-  focusElement === "Rating Table"
-    ? ratingTableBody.reduce((acc, rec, index) => {
-        acc += `<amp-action-macro id="navigate-action${
-          index + 1
-        }" execute="AMP.navigateTo(url='${
-          rec[1]
-        }')" class="navbarToggle navItem accordionItem rdvfe fleam muarh i-amphtml-layout-container i-amphtml-element i-amphtml-built" i-amphtml-layout="container"></amp-action-macro>`;
-
-        return acc;
-      }, "")
-    : ""
-}
-
 </head>
 
 <body class="${generateRandomClasses()}">
@@ -245,7 +230,19 @@ ${
 					</nav>
 				</div>
 			</amp-sidebar>
-			
+			${
+        focusElement === "Rating Table"
+          ? ratingTableBody.reduce((acc, rec, index) => {
+              acc += `<amp-action-macro id="navigate-action${
+                index + 1
+              }" execute="AMP.navigateTo(url='${
+                rec[1]
+              }')" class="navbarToggle navItem accordionItem rdvfe fleam muarh i-amphtml-layout-container i-amphtml-element i-amphtml-built" i-amphtml-layout="container"></amp-action-macro>`;
+
+              return acc;
+            }, "")
+          : ""
+      }
 <header id="#top" class="${generateRandomClasses()} amp-wp-header">
 
 				<div class="${generateRandomClasses()} hamburgermenu">

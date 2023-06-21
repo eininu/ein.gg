@@ -191,6 +191,8 @@ const formatContent = (
         "on",
         `tap:navigate-action${index + 1}.execute()`
       );
+      tableButton.setAttribute("role", `button`);
+      tableButton.setAttribute("tabindex", index + 1);
       tableButton.setAttribute(
         "class",
         "cta-button " + generateRandomClasses()
