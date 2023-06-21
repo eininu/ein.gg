@@ -84,6 +84,12 @@ export default function Oowg(props) {
 
   const [redirects, setRedirects] = useState("");
 
+  const [isSpoilerVisible, setSpoilerVisible] = useState(false);
+
+  const toggleSpoiler = () => {
+    setSpoilerVisible(!isSpoilerVisible);
+  };
+
   useEffect(() => {
     try {
       const {
@@ -1420,14 +1426,48 @@ export default function Oowg(props) {
               <div
                 className={`lg:block order-first lg:order-last lg:col-span-4 p-5 lg:p-6 bg-white shadow-sm rounded-lg`}
               >
+                <div className="lg:hidden">
+                  {/* Мобильный вид спойлера */}
+                  <input
+                    type="checkbox"
+                    id="spoilerToggle"
+                    className="hidden"
+                    checked={isSpoilerVisible}
+                    onChange={toggleSpoiler}
+                  />
+                  <label
+                    htmlFor="spoilerToggle"
+                    className="block w-full px-4 py-2 bg-gray-300 text-gray-700 text-xs rounded-md cursor-pointer"
+                  >
+                    {isSpoilerVisible ? "Demo" : "Demo"}
+                  </label>
+                  <div
+                    id="spoilerContent"
+                    className={`overflow-hidden ${
+                      isSpoilerVisible ? "max-h-full" : "max-h-0"
+                    }`}
+                  >
+                    <iframe
+                      src={iFrameSrc}
+                      frameBorder="0"
+                      width={"100%"}
+                      className={"min-h-screen h-full"}
+                    ></iframe>
+                  </div>
+                </div>
+                <div className="hidden lg:block">
+                  {/* Десктопный вид спойлера */}
+                  <iframe
+                    src={iFrameSrc}
+                    frameBorder="0"
+                    width={"100%"}
+                    className={"min-h-screen h-full"}
+                  ></iframe>
+                </div>
+
                 {/*flex items-center justify-center rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 text-gray-400 py-64 dark:bg-gray-800 dark:border-gray-700*/}
                 {/*<div className="">*/}
-                <iframe
-                  src={iFrameSrc}
-                  frameBorder="0"
-                  width={"100%"}
-                  className={"min-h-screen h-full"}
-                ></iframe>
+
                 {/*<HTMLString*/}
                 {/*  html={generateHtmlTemplate({*/}
                 {/*    language,*/}
@@ -1452,6 +1492,7 @@ export default function Oowg(props) {
 
                 */}
               </div>
+
               {/* END Side content */}
             </div>
           </div>
