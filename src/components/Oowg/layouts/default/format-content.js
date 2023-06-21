@@ -89,12 +89,24 @@ const formatContent = (
   //// banner
   // <img src="/assets/images/banner.jpg" style="border-radius: 10px" alt="/assets/images/banner.jpg"/>
   const banner = document.createElement("img");
-  banner.setAttribute(
-    "src",
-    isDemo
-      ? window.location.origin + "/oowg/assets/images/banner.jpg"
-      : "/assets/images/content/banner.jpg"
-  );
+  if (isDemo) {
+    contentImages.map((img) => {
+      img.file.name === "banner.jpg"
+        ? banner.setAttribute("src", img.data_url)
+        : banner.setAttribute(
+            "src",
+            window.location.origin + "/oowg/assets/images/banner.jpg"
+          );
+    });
+  } else {
+    banner.setAttribute("src", "/assets/images/content/banner.jpg");
+  }
+  // banner.setAttribute(
+  //   "src",
+  //   isDemo
+  //     ? window.location.origin + "/oowg/assets/images/banner.jpg"
+  //     : "/assets/images/content/banner.jpg"
+  // );
   banner.setAttribute("alt", "banner");
   banner.setAttribute("class", generateRandomClasses());
   banner.setAttribute("style", "border-radius: 10px");
