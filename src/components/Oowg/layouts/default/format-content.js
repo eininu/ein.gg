@@ -4,6 +4,69 @@ const getRandomItem = (arr) => {
   var index = Math.floor(Math.random() * arr.length);
   return arr[index];
 };
+
+const getRandomEmoji = () => {
+  return getRandomItem([
+    "😀",
+    "😊",
+    "😍",
+    "😎",
+    "🤩",
+    "🥳",
+    "🤗",
+    "🤔",
+    "😄",
+    "😘",
+    "🌞",
+    "🌈",
+    "🌻",
+    "🌺",
+    "🍕",
+    "🍦",
+    "🎉",
+    "🎈",
+    "✨",
+    "🎁",
+    "🐶",
+    "🐱",
+    "🐼",
+    "🐬",
+    "🐦",
+    "🐝",
+    "🐢",
+    "🐞",
+    "🦄",
+    "🦋",
+    "🍔",
+    "🍓",
+    "🍩",
+    "🍿",
+    "🍍",
+    "🍄",
+    "🌸",
+    "🌼",
+    "🌙",
+    "⭐️",
+    "🎵",
+    "🎮",
+    "📚",
+    "🎨",
+    "🎥",
+    "📷",
+    "🔥",
+    "⚽️",
+    "🚀",
+    "🚲",
+    "⌚️",
+    "📱",
+    "💻",
+    "🎧",
+    "📺",
+    "🕹️",
+    "📸",
+  ]);
+};
+
 const formatContent = (
   htmlContent,
   isDemo,
@@ -123,66 +186,7 @@ const formatContent = (
       } else if (index === 2) {
         tBodyTd1.innerHTML = "🥉" + product[0];
       } else {
-        tBodyTd1.innerHTML =
-          `${getRandomItem([
-            "😀",
-            "😊",
-            "😍",
-            "😎",
-            "🤩",
-            "🥳",
-            "🤗",
-            "🤔",
-            "😄",
-            "😘",
-            "🌞",
-            "🌈",
-            "🌻",
-            "🌺",
-            "🍕",
-            "🍦",
-            "🎉",
-            "🎈",
-            "✨",
-            "🎁",
-            "🐶",
-            "🐱",
-            "🐼",
-            "🐬",
-            "🐦",
-            "🐝",
-            "🐢",
-            "🐞",
-            "🦄",
-            "🦋",
-            "🍔",
-            "🍓",
-            "🍩",
-            "🍿",
-            "🍍",
-            "🍄",
-            "🌸",
-            "🌼",
-            "🌙",
-            "⭐️",
-            "🎵",
-            "🎮",
-            "📚",
-            "🎨",
-            "🎥",
-            "📷",
-            "🔥",
-            "⚽️",
-            "🚀",
-            "🚲",
-            "⌚️",
-            "📱",
-            "💻",
-            "🎧",
-            "📺",
-            "🕹️",
-            "📸",
-          ])}` + product[0];
+        tBodyTd1.innerHTML = `${getRandomEmoji()}` + product[0];
       }
 
       tBodyTd1.setAttribute("class", generateRandomClasses());
@@ -669,7 +673,25 @@ const formatContent = (
       ])
     )
     .replaceAll("5", `${Math.floor(Math.random() * (100 - 1 + 1)) + 1}+`)
-    .replaceAll("100", `${Math.floor(Math.random() * (500 - 20 + 1)) + 20}+`);
+    .replaceAll("100", `${Math.floor(Math.random() * (500 - 20 + 1)) + 20}+`)
+    .replaceAll("\uD83D\uDD25", getRandomEmoji())
+    .replaceAll("\uD83C\uDFB0", getRandomEmoji())
+    .replaceAll("\uD83D\uDCC4", getRandomEmoji())
+    .replaceAll("\uD83D\uDE4C", getRandomEmoji())
+    .replaceAll("\uD83C\uDFB2", getRandomEmoji())
+    .replaceAll("\uD83D\uDDFA\uFE0F", getRandomEmoji())
+    .replaceAll("\uD83D\uDCB5", getRandomEmoji())
+    .replaceAll("\uD83E\uDDD1", getRandomEmoji())
+    .replaceAll("\uD83D\uDCBB", getRandomEmoji())
+    .replaceAll("\uD83D\uDCB3", getRandomEmoji())
+    .replaceAll("\uD83D\uDCB3", getRandomEmoji())
+    .replaceAll("\uD83C\uDF81", getRandomEmoji())
+    .replaceAll("\uD83D\uDCB0", getRandomEmoji())
+    .replaceAll("\uD83D\uDCB8", getRandomEmoji())
+    .replaceAll("\uD83D\uDCF1", getRandomEmoji())
+    .replaceAll("\uD83D\uDD25", getRandomEmoji())
+    .replaceAll("\uD83D\uDCAC", getRandomEmoji());
+
   const createTable = (html) => {
     var template = document.createElement("template");
     html = html.trim(); // Never return a text node of whitespace as the result
@@ -911,68 +933,7 @@ const formatContent = (
     (() => {
       const tocItem = document.createElement("li");
       const a = document.createElement("a");
-      a.innerHTML =
-        `${getRandomItem([
-          "😀",
-          "😊",
-          "😍",
-          "😎",
-          "🤩",
-          "🥳",
-          "🤗",
-          "🤔",
-          "😄",
-          "😘",
-          "🌞",
-          "🌈",
-          "🌻",
-          "🌺",
-          "🍕",
-          "🍦",
-          "🎉",
-          "🎈",
-          "✨",
-          "🎁",
-          "🐶",
-          "🐱",
-          "🐼",
-          "🐬",
-          "🐦",
-          "🐝",
-          "🐢",
-          "🐞",
-          "🦄",
-          "🦋",
-          "🍔",
-          "🍓",
-          "🍩",
-          "🍿",
-          "🍍",
-          "🍄",
-          "🌸",
-          "🌼",
-          "🌙",
-          "⭐️",
-          "🎵",
-          "🎮",
-          "📚",
-          "🎨",
-          "🎥",
-          "📷",
-          "🔥",
-          "⚽️",
-          "🚀",
-          "🚲",
-          "⌚️",
-          "📱",
-          "💻",
-          "🎧",
-          "📺",
-          "🕹️",
-          "📸",
-        ])}` +
-        " " +
-        heading.innerText;
+      a.innerHTML = `${getRandomEmoji()}` + " " + heading.innerText;
       a.setAttribute("href", "#h2_" + (index + 1));
       a.setAttribute("class", generateRandomClasses());
       tocItem.appendChild(a);
