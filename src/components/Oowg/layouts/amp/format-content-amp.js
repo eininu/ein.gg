@@ -929,7 +929,7 @@ const formatContent = (
     (() => {
       const tocItem = document.createElement("li");
       const a = document.createElement("a");
-      a.innerHTML = "❓ " + heading.innerText;
+      a.innerHTML = `${getRandomEmoji()}` + " " + heading.innerText;
       a.setAttribute("href", "#h2_" + (index + 1));
       a.setAttribute("class", generateRandomClasses());
       tocItem.appendChild(a);
