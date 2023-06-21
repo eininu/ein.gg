@@ -1455,7 +1455,7 @@ export default function Oowg(props) {
                     ></iframe>
                   </div>
                 </div>
-                <div className="hidden lg:block">
+                <div className="hidden lg:block min-h-screen h-full">
                   {/* Десктопный вид спойлера */}
                   <iframe
                     src={iFrameSrc}
