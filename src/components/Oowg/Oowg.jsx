@@ -115,7 +115,8 @@ export default function Oowg(props) {
 
       ["clean"],
 
-      ["link", "image", "video"],
+      // ["link", "image", "video"],
+      ["link", "video"],
     ],
   };
 
