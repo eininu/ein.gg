@@ -557,13 +557,14 @@ export default function Oowg(props) {
                                     {getTranslate(language, "seo_html")}
                                   </label>
                                   <div>
-                                    <button
+                                    <p
+                                      className={"text-xs"}
                                       onClick={() => setEditMode(!editMode)}
                                     >
                                       {editMode
                                         ? "Show HTML Code"
                                         : "Show visual editor"}
-                                    </button>
+                                    </p>
                                     {editMode ? (
                                       <ReactQuill
                                         className="block rounded leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
