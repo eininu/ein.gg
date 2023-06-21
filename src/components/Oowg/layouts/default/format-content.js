@@ -1,5 +1,9 @@
 import { getTranslate, generateRandomClasses } from "../../functions.js";
 
+const getRandomItem = (arr) => {
+  var index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+};
 const formatContent = (
   htmlContent,
   isDemo,
@@ -108,11 +112,79 @@ const formatContent = (
   const createTbody = (products) => {
     const tBody = document.createElement("tbody");
     tBody.setAttribute("class", generateRandomClasses());
-    products.map((product) => {
+    products.map((product, index) => {
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
-      tBodyTd1.innerHTML = product[0];
+      if (index === 0) {
+        tBodyTd1.innerHTML = "🥇" + product[0];
+      } else if (index === 1) {
+        tBodyTd1.innerHTML = "🥈" + product[0];
+      } else if (index === 2) {
+        tBodyTd1.innerHTML = "🥉" + product[0];
+      } else {
+        tBodyTd1.innerHTML =
+          `${getRandomItem([
+            "😀",
+            "😊",
+            "😍",
+            "😎",
+            "🤩",
+            "🥳",
+            "🤗",
+            "🤔",
+            "😄",
+            "😘",
+            "🌞",
+            "🌈",
+            "🌻",
+            "🌺",
+            "🍕",
+            "🍦",
+            "🎉",
+            "🎈",
+            "✨",
+            "🎁",
+            "🐶",
+            "🐱",
+            "🐼",
+            "🐬",
+            "🐦",
+            "🐝",
+            "🐢",
+            "🐞",
+            "🦄",
+            "🦋",
+            "🍔",
+            "🍓",
+            "🍩",
+            "🍿",
+            "🍍",
+            "🍄",
+            "🌸",
+            "🌼",
+            "🌙",
+            "⭐️",
+            "🎵",
+            "🎮",
+            "📚",
+            "🎨",
+            "🎥",
+            "📷",
+            "🔥",
+            "⚽️",
+            "🚀",
+            "🚲",
+            "⌚️",
+            "📱",
+            "💻",
+            "🎧",
+            "📺",
+            "🕹️",
+            "📸",
+          ])}` + product[0];
+      }
+
       tBodyTd1.setAttribute("class", generateRandomClasses());
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd2.innerHTML = (Math.random() * 20 + 80).toFixed(2);
@@ -161,11 +233,6 @@ const formatContent = (
   const tableOfContents = document.createElement("ol");
 
   //// table
-
-  const getRandomItem = (arr) => {
-    var index = Math.floor(Math.random() * arr.length);
-    return arr[index];
-  };
 
   const getRandomElements = (arr) => {
     let arrCopy = [...arr];
@@ -844,7 +911,68 @@ const formatContent = (
     (() => {
       const tocItem = document.createElement("li");
       const a = document.createElement("a");
-      a.innerHTML = "❓ " + heading.innerText;
+      a.innerHTML =
+        `${getRandomItem([
+          "😀",
+          "😊",
+          "😍",
+          "😎",
+          "🤩",
+          "🥳",
+          "🤗",
+          "🤔",
+          "😄",
+          "😘",
+          "🌞",
+          "🌈",
+          "🌻",
+          "🌺",
+          "🍕",
+          "🍦",
+          "🎉",
+          "🎈",
+          "✨",
+          "🎁",
+          "🐶",
+          "🐱",
+          "🐼",
+          "🐬",
+          "🐦",
+          "🐝",
+          "🐢",
+          "🐞",
+          "🦄",
+          "🦋",
+          "🍔",
+          "🍓",
+          "🍩",
+          "🍿",
+          "🍍",
+          "🍄",
+          "🌸",
+          "🌼",
+          "🌙",
+          "⭐️",
+          "🎵",
+          "🎮",
+          "📚",
+          "🎨",
+          "🎥",
+          "📷",
+          "🔥",
+          "⚽️",
+          "🚀",
+          "🚲",
+          "⌚️",
+          "📱",
+          "💻",
+          "🎧",
+          "📺",
+          "🕹️",
+          "📸",
+        ])}` +
+        " " +
+        heading.innerText;
       a.setAttribute("href", "#h2_" + (index + 1));
       a.setAttribute("class", generateRandomClasses());
       tocItem.appendChild(a);
