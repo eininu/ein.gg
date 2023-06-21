@@ -224,7 +224,7 @@ const getAmp = (
 					<nav id="primary-amp-menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
 						<div class="${generateRandomClasses()} menu-main-menu-container">
 
-						<div class="${generateRandomClasses()} menu-amp-container"><ul id="menu-amp" class="${generateRandomClasses()} amp-menu"><li id="menu-item-1332" class="${generateRandomClasses()} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-22 current_page_item menu-item-1332 tie-current-menu"><a href="/amp.html" aria-current="page">HomePage</a></li>
+						<div class="${generateRandomClasses()} menu-amp-container"><ul id="menu-amp" class="${generateRandomClasses()} amp-menu"><li id="menu-item-1332" class="${generateRandomClasses()} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-22 current_page_item menu-item-1332 tie-current-menu"><a href="/amp.html" aria-current="page">${domainName}</a></li>
 </ul></div>
 						</div>
 					</nav>
