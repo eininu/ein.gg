@@ -3,6 +3,68 @@ const getRandomItem = (arr) => {
   return arr[index];
 };
 
+const getRandomEmoji = () => {
+  return getRandomItem([
+    "😀",
+    "😊",
+    "😍",
+    "😎",
+    "🤩",
+    "🥳",
+    "🤗",
+    "🤔",
+    "😄",
+    "😘",
+    "🌞",
+    "🌈",
+    "🌻",
+    "🌺",
+    "🍕",
+    "🍦",
+    "🎉",
+    "🎈",
+    "✨",
+    "🎁",
+    "🐶",
+    "🐱",
+    "🐼",
+    "🐬",
+    "🐦",
+    "🐝",
+    "🐢",
+    "🐞",
+    "🦄",
+    "🦋",
+    "🍔",
+    "🍓",
+    "🍩",
+    "🍿",
+    "🍍",
+    "🍄",
+    "🌸",
+    "🌼",
+    "🌙",
+    "⭐️",
+    "🎵",
+    "🎮",
+    "📚",
+    "🎨",
+    "🎥",
+    "📷",
+    "🔥",
+    "⚽️",
+    "🚀",
+    "🚲",
+    "⌚️",
+    "📱",
+    "💻",
+    "🎧",
+    "📺",
+    "🕹️",
+    "📸",
+  ]);
+};
+
 const head = (title, description, domainName, faq, amp) => {
   return `<head>
     <meta charset="UTF-8">
@@ -473,10 +535,10 @@ const head = (title, description, domainName, faq, amp) => {
       "mainEntity": [${faq.map((faqItem) => {
         return `{
         "@type": "Question",
-        "name": "${faqItem[0]}",
+        "name": "${getRandomEmoji()} ${faqItem[0]}",
       "acceptedAnswer": {
       "@type": "Answer",
-      "text": "${faqItem[1]}"
+      "text": "${getRandomEmoji()} ${faqItem[1]}"
     }
     }`;
       })}]
