@@ -99,7 +99,7 @@ const formatContent = (
   const createTbody = (products) => {
     const tBody = document.createElement("tbody");
     tBody.setAttribute("class", generateRandomClasses());
-    products.map((product) => {
+    products.map((product, index) => {
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
@@ -110,13 +110,17 @@ const formatContent = (
       tBodyTd2.setAttribute("class", generateRandomClasses());
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd3.setAttribute("class", generateRandomClasses());
-      const tableButton = document.createElement("a");
-      tableButton.setAttribute("href", product[1]);
+      const tableButton = document.createElement("div");
+      // tableButton.setAttribute("href", product[1]);
+      tableButton.setAttribute(
+        "on",
+        `tap:navigate-action${index + 1}.execute()`
+      );
       tableButton.setAttribute(
         "class",
         "cta-button " + generateRandomClasses()
       );
-      tableButton.setAttribute("target", "_blank");
+      // tableButton.setAttribute("target", "_blank");
       tableButton.innerHTML = product[2];
 
       tBodyTd3.appendChild(tableButton);

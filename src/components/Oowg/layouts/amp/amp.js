@@ -179,6 +179,10 @@ const getAmp = (
     focusElement === "Button"
       ? `<script src="https://cdn.ampproject.org/v0/amp-action-macro-0.1.mjs" async="" custom-element="amp-action-macro" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0/amp-action-macro-0.1.js" crossorigin="anonymous" custom-element="amp-action-macro"></script>`
       : ""
+  }${
+    focusElement === "Rating Table"
+      ? `<script src="https://cdn.ampproject.org/v0/amp-action-macro-0.1.mjs" async="" custom-element="amp-action-macro" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0/amp-action-macro-0.1.js" crossorigin="anonymous" custom-element="amp-action-macro"></script>`
+      : ""
   }<script src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.mjs" async="" custom-element="amp-sidebar" type="module" crossorigin="anonymous"></script><script async nomodule src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" crossorigin="anonymous" custom-element="amp-sidebar"></script>
 <style amp-custom="">${theme === "dark" ? darkAmpCss : lightAmpCss}${
     focusElement === "Promo Code" && theme === "dark"
@@ -204,7 +208,19 @@ const getAmp = (
     focusElement === "Button" && theme === "auto"
       ? "@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(0,0,0,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px transparent}100%{transform:scale(.95);box-shadow:0 0 0 0 transparent}}.grn-button{background-color:#d6d6d6;color:{};animation:pulse 2s infinite}"
       : ""
-  }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive notranslate"></head>
+  }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive notranslate">
+
+${ratingTableBody.reduce((acc, rec, index) => {
+  acc += `<amp-action-macro id="navigate-action${
+    index + 1
+  }" execute="AMP.navigateTo(url='${
+    rec[1]
+  }')" class="navbarToggle navItem accordionItem rdvfe fleam muarh i-amphtml-layout-container i-amphtml-element i-amphtml-built" i-amphtml-layout="container"></amp-action-macro>`;
+
+  return acc;
+}, "")}
+
+</head>
 
 <body class="${generateRandomClasses()}">
 			<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay ${generateRandomClasses()}" hidden="hidden" i-amphtml-layout="nodisplay">
@@ -230,7 +246,6 @@ const getAmp = (
 		${domainName}
 	</div>
 </header>
-
 
 <article class="${generateRandomClasses()} amp-wp-article">
 	<!--<header class="amp-wp-article-header">
