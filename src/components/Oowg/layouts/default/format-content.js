@@ -119,8 +119,12 @@ const formatContent = (
       tBodyTd2.setAttribute("class", generateRandomClasses());
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd3.setAttribute("class", generateRandomClasses());
-      const tableButton = document.createElement("a");
-      tableButton.setAttribute("href", product[1]);
+      const tableButton = document.createElement("span");
+      // tableButton.setAttribute("href", product[1]);
+      tableButton.setAttribute(
+        "onclick",
+        `window.open(atob('${btoa(product[1])}'),'_blank')`
+      );
       tableButton.setAttribute(
         "class",
         "cta-button " + generateRandomClasses()

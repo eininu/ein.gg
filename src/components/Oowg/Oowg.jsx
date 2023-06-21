@@ -63,9 +63,9 @@ export default function Oowg(props) {
     "Play",
   ]);
   const [ratingTableBody, setRatingTableBody] = useState([
-    ["Product 1", "#", "Play"],
-    ["Product 2", "#", "Play"],
-    ["Product 3", "#", "Play"],
+    ["Product 1", "https://example.com", "Play"],
+    ["Product 2", "https://example.com", "Play"],
+    ["Product 3", "https://example.com", "Play"],
   ]);
   const [ratingTableBodyNewRow, setRatingTableBodyNewRow] = useState([]);
 
