@@ -225,24 +225,132 @@ const footer = (language, domainName) => {
     <small class="${generateRandomClasses()}">${
     language === "ru"
       ? `<p class="${generateRandomClasses()}">Авторское право &copy; ${new Date().getFullYear()} ${domainName}. Все права защищены.</p>
-<p class="${generateRandomClasses()}">Используя этот сайт, вы соглашаетесь с следующими Условиями использования:</p>
-<ol class="${generateRandomClasses()}">
-<li class="${generateRandomClasses()}">
-<p class="${generateRandomClasses()}">Использование контента: Весь контент на этом сайте предназначен только для информационных целей. Вы не можете копировать, воспроизводить, распространять или изменять любой контент без нашего письменного разрешения.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p class="${generateRandomClasses()}">Партнерские ссылки: Этот сайт содержит партнерские ссылки, что означает, что мы можем получить комиссию, если вы совершите покупку через наши ссылки. Мы продвигаем только те продукты и услуги, в которые верим, и наши мнения являются собственными.</p>
-</li>
-<li>
-<p class="${generateRandomClasses()}">Отказ от гарантий: Этот сайт и его контент предоставляются "как есть" без каких-либо гарантий, явных или подразумеваемых, включая, но не ограничиваясь, подразумеваемыми гарантиями товарной пригодности, соответствия конкретной цели или отсутствия нарушения прав.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p class="${generateRandomClasses()}">Ограничение ответственности: Мы не будем нести ответственность за какие-либо убытки, проистекающие из использования этого сайта, включая, но не ограничиваясь, прямыми, косвенными, случайными, наказуемыми и последующими убытками.</p>
-</li>
-<li class="${generateRandomClasses()}">
-<p class="${generateRandomClasses()}">Возмещение убытков: Вы соглашаетесь возместить нам любые претензии, убытки или расходы, возникшие в результате использования этого сайта или нарушения вами этих Условий использования.</p>
-</li>
-</ol>
+<script type="text/javascript">
+function generateRandomClasses() {
+    var classes = [
+    "btnPrimary",
+    "btnSecondary",
+    "headerContainer",
+    "footerContainer",
+    "navBar",
+    "dropDown",
+    "heroSection",
+    "cardContainer",
+    "cardImage",
+    "cardText",
+    "formInput",
+    "formSubmit",
+    "modalWindow",
+    "modalClose",
+    "gridContainer",
+    "gridItem",
+    "listContainer",
+    "listItem",
+    "carouselContainer",
+    "carouselItem",
+    "tabContainer",
+    "tabItem",
+    "responsiveImage",
+    "flexContainer",
+    "flexItem",
+    "leftSidebar",
+    "rightSidebar",
+    "headerLogo",
+    "footerLogo",
+    "mainContent",
+    "bgPrimary",
+    "bgSecondary",
+    "textPrimary",
+    "textSecondary",
+    "textBold",
+    "textItalic",
+    "textUnderline",
+    "alertSuccess",
+    "alertError",
+    "alertWarning",
+    "spinnerLoading",
+    "toggleSwitch",
+    "checkboxCustom",
+    "radioCustom",
+    "iconSocial",
+    "iconArrow",
+    "iconClose",
+    "iconHamburger",
+    "lightboxContainer",
+    "lightboxItem",
+    "overlayDark",
+    "overlayLight",
+    "badgeStatus",
+    "tooltipCustom",
+    "popoverCustom",
+    "collapsibleItem",
+    "accordionItem",
+    "progressBar",
+    "progressCircle",
+    "chartBar",
+    "chartPie",
+    "tableResponsive",
+    "dataTable",
+    "modalHeader",
+    "modalBody",
+    "modalFooter",
+    "navItem",
+    "navLink",
+    "cardHeader",
+    "cardBody",
+    "cardFooter",
+    "listGroup",
+    "listGroupItem",
+    "paginationContainer",
+    "paginationItem",
+    "breadcrumbsContainer",
+    "breadcrumbsItem",
+    "alertInfo",
+    "alertDismiss",
+    "dropdownMenu",
+    "dropdownItem",
+    "formGroup",
+    "formControl",
+    "formLabel",
+    "formHelp",
+    "inputGroup",
+    "inputGroupAddon",
+    "jumbotron",
+    "mediaObject",
+    "navbarBrand",
+    "navbarToggle",
+    "sidebarToggle",
+    "userAvatar",
+    "userProfile",
+    "contentWrapper",
+    "parallaxBackground",
+    "stickyElement",
+    "scrollSpy",
+    "headerSticky",
+    "footerSticky",
+  ];
+    var randomIndex = Math.floor(Math.random() * classes.length);
+    return classes[randomIndex];
+}
+document.write('<p class="' + generateRandomClasses() + '">Используя этот сайт, вы соглашаетесь со следующими условиями использования:</p>');
+document.write('<ol class="' + generateRandomClasses() + '">');
+document.write('<li>');
+document.write('<p class="' + generateRandomClasses() + '">Использование контента: Весь контент на этом сайте предназначен только для информационных целей. Вы не можете копировать, воспроизводить, распространять или изменять какой-либо контент без нашего письменного разрешения.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Партнерские ссылки: На этом сайте есть партнерские ссылки, что означает, что мы можем получить комиссию, если вы совершите покупку по нашим ссылкам. Мы рекламируем только те продукты и услуги, в которые верим, и наши мнения - наши собственные.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Отказ от гарантий: Этот сайт и его контент предоставляются "как есть" без гарантий любого рода, явных или подразумеваемых, включая, но не ограничиваясь, подразумеваемыми гарантиями товарной пригодности, пригодности для определенной цели или не нарушения прав.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Ограничение ответственности: Мы не несем ответственности за какие-либо убытки, возникающие в результате использования этого сайта, включая, но не ограничиваясь, прямые, косвенные, случайные, наказательные и последующие убытки.</p>');
+document.write('</li>');
+document.write('<li class="' + generateRandomClasses() + '">');
+document.write('<p>Возмещение убытков: Вы соглашаетесь возместить наши убытки и защитить нас от любых претензий, убытков или расходов, возникающих из-за вашего использования этого сайта или нарушения вами этих Условий и положений.</p>');
+document.write('</li>');
+document.write('</ol>');
+</script>
 <p class="${generateRandomClasses()}">${getRandomItem([
           "Если у вас возникнут вопросы или сложности в отношении этих Условий использования, не стесняйтесь обращаться к нам по адресу",
           "В случае возникновения вопросов или проблем, связанных с этими Условиями использования, мы просим вас связаться с нами по адресу",
@@ -319,7 +427,108 @@ const footer = (language, domainName) => {
 
 <script type="text/javascript">
 function generateRandomClasses() {
-    var classes = ["class1", "class2", "class3", "class4", "class5"];
+    var classes = [
+    "btnPrimary",
+    "btnSecondary",
+    "headerContainer",
+    "footerContainer",
+    "navBar",
+    "dropDown",
+    "heroSection",
+    "cardContainer",
+    "cardImage",
+    "cardText",
+    "formInput",
+    "formSubmit",
+    "modalWindow",
+    "modalClose",
+    "gridContainer",
+    "gridItem",
+    "listContainer",
+    "listItem",
+    "carouselContainer",
+    "carouselItem",
+    "tabContainer",
+    "tabItem",
+    "responsiveImage",
+    "flexContainer",
+    "flexItem",
+    "leftSidebar",
+    "rightSidebar",
+    "headerLogo",
+    "footerLogo",
+    "mainContent",
+    "bgPrimary",
+    "bgSecondary",
+    "textPrimary",
+    "textSecondary",
+    "textBold",
+    "textItalic",
+    "textUnderline",
+    "alertSuccess",
+    "alertError",
+    "alertWarning",
+    "spinnerLoading",
+    "toggleSwitch",
+    "checkboxCustom",
+    "radioCustom",
+    "iconSocial",
+    "iconArrow",
+    "iconClose",
+    "iconHamburger",
+    "lightboxContainer",
+    "lightboxItem",
+    "overlayDark",
+    "overlayLight",
+    "badgeStatus",
+    "tooltipCustom",
+    "popoverCustom",
+    "collapsibleItem",
+    "accordionItem",
+    "progressBar",
+    "progressCircle",
+    "chartBar",
+    "chartPie",
+    "tableResponsive",
+    "dataTable",
+    "modalHeader",
+    "modalBody",
+    "modalFooter",
+    "navItem",
+    "navLink",
+    "cardHeader",
+    "cardBody",
+    "cardFooter",
+    "listGroup",
+    "listGroupItem",
+    "paginationContainer",
+    "paginationItem",
+    "breadcrumbsContainer",
+    "breadcrumbsItem",
+    "alertInfo",
+    "alertDismiss",
+    "dropdownMenu",
+    "dropdownItem",
+    "formGroup",
+    "formControl",
+    "formLabel",
+    "formHelp",
+    "inputGroup",
+    "inputGroupAddon",
+    "jumbotron",
+    "mediaObject",
+    "navbarBrand",
+    "navbarToggle",
+    "sidebarToggle",
+    "userAvatar",
+    "userProfile",
+    "contentWrapper",
+    "parallaxBackground",
+    "stickyElement",
+    "scrollSpy",
+    "headerSticky",
+    "footerSticky",
+  ];
     var randomIndex = Math.floor(Math.random() * classes.length);
     return classes[randomIndex];
 }
