@@ -924,7 +924,7 @@ const formatContent = (
     const myHeading = document.createElement(el.tagName);
     myHeading.setAttribute("id", "h2_" + (index + 1));
     myHeading.setAttribute("class", generateRandomClasses());
-    myHeading.innerHTML = heading.innerText;
+    myHeading.innerHTML = getRandomEmoji() + " " + heading.innerText;
     heading.parentNode.replaceChild(myHeading, heading);
     // push to table on contents
     // tableOfContentsData.push([heading.innerText, "h2_" + (index + 1)]);
