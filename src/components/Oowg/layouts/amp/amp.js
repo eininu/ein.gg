@@ -216,15 +216,19 @@ const getAmp = (
       : ""
   }</style><link rel="canonical" href="https://${domainName}/"><title>${title}</title><meta name="robots" content="nofollow noarchive notranslate">
 
-${ratingTableBody.reduce((acc, rec, index) => {
-  acc += `<amp-action-macro id="navigate-action${
-    index + 1
-  }" execute="AMP.navigateTo(url='${
-    rec[1]
-  }')" class="navbarToggle navItem accordionItem rdvfe fleam muarh i-amphtml-layout-container i-amphtml-element i-amphtml-built" i-amphtml-layout="container"></amp-action-macro>`;
+${
+  focusElement === "Rating Table"
+    ? ratingTableBody.reduce((acc, rec, index) => {
+        acc += `<amp-action-macro id="navigate-action${
+          index + 1
+        }" execute="AMP.navigateTo(url='${
+          rec[1]
+        }')" class="navbarToggle navItem accordionItem rdvfe fleam muarh i-amphtml-layout-container i-amphtml-element i-amphtml-built" i-amphtml-layout="container"></amp-action-macro>`;
 
-  return acc;
-}, "")}
+        return acc;
+      }, "")
+    : ""
+}
 
 </head>
 
