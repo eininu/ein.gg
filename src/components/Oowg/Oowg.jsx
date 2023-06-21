@@ -381,6 +381,21 @@ export default function Oowg(props) {
                         <h1 className="text-4xl font-bold inline-flex items-center mb-1 space-x-3">
                           <span>OOWG</span>
                         </h1>
+                        <div className="flex items-center justify-center">
+                          <img
+                            src="https://raw.githubusercontent.com/hampusborgos/country-flags/ba2cf4101bf029d2ada26da2f95121de74581a4d/svg/gb.svg"
+                            alt="uk"
+                            className="h-6 w-6 mr-2"
+                            onClick={() => setLanguage("en")}
+                          />
+                          <img
+                            src="https://raw.githubusercontent.com/hampusborgos/country-flags/ba2cf4101bf029d2ada26da2f95121de74581a4d/svg/ru.svg"
+                            alt="ru"
+                            className="h-6 w-6"
+                            onClick={() => setLanguage("ru")}
+                          />
+                        </div>
+
                         <p className="text-gray-500">
                           {getTranslate(language, "description")}
                         </p>
