@@ -141,7 +141,7 @@ export default function Oowg(props) {
         buttonLink: buttonLink_edited,
         buttonText: buttonText_edited,
         faq: faq_edited,
-        // contentImages: contentImages_edited,
+        contentImages: contentImages_edited,
         focusElement: focusElement_edited,
         promoCode: promoCode_edited,
         ratingTableHead: ratingTableHead_edited,
@@ -182,9 +182,9 @@ export default function Oowg(props) {
         setFaq(faq_edited);
       }
 
-      // if (contentImages_edited) {
-      //   setContentImages(contentImages_edited);
-      // }
+      if (contentImages_edited) {
+        setContentImages(contentImages_edited);
+      }
 
       if (focusElement_edited) {
         setFocusElement(focusElement_edited);
@@ -228,11 +228,18 @@ export default function Oowg(props) {
   const [contentImages, setContentImages] = useState(getDemoData().demoImages);
   const maxNumber = 69;
 
-  const onChange = (imageList, addUpdateIndex) => {
+  const changeImages = (imageList, addUpdateIndex) => {
     // data for submit
     // console.log(imageList, addUpdateIndex);
     setContentImages(imageList);
   };
+
+  // useEffect(() => {
+  //   contentImages.map((el) => {
+  //     console.log(el.data_url);
+  //   });
+  // }, [contentImages]);
+
   const createWebsiteArchive = async () => {
     const zip = new JSZip();
 
@@ -288,7 +295,13 @@ export default function Oowg(props) {
       buttonLink,
       buttonText,
       faq,
-      // contentImages,
+      contentImages: contentImages.reduce((acc, rec) => {
+        acc.push({
+          data_url: rec.data_url,
+          file: { name: rec.file.name },
+        });
+        return acc;
+      }, []),
       focusElement,
       promoCode,
       ratingTableHead,
@@ -620,7 +633,7 @@ export default function Oowg(props) {
                                       <ImageUploading
                                         multiple
                                         value={contentImages}
-                                        onChange={onChange}
+                                        onChange={changeImages}
                                         maxNumber={maxNumber}
                                         dataURLKey="data_url"
                                       >
