@@ -1064,6 +1064,27 @@ export default function Oowg(props) {
                                           <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                                         </svg>
                                       </button>
+                                      <button
+                                        type="button"
+                                        className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
+                                        onClick={() => {
+                                          ratingTableBody.pop();
+                                          setRatingTableBody([
+                                            ...ratingTableBody,
+                                          ]);
+                                          // setRatingTableBodyNewRow([]);
+                                        }}
+                                      >
+                                        <svg
+                                          className="hi-mini hi-minus-small inline-block w-5 h-5"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          viewBox="0 0 20 20"
+                                          fill="currentColor"
+                                          aria-hidden="true"
+                                        >
+                                          <path d="M6.75 9.25a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" />
+                                        </svg>
+                                      </button>
                                     </div>
                                   </div>
                                 )}
@@ -1176,7 +1197,11 @@ export default function Oowg(props) {
                                       }}
                                       // value={`${buttonLink}`}
                                     />
-                                    <div>
+                                    <div
+                                      className={
+                                        "space-y-3 sm:space-y-0 sm:flex sm:items-center sm:space-x-2"
+                                      }
+                                    >
                                       {/* Button (small) */}
                                       <button
                                         type="button"
@@ -1209,6 +1234,26 @@ export default function Oowg(props) {
                                           <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                                         </svg>
                                       </button>
+
+                                      <button
+                                        type="button"
+                                        className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
+                                        onClick={(e) => {
+                                          faq.pop();
+                                          setFaq([...faq]);
+                                        }}
+                                      >
+                                        <svg
+                                          className="hi-mini hi-minus-small inline-block w-5 h-5"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          viewBox="0 0 20 20"
+                                          fill="currentColor"
+                                          aria-hidden="true"
+                                        >
+                                          <path d="M6.75 9.25a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" />
+                                        </svg>
+                                      </button>
+
                                       {/* END Button (small) */}
                                     </div>
                                   </div>
