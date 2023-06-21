@@ -58,7 +58,7 @@ export default function Oowg(props) {
     "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I'd like to cancel my subscription.\nAI:"
   );
   const [chatGPTAnswer, setChatGPTAnswer] = useState("");
-  const [focusElement, setFocusElement] = useState("Rating Table");
+  const [focusElement, setFocusElement] = useState("Button");
   const [promoCode, setPromoCode] = useState("BONUS777");
   const [ratingTableHead, setRatingTableHead] = useState([
     "Product",
