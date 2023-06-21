@@ -797,8 +797,8 @@ const formatContent = (
     questionEl.setAttribute("class", generateRandomClasses());
     const answerEl = document.createElement("p");
     answerEl.setAttribute("class", generateRandomClasses());
-    questionEl.innerHTML = question;
-    answerEl.innerHTML = answer;
+    questionEl.innerHTML = getRandomEmoji() + " " + question;
+    answerEl.innerHTML = getRandomEmoji() + " " + answer;
 
     detailsEl.appendChild(questionEl);
     detailsEl.appendChild(answerEl);
