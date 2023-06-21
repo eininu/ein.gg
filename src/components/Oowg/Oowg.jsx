@@ -27,6 +27,9 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // import styles
 
 export default function Oowg(props) {
+  const [experimentalMode, setExperimentalMode] = useState(
+    import.meta.env.MODE === "development"
+  );
   const currentLanguage = "en";
 
   const getTranslate = (language, element) => {
@@ -59,6 +62,13 @@ export default function Oowg(props) {
   );
   const [chatGPTAnswer, setChatGPTAnswer] = useState("");
   const [focusElement, setFocusElement] = useState("Button");
+
+  useEffect(() => {
+    if (experimentalMode) {
+      setFocusElement("Rating Table");
+    }
+  }, [experimentalMode]);
+
   const [promoCode, setPromoCode] = useState("BONUS777");
   const [ratingTableHead, setRatingTableHead] = useState([
     "Product",
@@ -217,9 +227,6 @@ export default function Oowg(props) {
 
   const [contentImages, setContentImages] = useState(getDemoData().demoImages);
   const maxNumber = 69;
-  const [experimentalMode, setExperimentalMode] = useState(
-    import.meta.env.MODE === "development"
-  );
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
