@@ -170,7 +170,15 @@ const formatContent = (
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
-      tBodyTd1.innerHTML = product[0];
+      if (index === 0) {
+        tBodyTd1.innerHTML = "🥇" + product[0];
+      } else if (index === 1) {
+        tBodyTd1.innerHTML = "🥈" + product[0];
+      } else if (index === 2) {
+        tBodyTd1.innerHTML = "🥉" + product[0];
+      } else {
+        tBodyTd1.innerHTML = `${getRandomEmoji()}` + product[0];
+      }
       tBodyTd1.setAttribute("class", generateRandomClasses());
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd2.innerHTML = (Math.random() * 20 + 80).toFixed(2);
