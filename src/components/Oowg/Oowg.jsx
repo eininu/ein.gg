@@ -70,7 +70,10 @@ export default function Oowg(props) {
   const [ratingTableBodyNewRow, setRatingTableBodyNewRow] = useState([]);
 
   const [customFocusElementCode, setCustomFocusElementCode] = useState(
-    `<table><thead><tr><th>Product</th><th>Rating</th><th>Play</th></tr></thead><tbody><tr><td>Product 1</td><td>97.07</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr><tr><td>Product 2</td><td>93.91</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr><tr><td>Product 3</td><td>84.61</td><td><a href="#" class="cta-button" target="_blank">Play</a></td></tr></tbody></table>`
+    `<div style="display: flex; justify-content: space-between;">
+  <div style="border: 2px dashed; padding: 10px; flex-grow: 1; margin-right: 10px; text-align: center;">PROMOCODE</div>
+  <a href="https://your-url-here.com" style="display: inline-block; padding: 10px; background-color: blue; color: white; flex-grow: 1; margin-left: 10px; text-decoration: none; text-align: center; border-radius: 15px;">PLAY</a>
+</div>`
   );
 
   const [config, setConfig] = useState("{}");
