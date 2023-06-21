@@ -752,6 +752,7 @@ export default function Oowg(props) {
                                       className="w-full block border border-gray-200 rounded px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                                       id="select"
                                       name="select"
+                                      value={focusElement}
                                     >
                                       <option>
                                         {getTranslate(language, "button_el")}
