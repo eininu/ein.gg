@@ -225,7 +225,7 @@ const formatContent = (
       input.style.border = "1px dashed";
       input.style.padding = "0.5em";
       input.style.borderRadius = "5px";
-      input.style.width = "100%";
+      input.style.maxWidth = "100%";
       input.style.boxSizing = "border-box";
       // input.value = "SUPERPROMOCODE"; // используем 'value' вместо 'textContent'
       input.setAttribute("value", product[0]);
@@ -243,6 +243,7 @@ const formatContent = (
         return tBodyTd2.setAttribute("class", generateRandomClasses());
 
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
+
       if (!isDemo)
         return tBodyTd3.setAttribute("class", generateRandomClasses());
       const tableButton = document.createElement("span");
@@ -251,7 +252,10 @@ const formatContent = (
         "onclick",
         `window.open(atob('${btoa(product[1])}'),'_blank')`
       );
-      tableButton.setAttribute("style", "cursor: pointer");
+      tableButton.setAttribute(
+        "style",
+        "cursor: pointer;width: -webkit-fill-available; width: -moz-available; width: stretch;"
+      );
       tableButton.setAttribute(
         "class",
         "cta-button " + generateRandomClasses()
