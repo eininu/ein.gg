@@ -77,6 +77,7 @@ const formatContent = (
   buttonText,
   faq,
   contentImages,
+  brandImages,
   focusElement,
   promoCode,
   ratingTableHead,
@@ -167,22 +168,54 @@ const formatContent = (
     const tBody = document.createElement("tbody");
     tBody.setAttribute("class", generateRandomClasses());
     products.map((product, index) => {
+      const brandImage = document.createElement("img");
+      brandImage.setAttribute(
+        "src",
+        brandImages[index]
+          ? brandImages[index].data_url
+          : "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_1xBet.png"
+      );
+      brandImage.setAttribute(
+        "style",
+        "max-width: 100px; max-height: 50px; border-radius: 3px;"
+      );
+
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
-      if (index === 0) {
-        tBodyTd1.innerHTML = "🥇" + product[0];
-      } else if (index === 1) {
-        tBodyTd1.innerHTML = "🥈" + product[0];
-      } else if (index === 2) {
-        tBodyTd1.innerHTML = "🥉" + product[0];
-      } else {
-        tBodyTd1.innerHTML = `${getRandomEmoji()}` + product[0];
-      }
+      // if (index === 0) {
+      //   tBodyTd1.innerHTML = "🥇" + product[0];
+      // } else if (index === 1) {
+      //   tBodyTd1.innerHTML = "🥈" + product[0];
+      // } else if (index === 2) {
+      //   tBodyTd1.innerHTML = "🥉" + product[0];
+      // } else {
+      //   tBodyTd1.innerHTML = `${getRandomEmoji()}` + product[0];
+      // }
+
+      tBodyTd1.appendChild(brandImage);
+
       tBodyTd1.setAttribute("class", generateRandomClasses());
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
-      tBodyTd2.innerHTML = (Math.random() * 20 + 80).toFixed(2);
-      tBodyTd2.setAttribute("class", generateRandomClasses());
+      const input = document.createElement("input");
+
+      input.type = "text";
+      input.style.border = "1px dashed";
+      input.style.padding = "0.5em";
+      input.style.borderRadius = "5px";
+      input.style.width = "100%";
+      input.style.boxSizing = "border-box";
+      // input.value = "SUPERPROMOCODE"; // используем 'value' вместо 'textContent'
+      input.setAttribute("value", product[0]);
+      input.style.overflowX = "auto";
+      input.style.webkitScrollbar = "none";
+      input.style.fontSize = "small";
+
+      input.onclick = function () {
+        this.select();
+      };
+
+      tBodyTd2.appendChild(input);
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
       tBodyTd3.setAttribute("class", generateRandomClasses());
       const tableButton = document.createElement("div");

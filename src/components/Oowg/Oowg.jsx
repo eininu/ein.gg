@@ -26,6 +26,7 @@ import ru from "./language/ru.json";
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // import styles
+import { v4 as uuidv4 } from "uuid";
 
 export default function Oowg(props) {
   const [experimentalMode, setExperimentalMode] = useState(
@@ -73,13 +74,13 @@ export default function Oowg(props) {
   const [promoCode, setPromoCode] = useState("BONUS777");
   const [ratingTableHead, setRatingTableHead] = useState([
     "Product",
-    "Rating",
+    "Promocode",
     "Play",
   ]);
   const [ratingTableBody, setRatingTableBody] = useState([
-    ["Product 1", "https://example.com", "Play"],
-    ["Product 2", "https://example.com", "Play"],
-    ["Product 3", "https://example.com", "Play"],
+    ["SUPERCODE", "https://example.com", "Play"],
+    ["333VIPCODE", "https://example.com", "Play"],
+    ["WINWIN23", "https://example.com", "Play"],
   ]);
   const [ratingTableBodyNewRow, setRatingTableBodyNewRow] = useState([]);
 
@@ -131,6 +132,26 @@ export default function Oowg(props) {
     ],
   };
 
+  const [brandImages, setBrandImages] = useState([]);
+
+  useEffect(() => {
+    setBrandImages(brandImages);
+
+    // console.log(brandImages);
+  }, [brandImages]);
+
+  const brandImagesOnChange = (imageList, addUpdateIndex) => {
+    // create a new array of images with unique ids
+    const base64Images = imageList.map((image) => {
+      return {
+        id: uuidv4(), // generate a unique id
+        data_url: image.data_url,
+      };
+    });
+
+    setBrandImages(base64Images);
+  };
+
   useEffect(() => {
     try {
       const {
@@ -143,6 +164,7 @@ export default function Oowg(props) {
         buttonText: buttonText_edited,
         faq: faq_edited,
         contentImages: contentImages_edited,
+        brandImages: brandImages_edited,
         focusElement: focusElement_edited,
         promoCode: promoCode_edited,
         ratingTableHead: ratingTableHead_edited,
@@ -185,6 +207,9 @@ export default function Oowg(props) {
 
       if (contentImages_edited) {
         setContentImages(contentImages_edited);
+      }
+      if (brandImages_edited) {
+        setBrandImages(brandImages_edited);
       }
 
       if (focusElement_edited) {
@@ -257,6 +282,7 @@ export default function Oowg(props) {
           buttonText,
           faq,
           contentImages,
+          brandImages,
           focusElement,
           promoCode,
           ratingTableHead,
@@ -302,6 +328,13 @@ export default function Oowg(props) {
         acc.push({
           data_url: rec.data_url,
           file: { name: rec.file.name },
+        });
+        return acc;
+      }, []),
+      brandImages: brandImages.reduce((acc, rec) => {
+        acc.push({
+          data_url: rec.data_url,
+          // file: { name: rec.file.name },
         });
         return acc;
       }, []),
@@ -361,6 +394,7 @@ export default function Oowg(props) {
         description,
         htmlContent,
         contentImages,
+        brandImages,
         buttonLink,
         buttonText,
         faq,
@@ -390,6 +424,7 @@ export default function Oowg(props) {
         htmlContent,
         isDemo: true,
         contentImages,
+        brandImages,
         buttonLink,
         buttonText,
         faq,
@@ -994,7 +1029,7 @@ export default function Oowg(props) {
                                         type="text"
                                         id="product_name_table_add_row"
                                         name="product_name_table_add_row"
-                                        placeholder="Product Name"
+                                        placeholder="Promo Code"
                                         // onChange={(e) => {
                                         //   ratingTableBodyNewRow[0] =
                                         //     e.target.value;
@@ -1088,6 +1123,70 @@ export default function Oowg(props) {
                                           <path d="M6.75 9.25a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" />
                                         </svg>
                                       </button>
+                                    </div>
+                                    <div>
+                                      <ImageUploading
+                                        multiple={true}
+                                        value={brandImages}
+                                        onChange={brandImagesOnChange}
+                                        dataURLKey="data_url"
+                                      >
+                                        {({
+                                          imageList,
+                                          onImageUpload,
+                                          onImageRemoveAll,
+                                          onImageUpdate,
+                                          onImageRemove,
+                                          isDragging,
+                                          dragProps,
+                                        }) => (
+                                          <div className="upload__image-wrapper">
+                                            <span
+                                              style={
+                                                isDragging
+                                                  ? { color: "red" }
+                                                  : undefined
+                                              }
+                                              onClick={onImageUpload}
+                                              {...dragProps}
+                                            >
+                                              <hr />
+                                              <span
+                                                className={"text-green-500"}
+                                              >
+                                                Load images
+                                              </span>
+                                            </span>
+                                            &nbsp;
+                                            {imageList.map((image, index) => (
+                                              <div key={index}>
+                                                {/*<img*/}
+                                                {/*  src={image.data_url}*/}
+                                                {/*  alt=""*/}
+                                                {/*/>*/}
+                                                <span>{index + 1}</span>
+                                                <span
+                                                  onClick={() =>
+                                                    onImageUpdate(index)
+                                                  }
+                                                >
+                                                  | Update
+                                                </span>
+                                                <span
+                                                  onClick={() =>
+                                                    onImageRemove(index)
+                                                  }
+                                                >
+                                                  | Remove
+                                                </span>
+                                              </div>
+                                            ))}
+                                            <span onClick={onImageRemoveAll}>
+                                              | Delete all images
+                                            </span>
+                                          </div>
+                                        )}
+                                      </ImageUploading>
                                     </div>
                                   </div>
                                 )}
@@ -1451,6 +1550,7 @@ export default function Oowg(props) {
                                     buttonText,
                                     faq,
                                     contentImages,
+                                    brandImages,
                                     focusElement,
                                     promoCode,
                                     ratingTableHead,
