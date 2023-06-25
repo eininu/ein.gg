@@ -243,7 +243,11 @@ export default function Oowg(props) {
       }
 
       if (ratingTableHead_edited) {
-        setRatingTableHead(ratingTableHead_edited);
+        if (ratingTableHead_edited.length !== 4) {
+          setRatingTableHead(ratingTableHead);
+        } else {
+          setRatingTableHead(ratingTableHead_edited);
+        }
       }
 
       if (ratingTableBody_edited) {
