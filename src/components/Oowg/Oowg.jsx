@@ -9,6 +9,7 @@ import {
   getNotFoundPage,
   getRobotsTxt,
   getTranslate,
+  getSitemap,
 } from "./functions.js";
 
 import {
@@ -348,6 +349,8 @@ export default function Oowg(props) {
     };
 
     await createRedirects();
+
+    await zip.file("sitemap.xml", getSitemap(domainName, redirects));
 
     await zip.file(
       "index.html",

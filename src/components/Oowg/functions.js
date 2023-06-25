@@ -52,6 +52,57 @@ const getNotFoundPage = () => {
 </html>`;
 };
 
+const getTodayDate = () => {
+  return `${new Date().toISOString().split("T")[0]}`;
+};
+
+const getSitemap = (domainName, redirects) => {
+  const redirectsArray = redirects.split("\n");
+
+  const redirectsString = redirectsArray.reduce((acc, redirect) => {
+    return (acc += `\n    <url>
+        <loc>https://${domainName + redirect}</loc>
+        <lastmod>${getTodayDate()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>`);
+  }, "");
+
+  if (redirectsArray.length > 0) {
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://${domainName}/</loc>
+        <lastmod>${getTodayDate()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://${domainName}/amp.html</loc>
+        <lastmod>${getTodayDate()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>${redirectsString}
+</urlset>`;
+  } else {
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://${domainName}/</loc>
+        <lastmod>${getTodayDate()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://${domainName}/amp.html</loc>
+        <lastmod>${getTodayDate()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>`;
+  }
+};
+
 const getDemoData = (language) => {
   // console.log(getTranslate(language, "demoHtmlContent"));
   return {
@@ -273,4 +324,5 @@ export {
   generateRandomClasses,
   getRobotsTxt,
   getNotFoundPage,
+  getSitemap,
 };
