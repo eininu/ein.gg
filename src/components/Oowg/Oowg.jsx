@@ -157,8 +157,26 @@ export default function Oowg(props) {
   }, [brandImages]);
 
   const brandImagesOnChange = (imageList, addUpdateIndex) => {
+    // sort the imageList by file name without extension
+    const sortedImageList = [...imageList].sort((a, b) => {
+      const nameA = a.file.name.split(".").slice(0, -1).join("."); // get name without extension for 'a'
+      const nameB = b.file.name.split(".").slice(0, -1).join("."); // get name without extension for 'b'
+
+      // check if names are numeric
+      const isNumericA = /^\d+$/.test(nameA);
+      const isNumericB = /^\d+$/.test(nameB);
+
+      // if both names are numeric, compare as numbers
+      if (isNumericA && isNumericB) {
+        return parseInt(nameA, 10) - parseInt(nameB, 10);
+      }
+
+      // otherwise, compare as strings
+      return nameA.localeCompare(nameB);
+    });
+
     // create a new array of images with unique ids
-    const base64Images = imageList.map((image) => {
+    const base64Images = sortedImageList.map((image) => {
       return {
         id: uuidv4(), // generate a unique id
         data_url: image.data_url,
@@ -1213,7 +1231,8 @@ export default function Oowg(props) {
                                               <span
                                                 className={"text-green-500"}
                                               >
-                                                Load images
+                                                Load images (1.jpg, 2.jpg,
+                                                3.jpg, ...)
                                               </span>
                                             </span>
                                             &nbsp;
