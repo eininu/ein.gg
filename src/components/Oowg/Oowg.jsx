@@ -234,7 +234,11 @@ export default function Oowg(props) {
       }
 
       if (buttonLink_edited) {
-        setButtonLink(buttonLink_edited);
+        if (focusElement_edited === "Rating Table") {
+          setButtonLink(ratingTableBody_edited[0][1]);
+        } else {
+          setButtonLink(buttonLink_edited);
+        }
       }
 
       if (buttonText_edited) {
