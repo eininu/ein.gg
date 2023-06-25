@@ -155,8 +155,10 @@ const formatContent = (
     const tHeadTr = tHead.appendChild(document.createElement("tr"));
     tHeadTr.setAttribute("class", generateRandomClasses());
     products.map((product) => {
-      const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
-      tHeadTh.innerHTML = product;
+      if (product !== "Bonus") {
+        const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
+        tHeadTh.innerHTML = product;
+      }
     });
 
     return ratingTable.appendChild(tHead);

@@ -74,13 +74,29 @@ export default function Oowg(props) {
   const [promoCode, setPromoCode] = useState("BONUS777");
   const [ratingTableHead, setRatingTableHead] = useState([
     "Product",
+    "Bonus",
     "Promocode",
     "Play",
   ]);
   const [ratingTableBody, setRatingTableBody] = useState([
-    ["SUPERCODE", "https://example.com", "Play"],
-    ["333VIPCODE", "https://example.com", "Play"],
-    ["WINWIN23", "https://example.com", "Play"],
+    [
+      "SUPERCODE",
+      "https://example.com",
+      "Play",
+      "150 Free Spins + 100% up to €/$ 150",
+    ],
+    [
+      "333VIPCODE",
+      "https://example.com",
+      "Play",
+      "154 Free Spins + 100% up to €/$ 150",
+    ],
+    [
+      "WINWIN23",
+      "https://example.com",
+      "Play",
+      "155 Free Spins + 100% up to €/$ 150",
+    ],
   ]);
   const [ratingTableBodyNewRow, setRatingTableBodyNewRow] = useState([]);
 
@@ -1013,6 +1029,15 @@ export default function Oowg(props) {
                                             id={"tbody" + index}
                                             name={"tbody" + index}
                                             placeholder={"tbody" + index}
+                                            value={el[3]}
+                                          />
+                                          <input
+                                            className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                            disabled
+                                            type="text"
+                                            id={"tbody" + index}
+                                            name={"tbody" + index}
+                                            placeholder={"tbody" + index}
                                             value={el[1]}
                                           />
                                           <input
@@ -1045,9 +1070,30 @@ export default function Oowg(props) {
                                             e.target.value,
                                             ratingTableBodyNewRow[1],
                                             ratingTableBodyNewRow[2],
+                                            ratingTableBodyNewRow[3],
                                           ]);
                                         }}
                                         value={ratingTableBodyNewRow[0]}
+                                      />
+                                      <input
+                                        className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                        type="text"
+                                        id="product_button_text_table_add_row"
+                                        name="product_button_text_table_add_row"
+                                        placeholder="Bonus Text"
+                                        // onChange={(e) => {
+                                        //   ratingTableBodyNewRow[2] =
+                                        //     e.target.value;
+                                        // }}
+                                        onChange={(e) => {
+                                          setRatingTableBodyNewRow([
+                                            ratingTableBodyNewRow[0],
+                                            ratingTableBodyNewRow[1],
+                                            ratingTableBodyNewRow[2],
+                                            e.target.value,
+                                          ]);
+                                        }}
+                                        value={ratingTableBodyNewRow[3]}
                                       />
                                       <input
                                         className="block border border-gray-200 rounded px-5 py-3 leading-6 w-full focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
@@ -1064,6 +1110,7 @@ export default function Oowg(props) {
                                             ratingTableBodyNewRow[0],
                                             e.target.value,
                                             ratingTableBodyNewRow[2],
+                                            ratingTableBodyNewRow[3],
                                           ]);
                                         }}
                                         value={ratingTableBodyNewRow[1]}
@@ -1083,10 +1130,12 @@ export default function Oowg(props) {
                                             ratingTableBodyNewRow[0],
                                             ratingTableBodyNewRow[1],
                                             e.target.value,
+                                            ratingTableBodyNewRow[3],
                                           ]);
                                         }}
                                         value={ratingTableBodyNewRow[2]}
                                       />
+
                                       <button
                                         type="button"
                                         className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"

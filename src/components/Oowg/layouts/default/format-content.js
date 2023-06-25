@@ -172,12 +172,18 @@ const formatContent = (
 
   const createThead = (products) => {
     const tHead = document.createElement("thead");
-    if (!isDemo) return tHead.setAttribute("class", generateRandomClasses());
+    tHead.setAttribute("class", generateRandomClasses());
     const tHeadTr = tHead.appendChild(document.createElement("tr"));
-    if (!isDemo) return tHeadTr.setAttribute("class", generateRandomClasses());
-    products.map((product) => {
-      const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
-      tHeadTh.innerHTML = product;
+    tHeadTr.setAttribute("class", generateRandomClasses());
+    products.map((product, index) => {
+      if (product === "Bonus") {
+        const tHeadTh1 = tHeadTr.appendChild(document.createElement("th"));
+        tHeadTh1.innerHTML = "Bonus";
+        tHeadTh1.setAttribute("class", "hide-on-mobile");
+      } else {
+        const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
+        tHeadTh.innerHTML = product;
+      }
     });
 
     return ratingTable.appendChild(tHead);
@@ -187,7 +193,7 @@ const formatContent = (
 
   const createTbody = (products) => {
     const tBody = document.createElement("tbody");
-    if (!isDemo) return tBody.setAttribute("class", generateRandomClasses());
+    tBody.setAttribute("class", generateRandomClasses());
 
     products.map((product, index) => {
       const brandImage = document.createElement("img");
@@ -203,8 +209,7 @@ const formatContent = (
       );
 
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
-      if (!isDemo)
-        return tBodyTr.setAttribute("class", generateRandomClasses());
+      tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
       // if (index === 0) {
       //   tBodyTd1.innerHTML = "🥇" + product[0];
@@ -218,6 +223,11 @@ const formatContent = (
 
       // tBodyTd1.setAttribute("class", generateRandomClasses());
       tBodyTd1.appendChild(brandImage);
+
+      const tBodyTd11 = tBodyTr.appendChild(document.createElement("td"));
+      tBodyTd11.innerHTML = product[3];
+      tBodyTd11.setAttribute("class", "hide-on-mobile");
+
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       const input = document.createElement("input");
 
@@ -239,13 +249,11 @@ const formatContent = (
 
       tBodyTd2.appendChild(input);
 
-      if (!isDemo)
-        return tBodyTd2.setAttribute("class", generateRandomClasses());
+      tBodyTd2.setAttribute("class", generateRandomClasses());
 
       const tBodyTd3 = tBodyTr.appendChild(document.createElement("td"));
 
-      if (!isDemo)
-        return tBodyTd3.setAttribute("class", generateRandomClasses());
+      tBodyTd3.setAttribute("class", generateRandomClasses());
       const tableButton = document.createElement("span");
       // tableButton.setAttribute("href", product[1]);
       tableButton.setAttribute(
