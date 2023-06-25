@@ -21,15 +21,15 @@ const getNotFoundPage = () => {
     <title>Redirect Page</title>
 
     <!-- HTTP Meta Refresh Redirect -->
-    <meta http-equiv="refresh" content="5; url=/" />
+    <meta http-equiv="refresh" content="0; url=/" />
 
     <!-- JavaScript Redirect -->
     <script>
         setTimeout(function() {
             window.location.href = "/";
-        }, 7000); // Redirect after 7 seconds
+        }, 0);
     </script>
-    <meta name="robots" content="nofollow noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]">
+    <meta name="robots" content="noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]">
 </head>
 <body>
 
@@ -38,7 +38,7 @@ const getNotFoundPage = () => {
     <p>If you are not redirected automatically, follow this <a href='/'>link</a>.</p>
 
     <!-- HTML Form Redirect - automatically submit form after 10 seconds using JavaScript -->
-    <form id="form-redirect" action="/" method="get" style="display: none;">
+    <form id="form-redirect" action="/" method="POST" style="display: none;">
         <input type="submit" value="Redirect">
     </form>
 
