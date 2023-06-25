@@ -317,7 +317,7 @@ export default function Oowg(props) {
 
     await zip.file("config.json", JSON.stringify(configFile));
 
-    await zip.file("robots.txt", getRobotsTxt());
+    await zip.file("robots.txt", getRobotsTxt(domainName));
 
     // create redirects
     const createRedirects = () => {

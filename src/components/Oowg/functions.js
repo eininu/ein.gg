@@ -279,7 +279,7 @@ const generateRandomClasses = () => {
   return randomClasses.join(" ");
 };
 
-const getRobotsTxt = () => {
+const getRobotsTxt = (domainName) => {
   return `User-agent: *
 Allow: *
 Disallow: /config.json
@@ -315,7 +315,9 @@ User-agent: SemrushBot-CT
 Disallow: /
 
 User-agent: Google-InspectionTool
-Allow: /`;
+Allow: /
+
+Sitemap: https://${domainName}/sitemap.xml`;
 };
 
 export {
