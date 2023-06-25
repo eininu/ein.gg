@@ -153,6 +153,12 @@ export default function Oowg(props) {
   };
 
   useEffect(() => {
+    if (focusElement === "Rating Table" && ratingTableBody.length > 0) {
+      setButtonLink(ratingTableBody[0][1]);
+    }
+  }, [focusElement]);
+
+  useEffect(() => {
     try {
       const {
         language: language_edited,
