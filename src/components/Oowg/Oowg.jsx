@@ -1015,6 +1015,9 @@ export default function Oowg(props) {
                                                 document.getElementById(
                                                   "thead" + 2
                                                 ).value,
+                                                document.getElementById(
+                                                  "thead" + 3
+                                                ).value,
                                               ]);
                                             }}
                                           />
