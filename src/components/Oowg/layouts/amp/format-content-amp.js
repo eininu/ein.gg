@@ -96,6 +96,11 @@ const formatContent = (
   banner.setAttribute("style", "border-radius: 10px; width: 100%");
   banner.setAttribute("class", generateRandomClasses());
   // banner.setAttribute("on", "tap:navigate-action.execute()");
+  if (focusElement === "Rating Table") {
+    banner.setAttribute("on", `tap:navigate-action1.execute()`);
+    banner.setAttribute("role", `button`);
+    banner.setAttribute("tabindex", 1);
+  }
 
   //// button
   // <button type="button" id="copy-button" class="blob">🔥🔥 Play 🔥🔥</button>
