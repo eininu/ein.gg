@@ -111,10 +111,11 @@ const formatContent = (
   banner.setAttribute("alt", "banner");
   banner.setAttribute("class", generateRandomClasses());
   banner.setAttribute("style", "border-radius: 10px");
+  banner.setAttribute("x-data", "{}");
   isDemo
-    ? banner.setAttribute("onclick", `window.open("${buttonLink}",'_blank')`)
+    ? banner.setAttribute("x-on:click", `window.open("${buttonLink}",'_blank')`)
     : banner.setAttribute(
-        "onclick",
+        "x-on:click",
         `window.open(atob('${btoa(buttonLink)}'),'_blank')`
       );
 
@@ -124,10 +125,11 @@ const formatContent = (
   button.setAttribute("type", "button");
   button.setAttribute("id", "copy-button");
   button.setAttribute("class", "blob " + generateRandomClasses());
+  button.setAttribute("x-data", "{}");
   isDemo
-    ? button.setAttribute("onclick", `window.open("${buttonLink}",'_blank')`)
+    ? button.setAttribute("x-on:click", `window.open("${buttonLink}",'_blank')`)
     : button.setAttribute(
-        "onclick",
+        "x-on:click",
         `window.open(atob('${btoa(buttonLink)}'),'_blank')`
       );
   // button.setAttribute("href", buttonLink);
@@ -208,8 +210,9 @@ const formatContent = (
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
+      tBodyTd1.setAttribute("x-data", "{}");
       tBodyTd1.setAttribute(
-        "onclick",
+        "x-on:click",
         `window.open(atob('${btoa(product[1])}'),'_blank')`
       );
       // if (index === 0) {
@@ -257,8 +260,9 @@ const formatContent = (
       tBodyTd3.setAttribute("class", generateRandomClasses());
       const tableButton = document.createElement("span");
       // tableButton.setAttribute("href", product[1]);
+      tableButton.setAttribute("x-data", "{}");
       tableButton.setAttribute(
-        "onclick",
+        "x-on:click",
         `window.open(atob('${btoa(product[1])}'),'_blank')`
       );
       tableButton.setAttribute(

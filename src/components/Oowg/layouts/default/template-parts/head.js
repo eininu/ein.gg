@@ -548,6 +548,7 @@ const head = (title, description, domainName, faq, amp) => {
     }
 <!--    <meta name="robots" content="nofollow noarchive nositelinkssearchbox nosnippet notranslate max-snippet:[0]">-->
     <meta name="robots" content="nofollow noarchive notranslate">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>`;
 };
 
