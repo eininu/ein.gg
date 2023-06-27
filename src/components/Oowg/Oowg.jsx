@@ -379,13 +379,7 @@ export default function Oowg(props) {
         });
         return acc;
       }, []),
-      brandImages: brandImages.reduce((acc, rec) => {
-        acc.push({
-          data_url: rec.data_url,
-          // file: { name: rec.file.name },
-        });
-        return acc;
-      }, []),
+      brandImages,
       focusElement,
       promoCode,
       ratingTableHead,
