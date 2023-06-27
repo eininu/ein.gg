@@ -176,9 +176,9 @@ const formatContent = (
     const tHeadTr = tHead.appendChild(document.createElement("tr"));
     tHeadTr.setAttribute("class", generateRandomClasses());
     products.map((product, index) => {
-      if (product === "Bonus") {
+      if (index === 1) {
         const tHeadTh1 = tHeadTr.appendChild(document.createElement("th"));
-        tHeadTh1.innerHTML = "Bonus";
+        tHeadTh1.innerHTML = product;
         tHeadTh1.setAttribute("class", "hide-on-mobile");
       } else {
         const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
