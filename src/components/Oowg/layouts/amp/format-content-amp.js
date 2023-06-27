@@ -102,6 +102,12 @@ const formatContent = (
     banner.setAttribute("tabindex", 1);
   }
 
+  if (focusElement === "Button") {
+    banner.setAttribute("on", "tap:navigate-action.execute()");
+    banner.setAttribute("role", `button`);
+    banner.setAttribute("tabindex", 1);
+  }
+
   //// button
   // <button type="button" id="copy-button" class="blob">🔥🔥 Play 🔥🔥</button>
   const button = document.createElement("a");
