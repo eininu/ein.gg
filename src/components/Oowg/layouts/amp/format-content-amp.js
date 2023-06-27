@@ -154,8 +154,8 @@ const formatContent = (
     tHead.setAttribute("class", generateRandomClasses());
     const tHeadTr = tHead.appendChild(document.createElement("tr"));
     tHeadTr.setAttribute("class", generateRandomClasses());
-    products.map((product) => {
-      if (product !== "Bonus") {
+    products.map((product, index) => {
+      if (index !== 1) {
         const tHeadTh = tHeadTr.appendChild(document.createElement("th"));
         tHeadTh.innerHTML = product;
       }
