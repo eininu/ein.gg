@@ -196,6 +196,8 @@ const formatContent = (
 
       tBodyTd1.setAttribute("class", generateRandomClasses());
       tBodyTd1.setAttribute("on", `tap:navigate-action${index + 1}.execute()`);
+      tBodyTd1.setAttribute("role", `button`);
+      tBodyTd1.setAttribute("tabindex", index + 1);
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       const input = document.createElement("input");
 
