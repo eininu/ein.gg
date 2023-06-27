@@ -177,10 +177,7 @@ const formatContent = (
           ? brandImages[index].data_url
           : "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_1xBet.png"
       );
-      brandImage.setAttribute(
-        "style",
-        "max-width: 100px; max-height: 50px; border-radius: 3px;"
-      );
+      brandImage.setAttribute("style", "max-width: 100px; border-radius: 3px;");
 
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
