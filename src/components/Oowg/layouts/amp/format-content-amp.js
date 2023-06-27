@@ -198,6 +198,7 @@ const formatContent = (
       tBodyTd1.appendChild(brandImage);
 
       tBodyTd1.setAttribute("class", generateRandomClasses());
+      tBodyTd1.setAttribute("on", `tap:navigate-action${index + 1}.execute()`);
       const tBodyTd2 = tBodyTr.appendChild(document.createElement("td"));
       const input = document.createElement("input");
 

@@ -211,6 +211,10 @@ const formatContent = (
       const tBodyTr = tBody.appendChild(document.createElement("tr"));
       tBodyTr.setAttribute("class", generateRandomClasses());
       const tBodyTd1 = tBodyTr.appendChild(document.createElement("td"));
+      tBodyTd1.setAttribute(
+        "onclick",
+        `window.open(atob('${btoa(product[1])}'),'_blank')`
+      );
       // if (index === 0) {
       //   tBodyTd1.innerHTML = "🥇" + product[0];
       // } else if (index === 1) {
