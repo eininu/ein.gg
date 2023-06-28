@@ -219,7 +219,7 @@ const getAmp = (
 </head>
 
 <body class="${generateRandomClasses()}">
-			<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay ${generateRandomClasses()}" hidden="hidden" i-amphtml-layout="nodisplay">
+			<!--<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="i-amphtml-layout-nodisplay ${generateRandomClasses()}" hidden="hidden" i-amphtml-layout="nodisplay">
 				<div class="toggle-navigationv2 ${generateRandomClasses()}">
 					<div role="button" tabindex="0" on="tap:sidebar.close" class="${generateRandomClasses()} close-nav">X</div>
 					<nav id="primary-amp-menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
@@ -230,7 +230,7 @@ const getAmp = (
 						</div>
 					</nav>
 				</div>
-			</amp-sidebar>
+			</amp-sidebar>-->
 			${
         focusElement === "Rating Table"
           ? ratingTableBody.reduce((acc, rec, index) => {
@@ -244,7 +244,7 @@ const getAmp = (
             }, "")
           : ""
       }
-<header id="#top" class="${generateRandomClasses()} amp-wp-header">
+<!--<header id="#top" class="${generateRandomClasses()} amp-wp-header">
 
 				<div class="${generateRandomClasses()} hamburgermenu">
 				<button class="toast" on="tap:sidebar.toggle"><span></span></button>
@@ -253,7 +253,7 @@ const getAmp = (
 	<div class="${generateRandomClasses()} amp-logo">
 		${domainName}
 	</div>
-</header>
+</header>-->
 
 <article class="${generateRandomClasses()} amp-wp-article">
 	<!--<header class="amp-wp-article-header">
