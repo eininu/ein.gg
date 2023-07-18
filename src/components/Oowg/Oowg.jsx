@@ -66,11 +66,11 @@ export default function Oowg(props) {
   const [chatGPTAnswer, setChatGPTAnswer] = useState("");
   const [focusElement, setFocusElement] = useState("Button");
 
-  useEffect(() => {
-    if (experimentalMode) {
-      setFocusElement("Rating Table");
-    }
-  }, [experimentalMode]);
+  // useEffect(() => {
+  //   if (experimentalMode) {
+  //     setFocusElement("Rating Table");
+  //   }
+  // }, [experimentalMode]);
 
   const [promoCode, setPromoCode] = useState("BONUS777");
   const [ratingTableHead, setRatingTableHead] = useState([
