@@ -122,7 +122,7 @@ export default function Oowg(props) {
     setSpoilerVisible(!isSpoilerVisible);
   };
 
-  const [editMode, setEditMode] = useState(true); // true for editor mode, false for code view
+  const [editMode, setEditMode] = useState(false); // true for editor mode, false for code view
 
   const modules = {
     toolbar: [
