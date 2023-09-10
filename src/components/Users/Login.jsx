@@ -35,11 +35,12 @@ const Login = () => {
       .post(getServerUrl() + "/users/login", user)
       .then((response) => {
         setMessage(response.data.message);
-        console.log(response);
+        if (response.data.token) {
+          localStorage.setItem('token', response.data.token);
+        }
       })
       .catch((error) => {
         setMessage(error.response.data.message)
-        console.log(error);
       });
   };
   return (
