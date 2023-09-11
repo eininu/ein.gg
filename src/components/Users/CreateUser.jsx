@@ -1,20 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import getServerUrl from "../../serverUrl.js";
 
 const createUser = () => {
-  const [message, setMessage] = useState('');
-  const getServerUrl = () => {
-    if (window.location.hostname === "localhost") {
-      return "http://localhost:3000";
-    }
-    if (window.location.hostname === "dev.ein.gg") {
-      return "https://dev-server.ein.gg";
-    }
+  const [message, setMessage] = useState("");
 
-    if (window.location.hostname === "ein.gg") {
-      return "https://server.ein.gg";
-    }
-  };
+  useEffect(() => {
+    const checkAPI = async () => {
+      try {
+        const response = await axios.get(getServerUrl() + "/", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+        if (response.status === 200) {
+          document.location.href = "/login";
+        }
+      } catch (error) {
+        if (error.response.status === 403) {
+          document.location.href = "/login";
+        }
+      }
+    };
+
+    checkAPI();
+  }, [message]);
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +48,7 @@ const createUser = () => {
         console.log(response);
       })
       .catch((error) => {
-        setMessage(error.response.data.message)
+        setMessage(error.response.data.message);
         console.log(error);
       });
   };
