@@ -58,7 +58,11 @@ const createUser = () => {
         <label>login</label>
         <input type="text" value={login} onChange={handleLoginChange} />
         <label>password</label>
-        <input type="text" value={password} onChange={handlePasswordChange} />
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
         <button type="submit">Submit</button>
       </form>
       {message}
