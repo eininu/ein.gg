@@ -4,15 +4,12 @@ export const phpUpdaterFiles = () => {
       "import.php",
       "<?php\n" +
         "\n" +
-        "exec('node assets/js/script.js', $output, $return_var);\n" +
-        "\n" +
+        "exec('node assets/js/script.js && 7z x -o../ tmp/'. $_SERVER[\"SERVER_NAME\"]. '.zip -aoa', $output, $return_var);\n" +
         "if (!empty($output)) {\n" +
         "    echo $output[0];\n" +
         "} else {\n" +
         "    echo json_encode(['error' => 'Произошла ошибка']);\n" +
-        "}\n" +
-        "\n" +
-        "\n",
+        "}",
     ],
     // [
     //   "index.html",
@@ -60,7 +57,7 @@ export const phpUpdaterFiles = () => {
       "{\n" +
         '  "dependencies": {\n' +
         // '    "adm-zip": "^0.5.10",\n' +
-        '    "decompress": "^4.2.1",\n' +
+        // '    "decompress": "^4.2.1",\n' +
         '    "puppeteer": "^20.8.2"\n' +
         "  }\n" +
         "}\n",
@@ -2344,8 +2341,6 @@ export const phpUpdaterFiles = () => {
       "assets/js/script.js",
       "const puppeteer = require('puppeteer');\n" +
         "const fs = require('fs');\n" +
-        "const decompress = require('decompress');\n" +
-        // 'const AdmZip = require("adm-zip");\n' +
         "\n" +
         "class SiteUpdate {\n" +
         "    constructor() {\n" +
@@ -2365,7 +2360,6 @@ export const phpUpdaterFiles = () => {
         "    }\n" +
         "    async init() {\n" +
         "        try {\n" +
-        // "            this.addBackup();\n" +
         "            await this.setBrowser();\n" +
         "            await this.setPage();\n" +
         "            await this.setClient();\n" +
@@ -2383,7 +2377,6 @@ export const phpUpdaterFiles = () => {
         "\n" +
         "            if (this.configBlock) {\n" +
         "                this.getConfigFromFile();\n" +
-        "                this.getDomainName();\n" +
         "                await this.fillConfigBlock();\n" +
         "                await new Promise((resolve) => {\n" +
         "                    setTimeout(() => {\n" +
@@ -2477,17 +2470,6 @@ export const phpUpdaterFiles = () => {
         "        }\n" +
         "\n" +
         "    }\n" +
-        "    getDomainName() {\n" +
-        "        try {\n" +
-        "            const decode = JSON.parse(this.config);\n" +
-        "            this.domainName = decode.domainName;\n" +
-        "            if (!this.domainName) {\n" +
-        "                throw 'Доменное имя не найдено в файле';\n" +
-        "            }\n" +
-        "        } catch(e) {\n" +
-        "            throw new Error(`Произошла ошибка при получнии доменного имени: ${e}`);\n" +
-        "        }\n" +
-        "    }\n" +
         "    async fillConfigBlock() {\n" +
         "        try {\n" +
         "            await this.page.$eval(\n" +
@@ -2513,8 +2495,9 @@ export const phpUpdaterFiles = () => {
         "                try {\n" +
         "                    if (event.state == 'completed' ) {\n" +
         "                        await this.closeBrowser();\n" +
-        "                        await this.extractArchive();\n" +
-        "                        resolve(true);\n" +
+        "                        resolve(console.log(JSON.stringify({\n" +
+        '                            success: "Готово"\n' +
+        "                        })));\n" +
         "                    } else if (event.state === 'canceled') {\n" +
         "                        throw new Error(event.state);\n" +
         "                    }\n" +
@@ -2526,30 +2509,6 @@ export const phpUpdaterFiles = () => {
         "    }\n" +
         "    async closeBrowser() {\n" +
         "        await this.browser.close();\n" +
-        "    }\n" +
-        "\n" +
-        "    async addBackup() {\n" +
-        // "        const zip = new AdmZip();\n" +
-        // "        zip.addLocalFolder('../');\n" +
-        // '        zip.writeZip("old-site.zip");\n' +
-        "    }\n" +
-        "\n" +
-        "    async removeBackup() {\n" +
-        // "        fs.rmSync('old-site.zip');\n" +
-        "    }\n" +
-        "\n" +
-        "    async extractArchive() {\n" +
-        "        try {\n" +
-        "            const archiveName = `${this.archiveFolder}/${this.domainName}.zip`;\n" +
-        "            await decompress(archiveName, '../').then((files) => {\n" +
-        "                fs.rmSync('tmp', { recursive: true });\n" +
-        "                console.log(JSON.stringify({\n" +
-        '                    success: "Готово"\n' +
-        "                }));\n" +
-        "            });\n" +
-        "        } catch(e) {\n" +
-        "            throw new Error(`Произошла ошибка при распаковке архива: ${e}`);\n" +
-        "        }\n" +
         "    }\n" +
         "}\n" +
         "\n" +
