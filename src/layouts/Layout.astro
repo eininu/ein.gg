@@ -1,27 +1,61 @@
 ---
-const {title, description, customBodyClasses} = Astro.props;
 ---
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    {description && <meta content={description} name="description">}
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    </script>
-</head>
-<body class={`${customBodyClasses ? customBodyClasses : ''}`}>
-<slot/>
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-</body>
-</html>
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Switching to the latest version IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Adapting the page for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Disable phone number recognition -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+    <!-- Page title -->
+    <title>Чудо-блог</title>
+
+    <!-- Keywords for search engines -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.min.css?_v=20240324234808">
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="cont flex">
+                <div class="header__theme-switcher theme-switcher flex">
+                    <button type="button" data-theme="dark">Dark</button>
+                    <button type="button" data-theme="light">Light</button>
+                </div>
+
+
+                <div class="header__text-logo">Чудо-блог</div>
+
+
+                <div class="header__lang flex">
+                    <button type="button" class="active">Ru</button>
+                    <button type="button">En</button>
+                    <button type="button">Кz</button>
+                </div>
+            </div>
+        </header>
+        <slot/>
+    </div>
+
+    <div class="supports_error">
+        Your browser is outdated, we recommend that you update it to the latest version<br /> or use another more modern one.
+    </div>
+
+    <script is:inline src="/js/scripts.min.js?_v=20240324234808"></script>
+</body>
+
+</html>
